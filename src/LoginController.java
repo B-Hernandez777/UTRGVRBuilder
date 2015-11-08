@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,17 +10,23 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+
 
 public class LoginController implements Initializable
 {
 	@FXML Button loginButton;
+	@FXML TextField emailTextField;
 	
 	
 	
 	@FXML private void loginButtonClicked(ActionEvent event) throws IOException
 	{
+		System.out.println(emailTextField.getText());
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		Parent root = (Pane) fxmlLoader.load();
 		Scene scene = new Scene(root);
