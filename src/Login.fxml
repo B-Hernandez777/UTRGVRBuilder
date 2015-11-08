@@ -15,7 +15,7 @@
                      <children>
                         <Label styleClass="card-title" text="Login" />
                         <Label styleClass="control-label" text="Email" />
-                        <TextField promptText="your@email" />
+                        <TextField fx:id="emailTextField" promptText="your@email" />
                         <Label alignment="TOP_LEFT" contentDisplay="RIGHT" graphicTextGap="150.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Empty Email">
                            <graphic>
                               <Label contentDisplay="RIGHT" graphicTextGap="10.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
