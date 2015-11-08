@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="350.0" style="-fx-background-color: #EAEAeA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainController">
+   <children>
+      <FlowPane hgap="16.0" prefHeight="515.0" prefWidth="672.0" vgap="16.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="398.0" prefWidth="287.0" spacing="8.0" styleClass="card">
+               <children>
+                  <Button fx:id="loginScreenButton" mnemonicParsing="false" onAction="#mainButtonBarClicked" styleClass="button-raised" text="Login Screen" />
+                  <Button mnemonicParsing="false" styleClass="button-raised" text="Button" />
+                  <Button mnemonicParsing="false" styleClass="button-raised" text="Button" />
+                  <Button mnemonicParsing="false" styleClass="button-raised" text="Button" />
+                  <Button mnemonicParsing="false" styleClass="button-raised" text="Button" />
+               </children>
+               <FlowPane.margin>
+                  <Insets />
+               </FlowPane.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+         </padding>
+      </FlowPane>
+   </children>
+</AnchorPane>
