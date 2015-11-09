@@ -7,23 +7,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="318.0" style="-fx-background-color: #EAEAeA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="318.0" style="-fx-background-color: #EAEAeA;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
               <AnchorPane>
                <children>
                   <VBox layoutX="6.0" layoutY="5.0" prefHeight="252.0" prefWidth="308.0" styleClass="card">
                      <children>
                         <Label styleClass="card-title" text="Login" />
-                        <Label styleClass="control-label" text="Email" />
-                        <TextField fx:id="emailTextField" promptText="your@email" />
-                        <Label alignment="TOP_LEFT" contentDisplay="RIGHT" graphicTextGap="150.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Empty Email">
+                        <Label fx:id="emailLabel" styleClass="control-label" text="Email" visible="false" />
+                        <TextField fx:id="emailTextField" promptText="Email" />
+                        <Label fx:id="emailErrorLabel" alignment="TOP_LEFT" contentDisplay="RIGHT" graphicTextGap="150.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Empty Email"  visible="false">
                            <graphic>
                               <Label contentDisplay="RIGHT" graphicTextGap="10.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
                            </graphic>
                         </Label>
-                        <Label styleClass="control-label" text="Password" />
-                        <PasswordField promptText="Password" styleClass="error" />
-                        <Label contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Wrong Username or Password">
+                        <Label fx:id="passwordLabel" styleClass="control-label" text="Password" visible="false" />
+                        <PasswordField fx:id="passwordField" promptText="Password" styleClass="error" />
+                        <Label fx:id="passwordErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Wrong Username or Password">
                            <graphic>
                               <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
                            </graphic>
