@@ -22,8 +22,8 @@
                            </graphic>
                         </Label>
                         <Label fx:id="passwordLabel" styleClass="control-label" text="Password" visible="false" />
-                        <PasswordField fx:id="passwordField" promptText="Password" styleClass="error" />
-                        <Label fx:id="passwordErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Wrong Username or Password">
+                        <PasswordField fx:id="passwordField" promptText="Password" />
+                        <Label fx:id="passwordErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Wrong Username or Password" visible="falsee">
                            <graphic>
                               <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
                            </graphic>
