@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.BackgroundController">
+   <top>
+      <VBox fx:id="toolBar" opacity="0.0" prefHeight="8.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar minHeight="40.0" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #FF5722;" styleClass="toolbar-colored">
+               <items>
+                  <Text fx:id="title" fill="WHITE" text="VAQPACK" opacity="0.0" >
+                     <font>
+                        <Font name="GoodTimesRg-Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </items>
+            </ToolBar>
+         </children></VBox>
+    </top>
+   <left>
+   	<Pane fx:id="menuBar" opacity="0.0" prefHeight="200.0" prefWidth="206.0" style="-fx-background-color: white" BorderPane.alignment="CENTER">
+      <children>
+         <VBox fx:id="menuItems" opacity="0.0">
+            <children>
+               <Label styleClass="card-subtitle" text="Resume Entry" />
+               <Label text="Label" />
+               <Label text="Label" />
+               <Label text="Label" />
+               <Label text="Label" />
+            </children>
+         </VBox>
+      </children>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane fx:id="centerPane" opacity="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #EAEAeA;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

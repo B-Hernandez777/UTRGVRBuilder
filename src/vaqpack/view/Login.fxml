@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.LoginController">
+   <children>
+      <AnchorPane layoutX="223.0">
+         <children>
+            <Region fx:id="contentRegion" prefHeight="580.0" prefWidth="412.0" style="-fx-background-color: #EAEAeA;" />
+            <ImageView fx:id="coverImage" fitHeight="580.0" fitWidth="412.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="vaqpack/images/VPack1.png" />
+               </image>
+            </ImageView>
+                    <AnchorPane fx:id="loginCard" layoutX="43.0" layoutY="181.0" prefHeight="357.0" prefWidth="366.0">
+                     <children>
+                        <VBox fx:id="loginCardBackground" layoutX="6.0" layoutY="5.0" prefHeight="252.0" prefWidth="308.0" styleClass="card">
+                           <children>
+                        <Text fx:id="title" fill="DODGERBLUE" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER">
+                           <font>
+                              <Font name="Roboto Regular" size="20.0" />
+                           </font>
+                        </Text>
+                              <Label fx:id="emailLabel" styleClass="control-label" text="Email" visible="false" />
+                              <TextField fx:id="emailTextField" promptText="Email" />
+                              <Label fx:id="emailErrorLabel" alignment="TOP_LEFT" contentDisplay="RIGHT" graphicTextGap="150.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Empty Email" visible="false">
+                                 <graphic>
+                                    <Label contentDisplay="RIGHT" graphicTextGap="10.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="passwordLabel" styleClass="control-label" text="Password" visible="false" />
+                              <PasswordField fx:id="passwordField" promptText="Password" />
+                              <Label fx:id="passwordErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Wrong Username or Password" visible="falsee">
+                                 <graphic>
+                                    <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                 </graphic>
+                              </Label>
+                              <HBox fx:id="buttonPane" alignment="BASELINE_RIGHT">
+                                 <children>
+                                    <Button fx:id="registerButton" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="35.0" prefWidth="88.0" styleClass="card-button" text="REGISTER" />
+                                    <Button fx:id="loginButton" alignment="BASELINE_RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="button-raised" text="LOGIN" />
+                                 </children>
+                           <VBox.margin>
+                              <Insets top="16.0" />
+                           </VBox.margin>
+                              </HBox>
+                        <VBox fx:id="retypeGroup">
+                           <children>
+                              <Label fx:id="retypePasswordLabel" styleClass="control-label" text="Retype Password" visible="false" />
+                              <PasswordField fx:id="retypePasswordField" promptText="Retype Password" />
+                              <Label fx:id="retypePasswordErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Passwords Don;t Match" visible="false">
+                                 <graphic>
+                                    <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+         </children>
+      </AnchorPane>
+            </children>
+</AnchorPane>

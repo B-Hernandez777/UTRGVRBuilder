@@ -112,7 +112,7 @@
 
 .control-label {
 	-fx-font-size: 12.0px;
-	-fx-padding: 16 0 0 0;
+	-fx-padding: 4 0 0 0;
 }
 
 .control-label .text {
@@ -152,7 +152,7 @@
 	-fx-font-family: 'Roboto';
 	-fx-font-weight: bold;
 	-fx-background-insets: 0.0;
-	-fx-background-radius: 4.0;
+	-fx-background-radius: 0.0;
 	-fx-padding: 0.7em;
 	-fx-alignment: CENTER;
 }
@@ -208,23 +208,20 @@
 	-fx-font-size: 24px;
 }
 
-.stepper-button:default:focused
+.stepper-button
 {
-	-fx-font-family: 'Roboto Medium';
-	-fx-color: white;
-	-fx-background-color: swatch-grey;
-	-fx-font-weight: normal ;
-	-fx-font-size: 12px;
-	-fx-background-radius: 100;
-	-fx-pref-height: 24;
-	-fx-pref-width: 24;
-	-fx-min-height: 24;
-	-fx-min-width: 24;
-	-fx-padding: 24;
+	-fx-font-weight: bold;
+	-fx-text-fill: rgb(100.0, 100.0, 100.0);
+	-fx-font-size: 12;
+
 }
 .stepper-label
 {
-	-fx-margin-top: 16px;
+	-fx-background-color:  #2196F3;
+	-fx-text-fill: #FFF;
+	-fx-font-weight: normal ;
+	-fx-background-radius: 100;
+	-fx-font-size: 12px;
 }
 
 /*******************************************************************************
@@ -803,7 +800,7 @@
 	-fx-background-color: -swatch-toolbar;
 	-fx-text-fill: -fx-text-base-color;
 	-fx-pref-height: 42;
-	-fx-pref-width: 42;
+	-fx-pref-width: 88;
 	-fx-min-height: 42;
 	-fx-min-width: 42;
 	-fx-padding: 0;

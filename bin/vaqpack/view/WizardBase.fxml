@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.WizardBaseController">
+   <children>
+      <BorderPane opacity="0.0" fx:id="navigationRoot" prefHeight="552.0" prefWidth="694.0" styleClass="pop">
+         <center>
+            <AnchorPane fx:id="wizardCenterPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+         </center>
+         <top>
+            <FlowPane fx:id="navigationPane" alignment="TOP_CENTER" prefHeight="88.0" prefWidth="200.0" styleClass="popup-overlay" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="personalButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="button-flat" text="Personal">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="1" />
+                     </graphic></Button>
+                  <Button fx:id="objectiveButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" text="Objective">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="2" />
+                     </graphic></Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Experience">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="3" />
+                     </graphic></Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Education">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="4" />
+                     </graphic></Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Achievments">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="5" />
+                     </graphic></Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Skills">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="6" />
+                     </graphic></Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Styles">
+                     <graphic>
+                        <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="7" />
+                     </graphic></Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </BorderPane.margin>
+            </FlowPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
