@@ -66,7 +66,6 @@ public class mainController implements Initializable
 	public void initialize(URL location, ResourceBundle resources)
 	{		
 		animateIn();
-	
 	}
 	
 	private void animateIn()

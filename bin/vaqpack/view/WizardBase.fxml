@@ -23,7 +23,7 @@
                      <graphic>
                         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="2" />
                      </graphic></Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Experience">
+                  <Button fx:id="experienceButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" text="Experience">
                      <graphic>
                         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="3" />
                      </graphic></Button>
@@ -45,7 +45,7 @@
                      </graphic></Button>
                </children>
                <BorderPane.margin>
-                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                  <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
                </BorderPane.margin>
             </FlowPane>
          </top>

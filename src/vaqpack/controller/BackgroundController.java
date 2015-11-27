@@ -16,12 +16,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import vaqpack.model.Context;
 
 
 
 public class BackgroundController implements Initializable 
-{
-
+{	
+	
 	@FXML private BorderPane root;
     @FXML private Pane menuBar;
     @FXML private VBox toolBar;
@@ -32,9 +33,11 @@ public class BackgroundController implements Initializable
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
-	{
+	{	
+		Context.getInstance().currentResume().setName("Huriel");
+		Context.getInstance().currentResume().getExperienceList();
 
-
+		
 		FadeTransition ft3 = new FadeTransition(Duration.millis(100), toolBar);
 		ft3.setFromValue(0);
 		ft3.setToValue(1);
@@ -108,7 +111,7 @@ public class BackgroundController implements Initializable
 
 		
 	}
-    
+	
     
     
 

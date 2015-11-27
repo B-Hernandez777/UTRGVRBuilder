@@ -18,15 +18,14 @@ import javafx.util.Duration;
 
 
 public class WizardBaseController implements Initializable
-{
-	
-	
+{	
 	@FXML BorderPane navigationRoot;
 	@FXML FlowPane navigationPane;
 	@FXML AnchorPane wizardCenterPane;
 	
 	@FXML Button personalButton;
 	@FXML Button objectiveButton;
+	@FXML Button experienceButton;
 	
 
 	@FXML void navigationButtonClicked(ActionEvent event)
@@ -35,8 +34,27 @@ public class WizardBaseController implements Initializable
 			loadPersonal();
 		else if(event.getSource().equals(objectiveButton))
 			loadObjective();
-	}
+		else if(event.getSource().equals(experienceButton))
+			loadExperience();
+		}
 	
+	private void loadExperience()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Experience.fxml"));
+		        AnchorPane Login = (AnchorPane) loader.load();
+					wizardCenterPane.getChildren().remove(0);
+					wizardCenterPane.getChildren().add(Login);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+		     	   
+		
+	}
+
 	private void loadObjective()
 	{
 		try
@@ -48,7 +66,6 @@ public class WizardBaseController implements Initializable
 				wizardCenterPane.getChildren().add(Login);
 			} catch (IOException e)
 			{
-		
 				e.printStackTrace();
 			}
 	     	   

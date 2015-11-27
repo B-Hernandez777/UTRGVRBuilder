@@ -12,7 +12,7 @@
          <children>
             <ToolBar minHeight="40.0" prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #FF5722;" styleClass="toolbar-colored">
                <items>
-                  <Text fx:id="title" fill="WHITE" text="VAQPACK" opacity="0.0" >
+                  <Text fx:id="title" fill="WHITE" opacity="0.0" text="VAQPACK">
                      <font>
                         <Font name="GoodTimesRg-Regular" size="18.0" />
                      </font>
@@ -26,11 +26,11 @@
       <children>
          <VBox fx:id="menuItems" opacity="0.0">
             <children>
-               <Label styleClass="card-subtitle" text="Resume Entry" />
-               <Label text="Label" />
-               <Label text="Label" />
-               <Label text="Label" />
-               <Label text="Label" />
+               <Button text="Resume Entry" />
+               <Button text="Cover Letter" />
+               <Button text="Html" />
+               <Button text="Business Cards" />
+               <Button text="Export" />
             </children>
          </VBox>
       </children>
