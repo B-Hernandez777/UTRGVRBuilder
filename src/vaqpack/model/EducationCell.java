@@ -11,16 +11,16 @@ import javafx.scene.layout.Priority;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.SVGPath;
 
- public class ExperienceCell extends ListCell<Experience> 
+ public class EducationCell extends ListCell<Education> 
  {
         HBox hbox = new HBox();
         Label label = new Label("(empty)");
         Pane pane = new Pane();
         Button button = new Button();
         SVGPath bin = new SVGPath();
-        Experience lastItem;
+        Education lastItem;
 
-        public ExperienceCell() {
+        public EducationCell() {
         	super();
         	bin.setContent("M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z");
         	bin.setFill(Paint.valueOf("#BDBDBD"));
@@ -32,14 +32,14 @@ import javafx.scene.shape.SVGPath;
                 @Override
                 public void handle(ActionEvent event) 
                 {
-                System.out.println(lastItem.getTitle() + " : " + event);
+                System.out.println(lastItem.getInstitutionName() + " : " + event);
                 System.out.println(getListView().getItems().remove(lastItem));
                 }
             });
         }
 
         @Override
-        protected void updateItem(Experience item, boolean empty) {
+        protected void updateItem(Education item, boolean empty) {
             super.updateItem(item, empty);
             setText(null);  // No text in label of super class
             if (empty) {
@@ -47,7 +47,7 @@ import javafx.scene.shape.SVGPath;
                 setGraphic(null);
             } else {
                 lastItem = item;
-                label.setText(item!=null ? item.getTitle() : "<null>");
+                label.setText(item!=null ? item.getInstitutionName() : "<null>");
                 setGraphic(hbox);
             }
         }

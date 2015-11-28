@@ -26,6 +26,7 @@ public class WizardBaseController implements Initializable
 	@FXML Button personalButton;
 	@FXML Button objectiveButton;
 	@FXML Button experienceButton;
+	@FXML Button educationButton;
 	
 
 	@FXML void navigationButtonClicked(ActionEvent event)
@@ -36,8 +37,27 @@ public class WizardBaseController implements Initializable
 			loadObjective();
 		else if(event.getSource().equals(experienceButton))
 			loadExperience();
+		else if(event.getSource().equals(educationButton))
+			loadEducationButton();
 		}
 	
+	private void loadEducationButton()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Education.fxml"));
+		        AnchorPane Login = (AnchorPane) loader.load();
+					wizardCenterPane.getChildren().remove(0);
+					wizardCenterPane.getChildren().add(Login);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+		     	   
+		
+	}
+
 	private void loadExperience()
 	{
 		try

@@ -34,11 +34,11 @@
  ******************************************************************************/
 .root {
 	/* Swatch Colors - Blue*/
-	-swatch-100: #BBDEFB;
-	-swatch-200: #90CAF9;
-	-swatch-300: #64BEF6;
-	-swatch-400: #42A5F5;
-	-swatch-500: #2196F3;
+	-swatch-100: #C8E6C9;
+	-swatch-200: #A5D6A7;
+	-swatch-300: #81C784;
+	-swatch-400: #66BB6A;
+	-swatch-500: #4CAF50;
 	/*default text */
 	-fx-text-base-color: rgb(100.0, 100.0, 100.0);
 	-fx-text-button-normal: -swatch-500;

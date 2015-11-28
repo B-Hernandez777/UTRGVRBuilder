@@ -9,7 +9,7 @@ public class Resume
 	private int  id;
 	private CoverLetter coverLetter;
     private ObservableList<Experience> experienceList = FXCollections.observableArrayList(new Experience("Job1"), new Experience("Job2"), new Experience("Job3"));
-
+    private ObservableList<Education> educationList = FXCollections.observableArrayList(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
 	
 	public Resume(String name)
 	{
@@ -79,5 +79,12 @@ public class Resume
 	public void setExperienceList(ObservableList<Experience> experienceList)
 	{
 		this.experienceList = experienceList;
+	}
+
+
+
+	public ObservableList<Education> geteducationList()
+	{
+		return educationList;
 	}
 }

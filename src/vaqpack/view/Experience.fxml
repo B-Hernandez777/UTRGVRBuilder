@@ -10,16 +10,16 @@
 
 <AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.ExperienceController">
    <children>
-      <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+      <FlowPane fx:id="experienceBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
          <children>
             <VBox fx:id="experienceCard" opacity="0.0" prefHeight="309.0" prefWidth="400.0" styleClass="card">
                <children>
                   <Label styleClass="card-title" text="Experience" />
                   <VBox fx:id="Experience" prefHeight="247.0" prefWidth="568.0">
                            <children>
-                              <Label fx:id="experienceTitleLabel" styleClass="control-label" text="Experience Title" />
+                              <Label fx:id="experienceTitleLabel" styleClass="control-label" text="Experience Title" visible="false" />
                               <TextField fx:id="experienceTitleField" promptText="Experience Title" />
-                              <Label fx:id="experienceTitleErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Title">
+                              <Label fx:id="experienceTitleErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Title" visible="false">
                                  <graphic>
                                     <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
                                  </graphic>
@@ -49,7 +49,7 @@
                         </VBox>
                   <HBox alignment="BASELINE_RIGHT">
                      <children>
-                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClicked"  prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="ADD" />
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="ADD" />
                      </children>
                      <VBox.margin>
                         <Insets top="16.0" />
@@ -57,10 +57,10 @@
                   </HBox>
                </children>
             </VBox>
-            <StackPane alignment="TOP_CENTER">
+            <StackPane fx:id="experienceListCard" alignment="TOP_CENTER">
                <children>
                   <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
-                 <VBox fx:id="experienceListCard" maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
+                 <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
                      <children>
                         <Label text="Experience List" />
                         <ListView fx:id="experienceListView" prefHeight="200.0" prefWidth="200.0" />

@@ -182,7 +182,7 @@ public class LoginController implements Initializable
 	{
 		emailTextField.setOnKeyPressed(e->
 		{
-			emailLabel.setTextFill(Color.web("#2196F3"));
+			emailLabel.setTextFill(Color.web("#4CAF50"));
 			emailLabel.setVisible(true);
 			emailErrorLabel.setVisible(false);
 		});
@@ -207,12 +207,12 @@ public class LoginController implements Initializable
 					emailTextField.getStyleClass().remove("error");
 				}
 			else
-				emailLabel.setTextFill(Color.web("#2196F3"));
+				emailLabel.setTextFill(Color.web("#4CAF50"));
 		});
 		
 		passwordField.setOnKeyPressed(e->
 		{
-			passwordLabel.setTextFill(Color.web("#2196F3"));
+			passwordLabel.setTextFill(Color.web("#4CAF50"));
 			passwordLabel.setVisible(true);
 			passwordErrorLabel.setVisible(false);
 		});
@@ -222,7 +222,7 @@ public class LoginController implements Initializable
 			{
 				if(passwordField.getText().isEmpty())
 				{
-					passwordLabel.setTextFill(Color.web("#2196F3"));
+					passwordLabel.setTextFill(Color.web("#4CAF50"));
 					passwordLabel.setVisible(false);
 					passwordErrorLabel.setVisible(true);
 					passwordField.getStyleClass().add("error");
@@ -238,12 +238,12 @@ public class LoginController implements Initializable
 					passwordField.getStyleClass().remove("error");
 				}
 			else
-				passwordLabel.setTextFill(Color.web("#2196F3"));
+				passwordLabel.setTextFill(Color.web("#4CAF50"));
 		});
 		
 		retypePasswordField.setOnKeyPressed(e->
 		{
-			retypePasswordLabel.setTextFill(Color.web("#2196F3"));
+			retypePasswordLabel.setTextFill(Color.web("#4CAF50"));
 			retypePasswordLabel.setVisible(true);
 			retypePasswordErrorLabel.setVisible(false);
 		});
@@ -253,7 +253,7 @@ public class LoginController implements Initializable
 			{
 				if(retypePasswordField.getText().isEmpty())
 				{
-					retypePasswordLabel.setTextFill(Color.web("#2196F3"));
+					retypePasswordLabel.setTextFill(Color.web("#4CAF50"));
 					retypePasswordLabel.setVisible(false);
 					retypePasswordErrorLabel.setVisible(true);
 					retypePasswordField.getStyleClass().add("error");
@@ -269,7 +269,7 @@ public class LoginController implements Initializable
 					retypePasswordField.getStyleClass().remove("error");
 				}
 			else
-				retypePasswordLabel.setTextFill(Color.web("#2196F3"));
+				retypePasswordLabel.setTextFill(Color.web("#4CAF50"));
 		});
 	}
 

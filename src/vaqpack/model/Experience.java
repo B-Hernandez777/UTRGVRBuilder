@@ -1,7 +1,6 @@
 package vaqpack.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 
 public class Experience
@@ -10,21 +9,21 @@ public class Experience
 	private String description;
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private String CompanyName;
-	private String ComanyCity;
-	private  String CompanyState;
+	private String companyName;
+	private String companyCity;
+	private String companyState;
 	
 	public Experience(String title, String description, LocalDate startDate,
-			LocalDate endDate, String companyName, String comanyCity,
+			LocalDate endDate, String companyName, String companyCity,
 			String companyState)
 	{
 		this.title = title;
 		this.description = description;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		CompanyName = companyName;
-		ComanyCity = comanyCity;
-		CompanyState = companyState;
+		this.companyName = companyName;
+		this.companyCity = companyCity;
+		this.companyState = companyState;
 	}
 
 	public String getDescription()
@@ -59,32 +58,32 @@ public class Experience
 
 	public String getCompanyName()
 	{
-		return CompanyName;
+		return companyName;
 	}
 
 	public void setCompanyName(String companyName)
 	{
-		CompanyName = companyName;
+		this.companyName = companyName;
 	}
 
-	public String getComanyCity()
+	public String getCompanyCity()
 	{
-		return ComanyCity;
+		return companyCity;
 	}
 
-	public void setComanyCity(String comanyCity)
+	public void setCompanyCity(String companyCity)
 	{
-		ComanyCity = comanyCity;
+		this.companyCity = companyCity;
 	}
 
 	public String getCompanyState()
 	{
-		return CompanyState;
+		return companyState;
 	}
 
 	public void setCompanyState(String companyState)
 	{
-		CompanyState = companyState;
+		this.companyState = companyState;
 	}	
 	public  Experience(String title)
 	{
