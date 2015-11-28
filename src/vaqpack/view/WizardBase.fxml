@@ -31,11 +31,11 @@
                      <graphic>
                         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="4" />
                      </graphic></Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Achievments">
+                  <Button fx:id="achievementButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" text="Achievments">
                      <graphic>
                         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="5" />
                      </graphic></Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="88" prefWidth="89.0" text="Skills">
+                  <Button fx:id="skillButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" text="Skills">
                      <graphic>
                         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-background-color: #2196F3; -fx-font-size: 12; -fx-text-fill: #FFF; -fx-background-radius: 100;" text="6" />
                      </graphic></Button>

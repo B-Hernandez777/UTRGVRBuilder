@@ -27,6 +27,8 @@ public class WizardBaseController implements Initializable
 	@FXML Button objectiveButton;
 	@FXML Button experienceButton;
 	@FXML Button educationButton;
+	@FXML Button achievementButton;
+	@FXML Button skillButton;
 	
 
 	@FXML void navigationButtonClicked(ActionEvent event)
@@ -38,10 +40,47 @@ public class WizardBaseController implements Initializable
 		else if(event.getSource().equals(experienceButton))
 			loadExperience();
 		else if(event.getSource().equals(educationButton))
-			loadEducationButton();
+			loadEducation();
+		else if(event.getSource().equals(achievementButton))
+			loadAchievment();
+		else if(event.getSource().equals(skillButton))
+			loadSkill();
 		}
 	
-	private void loadEducationButton()
+	private void loadSkill()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Skill.fxml"));
+		        AnchorPane Login = (AnchorPane) loader.load();
+					wizardCenterPane.getChildren().remove(0);
+					wizardCenterPane.getChildren().add(Login);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+		     	   
+		
+	}
+
+	private void loadAchievment()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Achievement.fxml"));
+		        AnchorPane Login = (AnchorPane) loader.load();
+					wizardCenterPane.getChildren().remove(0);
+					wizardCenterPane.getChildren().add(Login);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+		     	   
+	}
+
+	private void loadEducation()
 	{
 		try
 		{
