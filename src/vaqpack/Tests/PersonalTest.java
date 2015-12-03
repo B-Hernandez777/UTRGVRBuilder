@@ -23,14 +23,15 @@ public class PersonalTest
 		 ObservableList<Experience> experienceList = Context.getInstance().currentResume().getExperienceList();
 		 resume.setExperienceList(experienceList);
 		
-		System.out.print(resume.getPersonal());
-		System.out.print(resume.getObjective());
-		System.out.print(resume.getExperienceList());
+		//System.out.print(resume.getPersonal());
+		//System.out.print(resume.getObjective());
+		//System.out.print(resume.getExperienceList());
 		
 		
+		String xml = resume.toString().replaceAll("[\\[\\],]","");
 
-	
-	
+		
+		System.out.println(xml);
 		
 	}
 }

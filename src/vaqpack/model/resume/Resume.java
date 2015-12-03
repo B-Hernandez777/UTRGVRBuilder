@@ -78,10 +78,8 @@ public class Resume
 	
 	public String toString()
 	{
-		
-		
-		return String.format("<resume>" + "/n%s%s"
-				+ "/t<experience> %s </experience>/n"
+		return String.format("<resume>" + "\n%s%s\t"
+				+ "<experience>\n%s\t</experience>\n"
 				+ "</resume>"
 				,personal, objective, experienceList );
 	}
