@@ -9,7 +9,7 @@ public class Resume
 	private Objective objective;
     private ObservableList<Experience> experienceList = FXCollections.observableArrayList(new Experience("Job1"), new Experience("Job2"), new Experience("Job3"));
     private ObservableList<Education> educationList = FXCollections.observableArrayList(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
-    private ObservableList<Achievement> achivementList = FXCollections.observableArrayList(new Achievement("Presidents List"),new Achievement("Medal of Honor"));
+    private ObservableList<Achievement> achievementList = FXCollections.observableArrayList(new Achievement("Presidents List"),new Achievement("Medal of Honor"));
     private ObservableList<Skill> skillList = FXCollections.observableArrayList(new Skill("Can heat ramen in under a minute"),new Skill("Fastest cook at McDonalds"));
 	
     
@@ -30,17 +30,17 @@ public class Resume
 
 	public ObservableList<Education> geteducationList()
 	{
-		return educationList;
+		return getEducationList();
 	}
 
-	public ObservableList<Achievement> getAchivementList()
+	public ObservableList<Achievement> getAchievementList()
 	{
-		return achivementList;
+		return achievementList;
 	}
 
-	public void setAchivementList(ObservableList<Achievement> achivementList)
+	public void setAchievementList(ObservableList<Achievement> achivementList)
 	{
-		this.achivementList = achivementList;
+		this.achievementList = achivementList;
 	}
 
 	public ObservableList<Skill> getSkillList()
@@ -79,8 +79,23 @@ public class Resume
 	public String toString()
 	{
 		return String.format("<resume>" + "\n%s%s\t"
-				+ "<experience>\n%s\t</experience>\n"
+				+ "<experience>\n%s\t</experience>\n\t"
+				+ "<education>\n%s\t</education>\n\t"
+				+ "<achievement>\n%s\t</achievement>\n\t"
+				+ "<skill>\n%s\t</skill>\n"
 				+ "</resume>"
-				,personal, objective, experienceList );
+				,personal, objective, experienceList, educationList, achievementList, skillList );
+	}
+
+
+	public ObservableList<Education> getEducationList()
+	{
+		return educationList;
+	}
+
+
+	public void setEducationList(ObservableList<Education> educationList)
+	{
+		this.educationList = educationList;
 	}
 }

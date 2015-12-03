@@ -19,5 +19,12 @@ public class Skill
 	{
 		this.skill = skill;
 	}
+	
+	public String toString()
+	{
+		return String.format("\t\t<s>"+"\n\t\t\t"
+				+ "<skilltype> %s </skilltype>" + "\n\t\t"
+				+ "</s>\n", skill);
+	}
 
 }

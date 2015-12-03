@@ -27,8 +27,15 @@ public class Education
 	@Override
 	public String toString()
 	{
-		return String.format("<Education>\n<InstitutionName>%s</InstitutionName>\n<InstitutionCity>%s</InstitutionCity>\n<InstitutionState>%s</InstitutionState>\n"
-				+ "<Degree>%s</Degree>\n<StartDate>%s</StartDate>\n<EndDate>%s</EndDate>", institutionName, city, state, degree, startDate + "", endDate + "");
+		return String.format("\t\t<ed>" + "\n\t\t\t"
+				+	"<school> %s </school>" + "\n\t\t\t"
+				+ "<schoolCity> %s </schoolCity>" + "\n\t\t\t"
+				+ "<schoolState >%s </schoolState>" + "\n\t\t\t"
+				+ "<degree> %s </degree>"+ "\n\t\t\t"
+				+ "<GPA> %s </GPA>"+ "\n\t\t\t"
+				+ "<schoolStart> %s </schoolstart>"+ "\n\t\t\t"
+				+ "<schoolend> %s </schoolend>" + "\n\t\t"
+				+  "</ed>\n", institutionName, city, state, degree, gpa, startDate + "", endDate + "");
 	}
 	
 	

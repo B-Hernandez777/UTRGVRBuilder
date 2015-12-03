@@ -45,7 +45,7 @@ public class AchievementController implements Initializable
 	
 	@FXML ListView<Achievement> achievementListView;
 	
-	private ObservableList<Achievement> achievementList = Context.getInstance().currentResume().getAchivementList();
+	private ObservableList<Achievement> achievementList = Context.getInstance().currentResume().getAchievementList();
 	private boolean expanded;
 	
 	
