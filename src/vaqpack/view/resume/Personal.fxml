@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.resume.PersonalController">
+   <children>
+      <FlowPane fx:id="personalBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+         <children>
+            <VBox fx:id="personalCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
+               <children>
+                  <Label styleClass="card-title" text="Personal" />
+                  <VBox fx:id="Personal" prefHeight="247.0" prefWidth="568.0">
+                           <children>
+                        <HBox spacing="16.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                          <Label fx:id="firstNameLabel" styleClass="control-label" text="First Name" visible="false" />
+                                          <TextField fx:id="firstNameField" maxWidth="260.0" promptText="First Name" />
+                                          <Label fx:id="firstNameErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Name" visible="false">
+                                             <graphic>
+                                                <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                             </graphic>
+                                          </Label>
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                          <Label fx:id="lastNameLabel" styleClass="control-label" text="Last Name" visible="false" />
+                                          <TextField fx:id="lastNameField" maxWidth="260.0" promptText="Last Name" />
+                                          <Label fx:id="lastNameErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Name" visible="false">
+                                             <graphic>
+                                                <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                             </graphic>
+                                          </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                               <Label fx:id="phoneNumberLabel" styleClass="control-label" text="Phone Number" visible="false" />
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <SVGPath content="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" fill="#bdbdbd" />
+                                    <TextField fx:id="phoneNumberField" maxWidth="110.0" promptText="Phone Number" />
+                           </children>
+                        </HBox>
+                              <Label fx:id="phoneNumberErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Phone Number" visible="false">
+                                 <graphic>
+                                    <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                 </graphic>
+                              </Label>
+                               <Label fx:id="addressLabel" styleClass="control-label" text="Address" visible="false" />
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <SVGPath content="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" fill="#bdbdbd" />
+                                    <TextField fx:id="addressField" maxWidth="260.0" promptText="Address" />
+                           </children>
+                        </HBox>
+                              <Label fx:id="addressErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Address" visible="false">
+                                 <graphic>
+                                    <Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
+                                 </graphic>
+                              </Label>
+   						    <HBox prefWidth="200.0" spacing="16.0">
+                           	<children>
+                              <TextField fx:id="cityTextField" promptText="City" />
+                              <TextField fx:id="stateTextField" maxWidth="42.0" promptText="State" />
+                              <TextField fx:id="zipCodeTextField" promptText="Zip Code" />
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" />
+                           </padding>
+                       		 </HBox>   
+                           </children>
+                        </VBox>
+                  <HBox alignment="BASELINE_RIGHT">
+                     <children>
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="SAVE" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="16.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

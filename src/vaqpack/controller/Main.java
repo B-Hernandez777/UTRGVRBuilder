@@ -1,5 +1,4 @@
 package vaqpack.controller;
-import vaqpack.model.Resume;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +9,6 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application
 {
-	static Resume resume;
-	
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception

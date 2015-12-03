@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.BackgroundController">
+<BorderPane fx:id="root"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.BackgroundController">
    <top>
       <VBox fx:id="toolBar" opacity="0.0" prefHeight="8.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,11 +26,11 @@
       <children>
          <VBox fx:id="menuItems" opacity="0.0">
             <children>
-               <Button text="Resume Entry" />
-               <Button text="Cover Letter" />
-               <Button text="Html" />
-               <Button text="Business Cards" />
-               <Button text="Export" />
+               <Button fx:id="resumeButton" onAction="#mainMenuButtonClicked" text="Resume Entry" />
+               <Button fx:id="coverLetterButton" onAction="#mainMenuButtonClicked" text="Cover Letter" />
+               <Button fx:id="businessCardsButton" onAction="#mainMenuButtonClicked"  text="Html" />
+               <Button fx:id="websiteButton" onAction="#mainMenuButtonClicked" text="Business Cards" />
+               <Button fx:id="exportButton" onAction="#mainMenuButtonClicked" text="Export" />
             </children>
          </VBox>
       </children>

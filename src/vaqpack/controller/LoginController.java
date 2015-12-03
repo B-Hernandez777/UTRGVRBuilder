@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import sun.applet.Main;
-import vaqpack.model.Resume;
+import vaqpack.model.resume.Resume;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -161,8 +161,6 @@ public class LoginController implements Initializable
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vaqpack/view/Background.fxml"));
 		Parent root1 = (Pane) fxmlLoader.load();
 		root.getScene().setRoot(root1);
-		
-		
 	}
 	
 	@Override
@@ -174,8 +172,6 @@ public class LoginController implements Initializable
 		
 		  animateIn();
 		  
-
-		
 	}
 
 	private void validateFields()

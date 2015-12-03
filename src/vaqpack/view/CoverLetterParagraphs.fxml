@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.CoverLetterParagraphController">
+   <children>
+      <FlowPane fx:id="paragraphBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+         <children>
+            <VBox fx:id="paragraphCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
+               <children>
+                  <Label styleClass="card-title" text="Paragraph" />
+                  <VBox fx:id="Pargraph" prefHeight="247.0" prefWidth="568.0">
+                           <children>
+                            <TextArea fx:id="paragraphTextArea" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </VBox>
+                  <HBox alignment="BASELINE_RIGHT">
+                     <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="ADD" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="16.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <StackPane fx:id="paragraphListCard" alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
+                 <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
+                     <children>
+                        <Label text="Paragraph List" />
+                        <ListView fx:id="paragraphListView" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                    </VBox>
+                  <Button fx:id="newActionButton" defaultButton="true" mnemonicParsing="false" onAction="#newActionButtonClicked" prefHeight="56.0" prefWidth="56.0" style="-fx-background-radius: 100;" styleClass="card" translateX="92.0" translateY="198.0">
+                     <graphic>
+                        <SVGPath content="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="WHITE" stroke="WHITE" strokeWidth="0.0" />
+                     </graphic>
+                     </Button>
+               </children>
+            </StackPane>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

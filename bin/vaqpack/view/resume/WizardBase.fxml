@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.resume.WizardBaseController">
+   <children>
+      <BorderPane fx:id="navigationRoot" opacity="0.0" prefHeight="552.0" prefWidth="694.0" styleClass="pop">
+         <center>
+            <AnchorPane fx:id="wizardCenterPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <FlowPane fx:id="navigationPane" alignment="TOP_CENTER" prefHeight="88.0" prefWidth="200.0" styleClass="popup-overlay" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="personalButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="stepper-button" text="Personal">
+                     <graphic>
+                        <Label fx:id="personalButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="1" />
+                     </graphic></Button>
+                  <Button fx:id="objectiveButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="stepper-button" text="Objective">
+                     <graphic>
+                        <Label fx:id="objectiveButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="2" />
+                     </graphic></Button>
+                  <Button fx:id="experienceButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="90.0" styleClass="stepper-button" text="Experience">
+                     <graphic>
+                        <Label fx:id="experienceButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="3" />
+                     </graphic></Button>
+                  <Button fx:id="educationButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="stepper-button" text="Education">
+                     <graphic>
+                        <Label fx:id="educationButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="4" />
+                     </graphic></Button>
+                  <Button fx:id="achievementButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="110.0" styleClass="stepper-button" text="Achievements">
+                     <graphic>
+                        <Label fx:id="achievementButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="5" />
+                     </graphic></Button>
+                  <Button fx:id="skillButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="stepper-button" text="Skills">
+                     <graphic>
+                        <Label fx:id="skillButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="6" />
+                     </graphic></Button>
+                  <Button fx:id="styleButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#navigationButtonClicked" prefHeight="88" prefWidth="89.0" styleClass="stepper-button" text="Styles">
+                     <graphic>
+                        <Label fx:id="styleButtonLabel" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="17.0" style="-fx-text-fill: #FFF;" styleClass="stepper-label" text="7" />
+                     </graphic></Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="0.0" left="8.0" right="8.0" top="8.0" />
+               </BorderPane.margin>
+            </FlowPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
