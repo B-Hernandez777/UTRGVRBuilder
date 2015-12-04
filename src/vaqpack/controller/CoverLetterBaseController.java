@@ -31,11 +31,33 @@ public class CoverLetterBaseController implements Initializable{
 			loadFields();
 		else if(event.getSource().equals(paragraphsButton))
 			loadParagraphs();
+		else if(event.getSource().equals(stylesButton))
+			loadStyles();
     	
     }
     
     
     
+	private void loadStyles()
+	{
+		try
+        {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/CoverLetterStyle.fxml"));
+        AnchorPane Login = (AnchorPane) loader.load();
+        coverLetterCenterPane.getChildren().remove(0);
+        coverLetterCenterPane.getChildren().add(Login);	              
+     	   
+        } catch (IOException e1)
+        {
+     	   // TODO Auto-generated catch block
+     	   e1.printStackTrace();
+        }
+	}
+
+
+
 	private void loadParagraphs()
 	{
 		  try

@@ -11,7 +11,7 @@ public class Resume
     private ObservableList<Education> educationList = FXCollections.observableArrayList(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
     private ObservableList<Achievement> achievementList = FXCollections.observableArrayList(new Achievement("Presidents List"),new Achievement("Medal of Honor"));
     private ObservableList<Skill> skillList = FXCollections.observableArrayList(new Skill("Can heat ramen in under a minute"),new Skill("Fastest cook at McDonalds"));
-	
+   private ResumeStyle style;
     
     public Resume(String name)
 	{
@@ -97,5 +97,17 @@ public class Resume
 	public void setEducationList(ObservableList<Education> educationList)
 	{
 		this.educationList = educationList;
+	}
+
+
+	public ResumeStyle getStyle()
+	{
+		return style;
+	}
+
+
+	public void setStyle(ResumeStyle style)
+	{
+		this.style = style;
 	}
 }

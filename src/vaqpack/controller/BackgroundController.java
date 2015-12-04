@@ -43,9 +43,43 @@ public class BackgroundController implements Initializable
 			loadResume();
 		else if(event.getSource().equals(coverLetterButton))
 			loadCoverLetter();
+		else if(event.getSource().equals(websiteButton))
+			loadWebsite();
+		else if(event.getSource().equals(businessCardsButton))
+			loadBusinessCards();
 
 		}
 	
+	private void loadBusinessCards()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/BusinessCard.fxml"));
+		        AnchorPane pane = (AnchorPane) loader.load();
+					centerPane.getChildren().remove(0);
+					centerPane.getChildren().add(pane);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+	}
+
+	private void loadWebsite()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Website.fxml"));
+		        AnchorPane pane = (AnchorPane) loader.load();
+					centerPane.getChildren().remove(0);
+					centerPane.getChildren().add(pane);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+	}
+
 	private void loadCoverLetter()
 	{
 		try

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.resume.ResumeStyleController">
+   <children>
+      <FlowPane fx:id="styleBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+         <children>
+            <VBox fx:id="styleCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
+               <children>
+                  <VBox fx:id="Style" prefHeight="247.0" prefWidth="568.0">
+                           <children>
+                        <Label styleClass="card-title" text="Skill" />                
+                           </children>
+                        </VBox>
+               </children>
+            </VBox>
+            <StackPane fx:id="styleListCard" alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="68.0" translateY="348.0" />
+                 <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
+                     <children>
+                        <Label text="Style List" />
+                        <ListView fx:id="styleListView" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                    </VBox>             
+               </children>
+            </StackPane>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

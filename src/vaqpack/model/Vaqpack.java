@@ -4,8 +4,11 @@ import vaqpack.model.resume.Resume;
 
 public class Vaqpack
 {
-	private CoverLetter coverLetter;
 	private Resume resume;
+	private CoverLetter coverLetter;
+	private BusinessCard businesscard;
+	private Website	website;
+	
 	public CoverLetter getCoverLetter()
 	{
 		return coverLetter;

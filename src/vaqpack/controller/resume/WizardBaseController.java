@@ -67,7 +67,7 @@ public class WizardBaseController implements Initializable
 		try
 		{
 			   FXMLLoader loader = new FXMLLoader();
-		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/Personal.fxml"));
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/ResumeStyle.fxml"));
 		        AnchorPane Login = (AnchorPane) loader.load();
 					wizardCenterPane.getChildren().remove(0);
 					wizardCenterPane.getChildren().add(Login);
@@ -197,7 +197,7 @@ public class WizardBaseController implements Initializable
 		try
 		{
 		   FXMLLoader loader = new FXMLLoader();
-	        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/CoverLetterParagraphs.fxml"));
+	        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/Objective.fxml"));
 	        AnchorPane Login = (AnchorPane) loader.load();
 				wizardCenterPane.getChildren().remove(0);
 				wizardCenterPane.getChildren().add(Login);
@@ -218,7 +218,7 @@ public class WizardBaseController implements Initializable
 
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Main.fxml"));
+        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/Personal.fxml"));
         AnchorPane Login = (AnchorPane) loader.load();
         wizardCenterPane.getChildren().remove(0);
         wizardCenterPane.getChildren().add(Login);
@@ -262,7 +262,7 @@ public class WizardBaseController implements Initializable
 		         {
 
 		         FXMLLoader loader = new FXMLLoader();
-		         loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Main.fxml"));
+		         loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/Personal.fxml"));
 		         AnchorPane Login = (AnchorPane) loader.load();
 		         wizardCenterPane.getChildren().add(Login);	              
 		      	   

@@ -5,28 +5,12 @@ import javafx.collections.ObservableList;
 
 public class CoverLetter
 {
-	private String coverLetter;
-	private ObservableList<Paragraph> paragraphList = FXCollections.observableArrayList(new Paragraph("a;lskdjf;lkasjdf;l."));
+	private ObservableList<CoverLetterFields> coverLetterList;
+	private ObservableList<Paragraph> paragraphList;
+	private CoverLetterStyle style;
+
 	
 	
-	public CoverLetter(String coverLetter)
-	{
-		this.coverLetter = coverLetter;
-	}
-	public String getCoverLetter()
-	{
-		return coverLetter;
-	}
-	public void setCoverLetter(String coverLetter)
-	{
-		this.coverLetter = coverLetter;
-	}
-	
-	@Override
-	public String toString()
-	{
-		return coverLetter;
-	}
 	public ObservableList<Paragraph> getParagraphList()
 	{
 		return paragraphList;
@@ -34,5 +18,22 @@ public class CoverLetter
 	public void setParagraphList(ObservableList<Paragraph> paragraphList)
 	{
 		this.paragraphList = paragraphList;
+	}
+	public ObservableList<CoverLetterFields> getCoverLetterList()
+	{
+		return coverLetterList;
+	}
+	public void setCoverLetterList(ObservableList<CoverLetterFields> coverLetterList)
+	{
+		this.coverLetterList = coverLetterList;
+	}
+
+	public CoverLetterStyle getStyle()
+	{
+		return style;
+	}
+	public void setStyle(CoverLetterStyle style)
+	{
+		this.style = style;
 	}
 }

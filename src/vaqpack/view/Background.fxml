@@ -28,8 +28,8 @@
             <children>
                <Button fx:id="resumeButton" onAction="#mainMenuButtonClicked" text="Resume Entry" />
                <Button fx:id="coverLetterButton" onAction="#mainMenuButtonClicked" text="Cover Letter" />
-               <Button fx:id="businessCardsButton" onAction="#mainMenuButtonClicked"  text="Html" />
-               <Button fx:id="websiteButton" onAction="#mainMenuButtonClicked" text="Business Cards" />
+               <Button fx:id="websiteButton" onAction="#mainMenuButtonClicked"  text="Website" />
+               <Button fx:id="businessCardsButton" onAction="#mainMenuButtonClicked" text="Business Cards" />
                <Button fx:id="exportButton" onAction="#mainMenuButtonClicked" text="Export" />
             </children>
          </VBox>
