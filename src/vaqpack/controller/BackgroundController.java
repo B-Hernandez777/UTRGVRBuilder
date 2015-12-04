@@ -41,10 +41,28 @@ public class BackgroundController implements Initializable
 	{
 		if(event.getSource().equals(resumeButton))
 			loadResume();
-		//else if(event.getSource().equals(objectiveButton))
+		else if(event.getSource().equals(coverLetterButton))
+			loadCoverLetter();
 
 		}
 	
+	private void loadCoverLetter()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/CoverLetterBase.fxml"));
+		        AnchorPane pane = (AnchorPane) loader.load();
+					centerPane.getChildren().remove(0);
+					centerPane.getChildren().add(pane);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+		     	   
+		
+	}
+
 	private void loadResume()
 	{
 		try

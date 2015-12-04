@@ -8,17 +8,17 @@ public class Education
 	private String degree;
 	private String city;
 	private String state;
-	private double gpa;
+	private Double gpa;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	
 	public Education(String institutionName, String degree, String city,
 			String state, double gpa, LocalDate startDate, LocalDate endDate)
 	{
-		this.institutionName = institutionName;
-		this.degree = degree;
-		this.city = city;
-		this.state = state;
+		this.institutionName = institutionName +"";
+		this.degree = degree +"";
+		this.city = city +"";
+		this.state = state +"";
 		this.gpa = gpa;
 		this.startDate = startDate;
 		this.endDate = endDate;

@@ -34,8 +34,6 @@ public class SkillController implements Initializable
 	@FXML Label skillLabel;
 	@FXML TextArea skillTextArea;
 	@FXML Label skillErrorLabel;
-
-	
 	@FXML Button addButton;
 	@FXML Button saveButton;
 	@FXML Button newActionButton;

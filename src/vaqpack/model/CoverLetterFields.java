@@ -4,7 +4,7 @@ public class CoverLetterFields
 {
 	private String contactName;
 	private String contactTitle;
-	private String organziationName;
+	private String organizationName;
 	private String address;
 	private String city;
 	private String state;
@@ -13,13 +13,13 @@ public class CoverLetterFields
 	private String jobTitle;
 	
 	public CoverLetterFields(String contactName, String contactTitle,
-			String organziationName, String address, String city, String state,
+			String organizationName, String address, String city, String state,
 			String zipCode, String jobId, String jobTitle)
 	{
 
 		this.contactName = contactName;
 		this.contactTitle = contactTitle;
-		this.organziationName = organziationName;
+		this.organizationName = organizationName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
@@ -47,16 +47,6 @@ public class CoverLetterFields
 	public void setContactTitle(String contactTitle)
 	{
 		this.contactTitle = contactTitle;
-	}
-
-	public String getOrganziationName()
-	{
-		return organziationName;
-	}
-
-	public void setOrganziationName(String organziationName)
-	{
-		this.organziationName = organziationName;
 	}
 
 	public String getAddress()
@@ -118,5 +108,17 @@ public class CoverLetterFields
 	public void setJobTitle(String jobTitle)
 	{
 		this.jobTitle = jobTitle;
+	}
+
+
+	public String getOrganizationName()
+	{
+		return organizationName;
+	}
+
+
+	public void setOrganizationName(String organizationName)
+	{
+		this.organizationName = organizationName;
 	}
 }

@@ -20,7 +20,7 @@
                               <TextField fx:id="contactNameField" maxWidth="260.0" promptText="Contact Name" />
                               <TextField fx:id="contactTitleTextField" maxHeight="-Infinity" promptText="Contact Title" />
                               <TextField fx:id="organizationNameField" maxWidth="260.0" promptText="Organization Name" />
-                        <TextField fx:id="jobIdField1" maxWidth="260.0" promptText="Address" />               
+                        	<TextField fx:id="addressField" maxWidth="260.0" promptText="Address" />               
                           
                          
    						    <HBox prefWidth="200.0" spacing="16.0">
@@ -47,13 +47,13 @@
                   </HBox>
                </children>
             </VBox>
-            <StackPane fx:id="educationListCard" alignment="TOP_CENTER">
+            <StackPane fx:id="fieldsListCard" alignment="TOP_CENTER">
                <children>
                   <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
                  <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
                      <children>
                         <Label text="Cover Letter List" />
-                        <ListView fx:id="educationListView" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="fieldsListView" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                     </VBox>
                   <Button fx:id="newActionButton" defaultButton="true" mnemonicParsing="false" onAction="#newActionButtonClicked" prefHeight="56.0" prefWidth="56.0" style="-fx-background-radius: 100;" styleClass="card" translateX="92.0" translateY="198.0">
