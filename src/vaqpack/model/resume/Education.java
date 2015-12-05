@@ -1,9 +1,12 @@
 package vaqpack.model.resume;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Education
+public class Education implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String institutionName;
 	private String degree;
 	private String city;

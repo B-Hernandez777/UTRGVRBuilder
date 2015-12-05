@@ -68,7 +68,7 @@
             </VBox>
             <StackPane fx:id="educationListCard" alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
+                  <Button fx:id="saveButton" onAction="#saveButtonClicked" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
                  <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
                      <children>
                         <Label text="Education List" />

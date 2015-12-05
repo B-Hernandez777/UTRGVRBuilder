@@ -1,7 +1,11 @@
 package vaqpack.model.resume;
 
-public class ResumeStyle
+import java.io.Serializable;
+
+public class ResumeStyle implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String style;
 
 	public ResumeStyle(String style)

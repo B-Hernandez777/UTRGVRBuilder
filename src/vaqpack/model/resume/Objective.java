@@ -1,7 +1,11 @@
 package vaqpack.model.resume;
 
-public class Objective
+import java.io.Serializable;
+
+public class Objective implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String objective;
 
 	public String getObjective()

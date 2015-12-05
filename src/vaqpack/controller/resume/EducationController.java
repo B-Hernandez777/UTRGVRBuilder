@@ -1,10 +1,12 @@
 package vaqpack.controller.resume;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +26,7 @@ import javafx.util.Duration;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Education;
 import vaqpack.model.resume.EducationCell;
+import vaqpack.model.resume.Experience;
 
 public class EducationController implements Initializable
 
@@ -49,7 +52,8 @@ public class EducationController implements Initializable
 //	
 	@FXML ListView<Education> educationListView;
 //	
-	private ObservableList<Education> educationList = Context.getInstance().currentResume().geteducationList();
+	private ObservableList<Education> educationList = FXCollections.observableArrayList();
+	private ArrayList<Education> globalEducation = Context.getInstance().currentResume().getEducationList();
 	private boolean expanded;
 	
 	
@@ -79,7 +83,7 @@ public class EducationController implements Initializable
 		boolean added=false;
 		
 		if(gpaTextField.getText().isEmpty())
-			gpaTextField.setText(null);
+			gpaTextField.setText(0.0+"");
 		
 		Education education = new Education
 		(
@@ -112,11 +116,6 @@ public class EducationController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		
-		 for(int i =0; i < educationList.size(); i++)
-		 {
-			 System.out.println(educationList.get(i));
-		 }
 		 loadList();
 		 validate();
 
@@ -165,6 +164,11 @@ public class EducationController implements Initializable
 		expanded = false;
 		
 		//Connect Global Resume list with current list
+		if(globalEducation != null)
+			for(int i = 0; i < globalEducation.size(); i++)
+				educationList.add(globalEducation.get(i));
+		
+		
 		 educationListView.setItems(educationList);
 		 
 		 //Connect to Custom Cell
@@ -212,7 +216,17 @@ public class EducationController implements Initializable
 		tt.play();
 	}
 
-	
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalEducation= new ArrayList<Education>();
+		globalEducation.addAll(educationList);
+		 
+		 Context.getInstance().currentResume().setEducationList(globalEducation);
+		
+		
+	}
+
 
 
 

@@ -1,10 +1,12 @@
 package vaqpack.controller.resume;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,7 +51,8 @@ public class ExperienceController implements Initializable
 	
 	@FXML ListView<Experience> experienceListView;
 	
-	private ObservableList<Experience> experienceList = Context.getInstance().currentResume().getExperienceList();
+	private  ObservableList<Experience> experienceList = FXCollections.observableArrayList();
+	private ArrayList<Experience> globalExperience = Context.getInstance().currentResume().getExperienceList();
 	private boolean expanded;
 	
 	
@@ -108,7 +111,7 @@ public class ExperienceController implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
 		
-		 System.out.println(experienceList);
+		// System.out.println(experienceList);
 		 loadList();
 		 validate();
 
@@ -148,14 +151,18 @@ public class ExperienceController implements Initializable
 			});
 	}
 	
-
-	
-
 	private void loadList()
 	{
 		experienceBackground.getChildren().remove(experienceCard);
 		expanded = false;
+	
+
+		if(globalExperience != null)
+			for(int i = 0; i < globalExperience.size(); i++)
+				experienceList.add(globalExperience.get(i));
 		
+	
+
 		//Connect Global Resume list with current list
 		 experienceListView.setItems(experienceList);
 		 
@@ -201,6 +208,17 @@ public class ExperienceController implements Initializable
 		tt.setFromX(400f);
 		tt.setToX(0);
 		tt.play();
+	}
+
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalExperience = new ArrayList<Experience>();
+		globalExperience.addAll(experienceList);
+		 
+		 Context.getInstance().currentResume().setExperienceList(globalExperience);
+		
+		
 	}
 
 	

@@ -1,13 +1,35 @@
 package vaqpack.model;
 
+import java.io.Serializable;
+
 import vaqpack.model.resume.Resume;
 
-public class Vaqpack
+public class Vaqpack implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
+	
 	private Resume resume;
 	private CoverLetter coverLetter;
 	private BusinessCard businesscard;
-	private Website	website;
+	private Website website;
+	
+	public Resume getResume()
+	{
+		return resume;
+	}
+	public void setResume(Resume resume)
+	{
+		this.resume = resume;
+	}
+	public BusinessCard getBusinesscard()
+	{
+		return businesscard;
+	}
+	public void setBusinesscard(BusinessCard businesscard)
+	{
+		this.businesscard = businesscard;
+	}
 	
 	public CoverLetter getCoverLetter()
 	{
@@ -16,5 +38,13 @@ public class Vaqpack
 	public void setCoverLetter(CoverLetter coverLetter)
 	{
 		this.coverLetter = coverLetter;
+	}
+	public Website getWebsite()
+	{
+		return website;
+	}
+	public void setWebsite(Website website)
+	{
+		this.website = website;
 	}
 }

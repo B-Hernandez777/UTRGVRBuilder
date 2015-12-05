@@ -1,10 +1,12 @@
 package vaqpack.controller.resume;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +26,7 @@ import javafx.util.Duration;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.AchievementCell;
 import vaqpack.model.resume.Context;
+import vaqpack.model.resume.Education;
 import vaqpack.model.resume.Experience;
 
 public class AchievementController implements Initializable
@@ -45,7 +48,8 @@ public class AchievementController implements Initializable
 	
 	@FXML ListView<Achievement> achievementListView;
 	
-	private ObservableList<Achievement> achievementList = Context.getInstance().currentResume().getAchievementList();
+	private ObservableList<Achievement> achievementList = FXCollections.observableArrayList();
+	private ArrayList<Achievement> globalAchievement = Context.getInstance().currentResume().getAchievementList();
 	private boolean expanded;
 	
 	
@@ -146,6 +150,10 @@ public class AchievementController implements Initializable
 		expanded = false;
 		
 		//Connect Global Resume list with current list
+		if(globalAchievement != null)
+			for(int i = 0; i < globalAchievement.size(); i++)
+				achievementList.add(globalAchievement.get(i));
+		
 		 achievementListView.setItems(achievementList);
 		 
 		 //Connect to Custom Cell
@@ -188,7 +196,16 @@ public class AchievementController implements Initializable
 		tt.play();
 	}
 
-	
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalAchievement= new ArrayList<Achievement>();
+		globalAchievement.addAll(achievementList);
+		 
+		Context.getInstance().currentResume().setAchievementList(globalAchievement);
+		
+		
+	}
 
 
 

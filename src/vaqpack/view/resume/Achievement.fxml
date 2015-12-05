@@ -45,7 +45,7 @@
             </VBox>
             <StackPane fx:id="achievementListCard" alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="68.0" translateY="348.0" />
+                  <Button fx:id="saveButton" onAction="#saveButtonClicked" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="68.0" translateY="348.0" />
                  <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
                      <children>
                         <Label text="Achievement List" />

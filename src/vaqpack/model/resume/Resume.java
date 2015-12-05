@@ -1,57 +1,28 @@
 package vaqpack.model.resume;
 
-import javafx.collections.FXCollections;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javafx.collections.ObservableList;
 
-public class Resume
+public class Resume implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+	
 	private Personal personal;
 	private Objective objective;
-    private ObservableList<Experience> experienceList = FXCollections.observableArrayList(new Experience("Job1"), new Experience("Job2"), new Experience("Job3"));
-    private ObservableList<Education> educationList = FXCollections.observableArrayList(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
-    private ObservableList<Achievement> achievementList = FXCollections.observableArrayList(new Achievement("Presidents List"),new Achievement("Medal of Honor"));
-    private ObservableList<Skill> skillList = FXCollections.observableArrayList(new Skill("Can heat ramen in under a minute"),new Skill("Fastest cook at McDonalds"));
-   private ResumeStyle style;
+    private ArrayList<Experience> experienceList;
+    private ArrayList<Education> educationList;
+    private ArrayList<Achievement> achievementList;
+    private ArrayList<Skill> skillList;
+    private ResumeStyle style;
     
     public Resume(String name)
 	{
 	}
 
-		
-	public ObservableList<Experience> getExperienceList()
-	{
-		return experienceList;
-	}
 
-	public void setExperienceList(ObservableList<Experience> experienceList)
-	{
-		this.experienceList = experienceList;
-	}
-
-	public ObservableList<Education> geteducationList()
-	{
-		return getEducationList();
-	}
-
-	public ObservableList<Achievement> getAchievementList()
-	{
-		return achievementList;
-	}
-
-	public void setAchievementList(ObservableList<Achievement> achivementList)
-	{
-		this.achievementList = achivementList;
-	}
-
-	public ObservableList<Skill> getSkillList()
-	{
-		return skillList;
-	}
-
-	public void setSkillList(ObservableList<Skill> skillList)
-	{
-		this.skillList = skillList;
-	}
 
 	public Personal getPersonal()
 	{
@@ -84,21 +55,8 @@ public class Resume
 				+ "<achievement>\n%s\t</achievement>\n\t"
 				+ "<skill>\n%s\t</skill>\n"
 				+ "</resume>"
-				,personal, objective, experienceList, educationList, achievementList, skillList );
+				,personal, objective, getExperienceList(), getEducationList(), getAchievementList(), getSkillList() );
 	}
-
-
-	public ObservableList<Education> getEducationList()
-	{
-		return educationList;
-	}
-
-
-	public void setEducationList(ObservableList<Education> educationList)
-	{
-		this.educationList = educationList;
-	}
-
 
 	public ResumeStyle getStyle()
 	{
@@ -109,5 +67,55 @@ public class Resume
 	public void setStyle(ResumeStyle style)
 	{
 		this.style = style;
+	}
+
+	public ArrayList<Experience> getExperienceList()
+	{
+		return experienceList;
+	}
+
+
+	public void setExperienceList(ArrayList<Experience> experienceList)
+	{
+		this.experienceList = experienceList;
+	}
+
+
+	public ArrayList<Education> getEducationList()
+	{
+		return educationList;
+	}
+
+	public void setEducationList(ArrayList<Education> educationList)
+	{
+		this.educationList = educationList;
+	}
+
+
+
+	public ArrayList<Achievement> getAchievementList()
+	{
+		return achievementList;
+	}
+
+
+
+	public void setAchievementList(ArrayList<Achievement> achievementList)
+	{
+		this.achievementList = achievementList;
+	}
+
+
+
+	public ArrayList<Skill> getSkillList()
+	{
+		return skillList;
+	}
+
+
+
+	public void setSkillList(ArrayList<Skill> skillList)
+	{
+		this.skillList = skillList;
 	}
 }

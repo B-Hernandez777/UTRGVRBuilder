@@ -1,10 +1,13 @@
 package vaqpack.model.resume;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class Experience
+public class Experience implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String description;
 	private LocalDate startDate;

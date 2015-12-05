@@ -1,10 +1,12 @@
 package vaqpack.controller.resume;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Skill;
 import vaqpack.model.resume.SkillCell;
@@ -40,7 +43,8 @@ public class SkillController implements Initializable
 	
 	@FXML ListView<Skill> skillListView;
 	
-	private ObservableList<Skill> skillList = Context.getInstance().currentResume().getSkillList();
+	private ObservableList<Skill> skillList = FXCollections.observableArrayList();
+	private ArrayList<Skill> globalSkill= Context.getInstance().currentResume().getSkillList();
 	private boolean expanded;
 	
 	
@@ -141,6 +145,10 @@ public class SkillController implements Initializable
 		expanded = false;
 		
 		//Connect Global Resume list with current list
+		if(globalSkill != null)
+			for(int i = 0; i < globalSkill.size(); i++)
+				skillList.add(globalSkill.get(i));
+		
 		 skillListView.setItems(skillList);
 		 
 		 //Connect to Custom Cell
@@ -184,7 +192,16 @@ public class SkillController implements Initializable
 	}
 
 	
-
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalSkill= new ArrayList<Skill>();
+		globalSkill.addAll(skillList);
+		 
+		Context.getInstance().currentResume().setSkillList(globalSkill);
+		
+		
+	}
 
 
 }
