@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Personal implements Serializable
 {
-
+	
 	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
@@ -15,12 +15,13 @@ public class Personal implements Serializable
 	private String state;
 	private String zipCode;
 		
-	public Personal(String firstName, String lastName, String phoneNumber, String address, String city, String state,
+	public Personal(String firstName, String lastName, String phoneNumber, String email, String address, String city, String state,
 			String zipCode)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
+		this.email = email;
 		this.address = address;
 		this.city = city;
 		this.state = state;
@@ -29,6 +30,13 @@ public class Personal implements Serializable
 	
 	
 	
+	public Personal(String email)
+	{
+		this.email = email;
+	}
+
+
+
 	public String getFirstName()
 	{
 		return firstName;

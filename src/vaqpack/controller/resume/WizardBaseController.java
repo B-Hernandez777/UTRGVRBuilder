@@ -113,18 +113,18 @@ public class WizardBaseController implements Initializable
 		 skillButton.getStyleClass().removeAll();
 		 skillButtonLabel.getStyleClass().removeAll();
 		 
-		 personalButton.getStyleClass().add("stepper-button");
-		 personalButtonLabel.getStyleClass().add("stepper-label");
-		 objectiveButton.getStyleClass().add("stepper-button");
-		 objectiveButtonLabel.getStyleClass().add("stepper-label");
-		 experienceButton.getStyleClass().add("stepper-button");
-		 experienceButtonLabel.getStyleClass().add("stepper-label");
-		 educationButton.getStyleClass().add("stepper-button");
-		 educationButtonLabel.getStyleClass().add("stepper-label");
-		 achievementButton.getStyleClass().add("stepper-button");
-		 achievementButtonLabel.getStyleClass().add("stepper-label");
-		 skillButton.getStyleClass().add("stepper-button");
-		 skillButtonLabel.getStyleClass().add("stepper-label");
+//		 personalButton.getStyleClass().add("stepper-button");
+//		 personalButtonLabel.getStyleClass().add("stepper-label");
+//		 objectiveButton.getStyleClass().add("stepper-button");
+//		 objectiveButtonLabel.getStyleClass().add("stepper-label");
+//		 experienceButton.getStyleClass().add("stepper-button");
+//		 experienceButtonLabel.getStyleClass().add("stepper-label");
+//		 educationButton.getStyleClass().add("stepper-button");
+//		 educationButtonLabel.getStyleClass().add("stepper-label");
+//		 achievementButton.getStyleClass().add("stepper-button");
+//		 achievementButtonLabel.getStyleClass().add("stepper-label");
+//		 skillButton.getStyleClass().add("stepper-button");
+//		 skillButtonLabel.getStyleClass().add("stepper-label");
 
 	}
 

@@ -10,11 +10,9 @@
 
 <AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.resume.PersonalController">
    <children>
-	<FlowPane fx:id="personalBackground" alignment="CENTER"
-		columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+	<FlowPane fx:id="personalBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
 		<children>
-			<VBox fx:id="personalCard" opacity="0" prefHeight="309.0"
-				prefWidth="400.0" styleClass="card">
+			<VBox fx:id="personalCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
 				<children>
 					<Label styleClass="card-title" text="Personal" />
 					<VBox fx:id="Personal" prefHeight="247.0" prefWidth="568.0">
@@ -64,21 +62,19 @@
 									<TextField fx:id="addressField" maxWidth="260.0" promptText="Address" />
 								</children>
 							</HBox>
-							<Label fx:id="addressErrorLabel" contentDisplay="RIGHT"
-								graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0"
-								styleClass="control-error-label" text="Please Enter Address"
-								visible="false">
+							<Label fx:id="addressErrorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Address" visible="false">
 								<graphic>
-									<Label contentDisplay="RIGHT" graphicTextGap="0.0"
-										prefWidth="189.0" styleClass="icon-button-error" text="" />
+									<Label contentDisplay="RIGHT" graphicTextGap="0.0" prefWidth="189.0" styleClass="icon-button-error" text="" />
 								</graphic>
 							</Label>
 							<HBox prefWidth="200.0" spacing="16.0">
 								<children>
-									<TextField fx:id="cityTextField" promptText="City" />
-									<TextField fx:id="stateTextField" maxWidth="42.0"
-										promptText="State" />
-									<TextField fx:id="zipCodeTextField" promptText="Zip Code" />
+									<TextField fx:id="cityTextField" prefHeight="35.0" promptText="City" />
+                              		<ChoiceBox fx:id="stateBox" prefWidth="150.0">
+                                 <padding>
+                                    <Insets top="-6.0" />
+                                 </padding></ChoiceBox>
+									<TextField fx:id="zipCodeTextField" prefHeight="35.0" promptText="Zip Code" />
 								</children>
 								<padding>
 									<Insets bottom="8.0" />
@@ -88,9 +84,7 @@
 					</VBox>
 					<HBox alignment="BASELINE_RIGHT">
 						<children>
-							<Button fx:id="saveButton" mnemonicParsing="false"
-								onAction="#saveButtonClicked" prefHeight="36.0" prefWidth="88.0"
-								styleClass="card-button" text="SAVE" />
+							<Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="SAVE" />
 						</children>
 						<VBox.margin>
 							<Insets top="16.0" />

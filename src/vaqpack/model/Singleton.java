@@ -9,7 +9,7 @@ public class Singleton
 		        return instance;
 		    }
 
-		    private Vaqpack vaqpack = new Vaqpack();
+		    private Vaqpack vaqpack = new Vaqpack("");
 
 		    public Vaqpack currentVaqpack() {
 		        return vaqpack;

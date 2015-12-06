@@ -11,10 +11,6 @@ public class CoverLetter implements Serializable
 	private ArrayList<Paragraph> paragraphList;
 	private CoverLetterStyle style;
 
-	
-	
-	
-
 	public CoverLetterStyle getStyle()
 	{
 		return style;

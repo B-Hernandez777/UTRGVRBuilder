@@ -41,11 +41,11 @@ public class PersonalTest
 	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException
 	{
 		
-		 vaqpack = new Vaqpack();
+		 vaqpack = new Vaqpack("persona@hotmail.com");
 		
 		
-		resume = new Resume("");
-		Personal personal = new Personal ("aName", "aLastname", "(956)555-5555", "1234 drive" , "Brownsville", "Texas", "78520");
+		resume = new Resume("person@hotmail.com");
+		Personal personal = new Personal ("aName", "aLastname", "(956)555-5555", resume.getPersonal().getEmail(), "1234 drive" , "Brownsville", "Texas", "78520");
 		resume.setPersonal(personal);
 		
 		Objective objective = new Objective("This will be the test Objective for my fake job ");
@@ -55,7 +55,7 @@ public class PersonalTest
 		 resume.setExperienceList((ArrayList<Experience>) experienceList);
 		 
 		 ArrayList<Education> educationList = new ArrayList<Education>();
-		 educationList.add(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
+		 educationList.add(new Education("MIT", "Masters in Science", "Boston", "Massachusetts", 4.0, null, null));
 		 resume.setEducationList(educationList);
 		 
 		 ArrayList<Achievement> achievementList = new ArrayList<Achievement>();
@@ -90,13 +90,13 @@ public class PersonalTest
 		// System.out.println(resume.getAchivementList());
 		//System.out.println(resume.getSkillList());
 		
-		//String xml = resume.toString().replaceAll("[\\[\\],]","");
+		String xml = resume.toString().replaceAll("[\\[\\],]","");
 		
 		vaqpack.setResume(resume);
 		new SQL().updateDB(vaqpack);
 		saveFile();
 		
-		//System.out.println(xml);
+		System.out.println(xml);
 		
 	}
 }

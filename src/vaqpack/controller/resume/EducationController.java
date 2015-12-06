@@ -2,6 +2,7 @@ package vaqpack.controller.resume;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -12,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -24,10 +26,8 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.model.Singleton;
-import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Education;
 import vaqpack.model.resume.EducationCell;
-import vaqpack.model.resume.Experience;
 
 public class EducationController implements Initializable
 
@@ -40,7 +40,7 @@ public class EducationController implements Initializable
 	@FXML TextField educationNameField;
 	@FXML Label educationNameErrorLabel;
 	@FXML TextField educationCityTextField;
-	@FXML TextField educationStateTextField;
+	@FXML ChoiceBox<String> educationStateBox;
 	@FXML Label degreeLabel;
 	@FXML TextField degreeTextField;
 	@FXML Label degreeErrorLabel;
@@ -55,6 +55,8 @@ public class EducationController implements Initializable
 //	
 	private ObservableList<Education> educationList = FXCollections.observableArrayList();
 	private ArrayList<Education> globalEducation = Singleton.getInstance().currentVaqpack().getResume().getEducationList();
+	private ArrayList<String> states =  new ArrayList<>(Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
+	private ObservableList<String> state = FXCollections.observableArrayList();
 	private boolean expanded;
 	
 	
@@ -70,7 +72,7 @@ public class EducationController implements Initializable
 		
 		educationNameField.setText("");
 		educationCityTextField.setText("");
-		educationStateTextField.setText("");
+		educationStateBox.getSelectionModel().clearSelection();
 		degreeTextField.setText("");
 		gpaTextField.setText("");
 		startDate.setValue(null);
@@ -91,7 +93,7 @@ public class EducationController implements Initializable
 				educationNameField.getText(),
 				degreeTextField.getText(),
 				educationCityTextField.getText(),
-				educationStateTextField.getText(),
+				educationStateBox.getSelectionModel().selectedItemProperty().toString(),
 				Double.parseDouble(gpaTextField.getText()),
 				startDate.getValue(),
 				endDate.getValue()
@@ -117,6 +119,8 @@ public class EducationController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
+		state.setAll(states);
+		educationStateBox.setItems(state);
 		 loadList();
 		 validate();
 
@@ -187,6 +191,8 @@ public class EducationController implements Initializable
 	        	{	        		
 	    			educationBackground.getChildren().add(0, educationCard);
 	    			expanded = true;
+	    		
+	    			
 	        	}
 	        	
 	        	if(!educationList.isEmpty())
@@ -194,7 +200,7 @@ public class EducationController implements Initializable
 	        		Education selected = educationListView.getSelectionModel().getSelectedItem();
 	        		educationNameField.setText(selected.getInstitutionName());
 	        		educationCityTextField.setText(selected.getCity());
-	        		educationStateTextField.setText(selected.getState());
+	        		educationStateBox.getSelectionModel().select(selected.getState());
 	        		degreeTextField.setText(selected.getDegree());
 	        		gpaTextField.setText(selected.getGpa()+"");
 	        		startDate.setValue(selected.getStartDate());

@@ -13,9 +13,9 @@ public class Vaqpack implements Serializable
 	private CoverLetter coverLetter;
 	private BusinessCard businesscard;
 	
-	public Vaqpack()
+	public Vaqpack(String email)
 	{
-		resume = new Resume(null);
+		resume = new Resume(email);
 	}
 	
 	

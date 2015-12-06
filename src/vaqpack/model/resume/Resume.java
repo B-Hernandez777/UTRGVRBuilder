@@ -18,8 +18,9 @@ public class Resume implements Serializable
     private ArrayList<Skill> skillList;
     private ResumeStyle style;
     
-    public Resume(String name)
+    public Resume(String email)
 	{
+    	personal = new Personal(email);
 	}
 
 

@@ -14,7 +14,7 @@
          <children>
             <VBox fx:id="fieldsCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
                <children>
-                  <Label styleClass="card-title" text="Cover Letter Fields" />
+                  <Label styleClass="card-title" text="Cover Letter" />
                   <VBox fx:id="Fields" prefHeight="247.0" prefWidth="568.0" spacing="8.0">
                            <children>
                               <TextField fx:id="contactNameField" maxWidth="260.0" promptText="Contact Name" />

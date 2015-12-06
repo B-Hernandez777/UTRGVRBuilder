@@ -51,6 +51,7 @@ public class ObjectiveController implements Initializable
 	public void saveButtonClicked()
 	{
 		objective = new Objective(objectiveTextArea.getText());
+		Singleton.getInstance().currentVaqpack().getResume().setObjective(objective);
 	}
 	
 

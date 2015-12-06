@@ -73,8 +73,8 @@ public class LoginController implements Initializable
 			{
 				Vaqpack vaqpack = (Vaqpack)input.readObject();
 				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
-				System.out.println(Singleton.getInstance().currentVaqpack().getResume());
-				System.out.println(vaqpack.getResume());
+				Singleton.getInstance().currentVaqpack().setCoverLetter(vaqpack.getCoverLetter());
+			
 				animateOut();	
 			}}
 		}

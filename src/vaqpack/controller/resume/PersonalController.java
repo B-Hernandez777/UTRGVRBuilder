@@ -1,21 +1,25 @@
 package vaqpack.controller.resume;
 
+
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import jdk.nashorn.internal.runtime.Context;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Personal;
 
@@ -38,13 +42,16 @@ public class PersonalController implements Initializable
 	@FXML TextField addressField;
 	@FXML Label addressErrorLabel;
 	@FXML TextField cityTextField;
-	@FXML TextField stateTextField;
+	@FXML ChoiceBox<String> stateBox;
 	@FXML TextField zipCodeTextField;
 
 	@FXML Button addButton;
 
 	private Personal personal = Singleton.getInstance().currentVaqpack().getResume().getPersonal();
-
+	
+	
+	private ArrayList<String> states =  new ArrayList<>(Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
+	private ObservableList<String> state = FXCollections.observableArrayList();
 	
 
 	
@@ -56,13 +63,15 @@ public class PersonalController implements Initializable
 				  firstNameField.getText(),
 				  lastNameField.getText(),
 				  phoneNumberField.getText(),
+				  personal.getEmail(),
 				  addressField.getText(),
 				  cityTextField.getText(),
-				  stateTextField.getText(),
+				  stateBox.getSelectionModel().getSelectedItem().toString(),
 				  zipCodeTextField.getText()
 				
 				);
 		
+		Singleton.getInstance().currentVaqpack().getResume().setPersonal(personal);
 	}
 	
 
@@ -70,6 +79,8 @@ public class PersonalController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
+		state.setAll(states);
+		stateBox.setItems(state);
 		animateIn();
 		validate();
 		loadInformation();
@@ -78,12 +89,14 @@ public class PersonalController implements Initializable
 
 	private void loadInformation()
 	{
+		
+			
 		  firstNameField.setText(personal.getFirstName());
 		  lastNameField.setText(personal.getLastName());
 		  phoneNumberField.setText(personal.getPhoneNumber());
 		  addressField.setText(personal.getAddress());
 		  cityTextField.setText(personal.getCity());
-		  stateTextField.setText(personal.getState());
+		  stateBox.getSelectionModel().select(personal.getState());
 		  zipCodeTextField.setText(personal.getZipCode());
 		
 	}
