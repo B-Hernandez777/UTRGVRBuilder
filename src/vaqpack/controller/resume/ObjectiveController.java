@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
+import vaqpack.model.resume.Objective;
 
 
 public class ObjectiveController implements Initializable
@@ -16,15 +18,21 @@ public class ObjectiveController implements Initializable
 
 	@FXML VBox objectiveCard;
 	@FXML TextArea objectiveTextArea;
+	private Objective objective = Singleton.getInstance().currentVaqpack().getResume().getObjective();
 	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
 		animateIn();		
-		
-		//objectiveTextArea.setEditable(true);
+		loadInformation();
 		objectiveTextArea.setWrapText(true);
+	}
+
+	private void loadInformation()
+	{
+		objectiveTextArea.setText(objective.getObjective());
+		
 	}
 
 	private void animateIn()
@@ -37,6 +45,12 @@ public class ObjectiveController implements Initializable
 		tt.setFromX(400f);
 		tt.setToX(0);
 		tt.play();
+	}
+	
+	@FXML
+	public void saveButtonClicked()
+	{
+		objective = new Objective(objectiveTextArea.getText());
 	}
 	
 

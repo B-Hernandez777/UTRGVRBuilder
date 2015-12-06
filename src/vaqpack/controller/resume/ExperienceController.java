@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Experience;
 import vaqpack.model.resume.ExperienceCell;
@@ -52,7 +53,7 @@ public class ExperienceController implements Initializable
 	@FXML ListView<Experience> experienceListView;
 	
 	private  ObservableList<Experience> experienceList = FXCollections.observableArrayList();
-	private ArrayList<Experience> globalExperience = Context.getInstance().currentResume().getExperienceList();
+	private ArrayList<Experience> globalExperience = Singleton.getInstance().currentVaqpack().getResume().getExperienceList();
 	private boolean expanded;
 	
 	
@@ -216,7 +217,7 @@ public class ExperienceController implements Initializable
 		globalExperience = new ArrayList<Experience>();
 		globalExperience.addAll(experienceList);
 		 
-		 Context.getInstance().currentResume().setExperienceList(globalExperience);
+		 Singleton.getInstance().currentVaqpack().getResume().setExperienceList(globalExperience);
 		
 		
 	}

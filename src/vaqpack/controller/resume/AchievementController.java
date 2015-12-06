@@ -23,6 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.AchievementCell;
 import vaqpack.model.resume.Context;
@@ -49,7 +50,7 @@ public class AchievementController implements Initializable
 	@FXML ListView<Achievement> achievementListView;
 	
 	private ObservableList<Achievement> achievementList = FXCollections.observableArrayList();
-	private ArrayList<Achievement> globalAchievement = Context.getInstance().currentResume().getAchievementList();
+	private ArrayList<Achievement> globalAchievement = Singleton.getInstance().currentVaqpack().getResume().getAchievementList();
 	private boolean expanded;
 	
 	
@@ -202,7 +203,7 @@ public class AchievementController implements Initializable
 		globalAchievement= new ArrayList<Achievement>();
 		globalAchievement.addAll(achievementList);
 		 
-		Context.getInstance().currentResume().setAchievementList(globalAchievement);
+		Singleton.getInstance().currentVaqpack().getResume().setAchievementList(globalAchievement);
 		
 		
 	}

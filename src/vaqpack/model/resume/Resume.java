@@ -112,8 +112,6 @@ public class Resume implements Serializable
 		return skillList;
 	}
 
-
-
 	public void setSkillList(ArrayList<Skill> skillList)
 	{
 		this.skillList = skillList;

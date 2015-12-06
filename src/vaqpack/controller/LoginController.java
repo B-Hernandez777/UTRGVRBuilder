@@ -1,17 +1,16 @@
 package vaqpack.controller;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import sun.applet.Main;
-import vaqpack.model.resume.Resume;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,7 +18,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -27,6 +25,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
+import vaqpack.model.Vaqpack;
 
 
 
@@ -54,7 +54,7 @@ public class LoginController implements Initializable
 	
 	
 	
-	@FXML private void loginButtonClicked(ActionEvent event) throws IOException
+	@FXML private void loginButtonClicked(ActionEvent event) throws IOException, ClassNotFoundException
 	{
 		if(event.getSource().equals(registerButton))
 			setRegisterCard();
@@ -68,7 +68,15 @@ public class LoginController implements Initializable
 			
 		}
 		else
-			animateOut();	
+		{
+			try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("1.dat"));)
+			{
+				Vaqpack vaqpack = (Vaqpack)input.readObject();
+				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
+				System.out.println(Singleton.getInstance().currentVaqpack().getResume());
+				System.out.println(vaqpack.getResume());
+				animateOut();	
+			}}
 		}
 		
 	}

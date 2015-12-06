@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.model.Paragraph;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.ResumeStyle;
 import vaqpack.model.resume.Skill;
@@ -74,7 +75,7 @@ public class ResumeStyleController implements Initializable
 	        	if(!styleList.isEmpty())
 	        	{
 	        		ResumeStyle selected = styleListView.getSelectionModel().getSelectedItem();
-	        		Context.getInstance().currentResume().setStyle(selected);
+	        		Singleton.getInstance().currentVaqpack().getResume().setStyle(selected);
 	        	}
 	        	animateIn();
 	        });
@@ -96,7 +97,7 @@ public class ResumeStyleController implements Initializable
 
 	@FXML public void saveButtonClicked() 
 	{
-		
+		Singleton.getInstance().getInstance().currentVaqpack().getResume().setStyle(styleListView.getSelectionModel().getSelectedItem());
 	}
 
 	

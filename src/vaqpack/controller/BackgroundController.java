@@ -177,17 +177,6 @@ public class BackgroundController implements Initializable
 		     });
 		   
 		   
-		});
-			
-		
-
-		
+		});	
 	}
-
-
-
-	
-    
-    
-
 }

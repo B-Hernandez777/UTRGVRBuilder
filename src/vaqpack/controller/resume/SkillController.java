@@ -22,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Skill;
@@ -44,7 +45,7 @@ public class SkillController implements Initializable
 	@FXML ListView<Skill> skillListView;
 	
 	private ObservableList<Skill> skillList = FXCollections.observableArrayList();
-	private ArrayList<Skill> globalSkill= Context.getInstance().currentResume().getSkillList();
+	private ArrayList<Skill> globalSkill= Singleton.getInstance().currentVaqpack().getResume().getSkillList();
 	private boolean expanded;
 	
 	
@@ -198,7 +199,7 @@ public class SkillController implements Initializable
 		globalSkill= new ArrayList<Skill>();
 		globalSkill.addAll(skillList);
 		 
-		Context.getInstance().currentResume().setSkillList(globalSkill);
+		Singleton.getInstance().currentVaqpack().getResume().setSkillList(globalSkill);
 		
 		
 	}

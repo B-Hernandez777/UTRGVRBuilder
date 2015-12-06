@@ -54,7 +54,7 @@ public class EducationController implements Initializable
 	@FXML ListView<Education> educationListView;
 //	
 	private ObservableList<Education> educationList = FXCollections.observableArrayList();
-	private ArrayList<Education> globalEducation = Context.getInstance().currentResume().getEducationList();
+	private ArrayList<Education> globalEducation = Singleton.getInstance().currentVaqpack().getResume().getEducationList();
 	private boolean expanded;
 	
 	

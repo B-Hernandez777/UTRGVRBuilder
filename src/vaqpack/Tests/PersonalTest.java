@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
-import javafx.collections.ObservableList;
 import vaqpack.model.Vaqpack;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.Context;
@@ -53,6 +50,7 @@ public class PersonalTest
 		
 		 ArrayList<Experience> experienceList = Context.getInstance().currentResume().getExperienceList();
 		 resume.setExperienceList((ArrayList<Experience>) experienceList);
+		 
 		 ArrayList<Education> educationList = new ArrayList<Education>();
 		 educationList.add(new Education("MIT", "Masters in Science", "Boston", "Ma", 4.0, null, null));
 		 resume.setEducationList(educationList);

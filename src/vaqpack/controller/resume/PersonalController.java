@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import jdk.nashorn.internal.runtime.Context;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Personal;
 
 public class PersonalController implements Initializable
@@ -42,7 +43,7 @@ public class PersonalController implements Initializable
 
 	@FXML Button addButton;
 
-	private Personal personal;
+	private Personal personal = Singleton.getInstance().currentVaqpack().getResume().getPersonal();
 
 	
 
@@ -50,9 +51,7 @@ public class PersonalController implements Initializable
 	@FXML public void saveButtonClicked() 
 	{
 		
-		
-		
-		this.personal = new Personal(
+		personal = new Personal(
 
 				  firstNameField.getText(),
 				  lastNameField.getText(),
@@ -64,8 +63,6 @@ public class PersonalController implements Initializable
 				
 				);
 		
-		
-
 	}
 	
 
@@ -75,8 +72,23 @@ public class PersonalController implements Initializable
 	{
 		animateIn();
 		validate();
+		loadInformation();
 
 	}
+
+	private void loadInformation()
+	{
+		  firstNameField.setText(personal.getFirstName());
+		  lastNameField.setText(personal.getLastName());
+		  phoneNumberField.setText(personal.getPhoneNumber());
+		  addressField.setText(personal.getAddress());
+		  cityTextField.setText(personal.getCity());
+		  stateTextField.setText(personal.getState());
+		  zipCodeTextField.setText(personal.getZipCode());
+		
+	}
+
+
 
 	private void validate()
 	{
