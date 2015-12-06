@@ -7,6 +7,9 @@ import java.io.ObjectOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vaqpack.model.CoverLetter;
+import vaqpack.model.CoverLetterFields;
+import vaqpack.model.Paragraph;
 import vaqpack.model.Vaqpack;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.Context;
@@ -57,16 +60,29 @@ public class PersonalTest
 		 
 		 ArrayList<Achievement> achievementList = new ArrayList<Achievement>();
 		 achievementList.add(new Achievement("Presidents List"));
-		 achievementList.add(new Achievement("Medal of Honor"));
-//		 
+		 achievementList.add(new Achievement("Medal of Honor"));	 
 		 
 		 ArrayList<Skill> skillList = new ArrayList<Skill>();
 		skillList.add(new Skill("Can heat ramen in under a minute"));
 		skillList.add(new Skill("Fastest cook at McDonalds"));
 		 resume.setAchievementList(achievementList);
-//		 
+	 
 		 resume.setSkillList(skillList);
-//		 
+		 
+		 CoverLetter coverLetter = new CoverLetter();
+		 
+		 CoverLetterFields fields = new CoverLetterFields("Person", "Recruiter", "google", "3847 Dr", "Richmond", "California", "78555", "2F3adr", "Software Developer");
+		 ArrayList<CoverLetterFields> fieldsList = new ArrayList<CoverLetterFields>();
+		 fieldsList.add(fields);
+		 coverLetter.setCoverLetterList(fieldsList);
+		 
+		 Paragraph paragraph = new Paragraph("laskdjflkasjd;fka"); 
+		 ArrayList<Paragraph> paragraphList = new ArrayList<Paragraph>();
+		 paragraphList.add(paragraph);
+		 coverLetter.setParagraphList(paragraphList);
+		 
+		 vaqpack.setCoverLetter(coverLetter);
+	 
 		//System.out.print(resume.getPersonal());
 		//System.out.print(resume.getObjective());
 		//System.out.print(resume.getExperienceList());

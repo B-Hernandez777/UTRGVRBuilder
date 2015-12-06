@@ -40,7 +40,7 @@ public class CoverLetterParagraphController implements Initializable
 	@FXML ListView<Paragraph> paragraphListView;
 
 	private  ObservableList<Paragraph> paragraphList = FXCollections.observableArrayList();
-	private ArrayList<Paragraph> globalParagraphs = new ArrayList<Paragraph>();
+	private ArrayList<Paragraph> globalParagraphs = Singleton.getInstance().currentVaqpack().getCoverLetter().getParagraphList();
 		private boolean expanded;
 		
 		@FXML
@@ -169,7 +169,7 @@ public class CoverLetterParagraphController implements Initializable
 		globalParagraphs= new ArrayList<Paragraph>();
 		globalParagraphs.addAll(paragraphList);
 		 
-		//Context.getInstance().currentResume().setSkillList(globalSkill);
+		Singleton.getInstance().currentVaqpack().getCoverLetter().setParagraphList(globalParagraphs);
 		
 		
 	}

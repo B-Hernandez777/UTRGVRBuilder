@@ -1,7 +1,11 @@
 package vaqpack.model;
 
-public class Paragraph
+import java.io.Serializable;
+
+public class Paragraph implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String paragraph;
 
 	public String getParagraph()

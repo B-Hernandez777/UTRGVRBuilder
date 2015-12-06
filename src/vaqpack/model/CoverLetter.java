@@ -1,9 +1,12 @@
 package vaqpack.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CoverLetter
+public class CoverLetter implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<CoverLetterFields> coverLetterList;
 	private ArrayList<Paragraph> paragraphList;
 	private CoverLetterStyle style;

@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import vaqpack.model.CoverLetter;
 import vaqpack.model.CoverLetterStyle;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.ResumeStyle;
 
@@ -71,7 +72,7 @@ public class CoverLetterStyleController implements Initializable
 	        	if(!styleList.isEmpty())
 	        	{
 	        		CoverLetterStyle selected = styleListView.getSelectionModel().getSelectedItem();
-	        		//CoverLetter.setStyle(selected);
+	        		Singleton.getInstance().currentVaqpack().getCoverLetter().setStyle(selected);;
 	        	}
 	        	animateIn();
 	        });
@@ -88,7 +89,10 @@ public class CoverLetterStyleController implements Initializable
 		tt.setToX(0);
 		tt.play();
 	}
+	
+	
 
+	
 	
 
 

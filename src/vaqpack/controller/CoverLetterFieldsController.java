@@ -21,6 +21,7 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.model.CoverLetterFields;
 import vaqpack.model.CoverLetterFieldsCell;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Skill;
 
@@ -49,7 +50,7 @@ public class CoverLetterFieldsController implements Initializable
 	@FXML ListView<CoverLetterFields> fieldsListView;
 	
 	private ObservableList<CoverLetterFields> fieldsList = FXCollections.observableArrayList();
-	private ArrayList<CoverLetterFields> globalFields = new ArrayList<CoverLetterFields>();
+	private ArrayList<CoverLetterFields> globalFields = Singleton.getInstance().currentVaqpack().getCoverLetter().getCoverLetterList();
 	
 	
 	private boolean expanded;
@@ -192,7 +193,7 @@ public class CoverLetterFieldsController implements Initializable
 		globalFields= new ArrayList<CoverLetterFields>();
 		globalFields.addAll(fieldsList);
 		 
-		//Context.getInstance().currentResume().setSkillList(globalSkill);
+		Singleton.getInstance().currentVaqpack().getCoverLetter().setCoverLetterList(globalFields);
 		
 		
 	}

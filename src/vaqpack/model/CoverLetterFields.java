@@ -1,7 +1,11 @@
 package vaqpack.model;
 
-public class CoverLetterFields
+import java.io.Serializable;
+
+public class CoverLetterFields implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	private String contactName;
 	private String contactTitle;
 	private String organizationName;
