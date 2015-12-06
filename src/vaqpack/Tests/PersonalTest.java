@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -37,7 +38,7 @@ public class PersonalTest
 	}
 
 	
-	public static void main(String[] args) throws FileNotFoundException, IOException
+	public static void main(String[] args) throws FileNotFoundException, IOException, SQLException
 	{
 		
 		 vaqpack = new Vaqpack();
@@ -78,6 +79,7 @@ public class PersonalTest
 		//String xml = resume.toString().replaceAll("[\\[\\],]","");
 		
 		vaqpack.setResume(resume);
+		new SQL().updateDB(vaqpack);
 		saveFile();
 		
 		//System.out.println(xml);
