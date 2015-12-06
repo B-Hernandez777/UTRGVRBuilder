@@ -1,5 +1,6 @@
 package vaqpack.controller;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -20,6 +21,8 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.model.CoverLetterFields;
 import vaqpack.model.CoverLetterFieldsCell;
+import vaqpack.model.resume.Context;
+import vaqpack.model.resume.Skill;
 
 public class CoverLetterFieldsController implements Initializable
 
@@ -44,7 +47,11 @@ public class CoverLetterFieldsController implements Initializable
 	@FXML Button newActionButton;
 	
 	@FXML ListView<CoverLetterFields> fieldsListView;
-	private ObservableList<CoverLetterFields> fieldsList = FXCollections.observableArrayList(new CoverLetterFields("a;lskdjf;lkasjdf;l.", "as", "as", "sa", "sa", "as", "as", "as", "as"));
+	
+	private ObservableList<CoverLetterFields> fieldsList = FXCollections.observableArrayList();
+	private ArrayList<CoverLetterFields> globalFields = new ArrayList<CoverLetterFields>();
+	
+	
 	private boolean expanded;
 	
 	
@@ -125,6 +132,9 @@ public class CoverLetterFieldsController implements Initializable
 		expanded = false;
 		
 		//Connect Global Resume list with current list
+		if(globalFields!= null)
+			for(int i = 0; i < globalFields.size(); i++)
+				fieldsList.add(globalFields.get(i));
 		 fieldsListView.setItems(fieldsList);
 		 
 		 //Connect to Custom Cell
@@ -175,6 +185,17 @@ public class CoverLetterFieldsController implements Initializable
 		tt.play();
 	}
 
+
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalFields= new ArrayList<CoverLetterFields>();
+		globalFields.addAll(fieldsList);
+		 
+		//Context.getInstance().currentResume().setSkillList(globalSkill);
+		
+		
+	}
 	
 
 

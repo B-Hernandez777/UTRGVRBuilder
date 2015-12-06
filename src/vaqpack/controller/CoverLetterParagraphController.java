@@ -1,5 +1,6 @@
 package vaqpack.controller;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -18,9 +19,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.CoverLetterFields;
 import vaqpack.model.Paragraph;
 import vaqpack.model.ParagraphCell;
 import vaqpack.model.Singleton;
+import vaqpack.model.resume.Context;
+import vaqpack.model.resume.Experience;
 
 
 
@@ -35,7 +39,8 @@ public class CoverLetterParagraphController implements Initializable
 	@FXML Button newActionButton;
 	@FXML ListView<Paragraph> paragraphListView;
 
-		private ObservableList<Paragraph> paragraphList = FXCollections.observableArrayList(new Paragraph("a;lskdjf;lkasjdf;l."));
+	private  ObservableList<Paragraph> paragraphList = FXCollections.observableArrayList();
+	private ArrayList<Paragraph> globalParagraphs = new ArrayList<Paragraph>();
 		private boolean expanded;
 		
 		@FXML
@@ -96,6 +101,9 @@ public class CoverLetterParagraphController implements Initializable
 			expanded = false;
 			
 			//Connect Global Resume list with current list
+			if(globalParagraphs!= null)
+				for(int i = 0; i < globalParagraphs.size(); i++)
+					paragraphList.add(globalParagraphs.get(i));
 			 paragraphListView.setItems(paragraphList);
 			 
 			 //Connect to Custom Cell
@@ -153,6 +161,17 @@ public class CoverLetterParagraphController implements Initializable
 		tt.setFromX(400f);
 		tt.setToX(0);
 		tt.play();
+	}
+	
+	@FXML public void saveButtonClicked() {
+		
+		//globalExperience.clear();
+		globalParagraphs= new ArrayList<Paragraph>();
+		globalParagraphs.addAll(paragraphList);
+		 
+		//Context.getInstance().currentResume().setSkillList(globalSkill);
+		
+		
 	}
 
 }

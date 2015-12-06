@@ -23,6 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Education;
 import vaqpack.model.resume.EducationCell;
@@ -222,7 +223,7 @@ public class EducationController implements Initializable
 		globalEducation= new ArrayList<Education>();
 		globalEducation.addAll(educationList);
 		 
-		 Context.getInstance().currentResume().setEducationList(globalEducation);
+		 Singleton.getInstance().currentVaqpack().getResume().setEducationList(globalEducation);
 		
 		
 	}

@@ -12,6 +12,21 @@ public class Vaqpack implements Serializable
 	private Resume resume;
 	private CoverLetter coverLetter;
 	private BusinessCard businesscard;
+	
+	public Vaqpack()
+	{
+		resume = new Resume(null);
+	}
+	
+	
+	public Vaqpack(Resume resume, CoverLetter coverLetter,
+			BusinessCard businesscard, Website website)
+	{
+		this.resume = resume;
+		this.coverLetter = coverLetter;
+		this.businesscard = businesscard;
+		this.website = website;
+	}
 	private Website website;
 	
 	public Resume getResume()

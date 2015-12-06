@@ -1,31 +1,16 @@
 package vaqpack.model;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 
 public class CoverLetter
 {
-	private ObservableList<CoverLetterFields> coverLetterList;
-	private ObservableList<Paragraph> paragraphList;
+	private ArrayList<CoverLetterFields> coverLetterList;
+	private ArrayList<Paragraph> paragraphList;
 	private CoverLetterStyle style;
 
 	
 	
-	public ObservableList<Paragraph> getParagraphList()
-	{
-		return paragraphList;
-	}
-	public void setParagraphList(ObservableList<Paragraph> paragraphList)
-	{
-		this.paragraphList = paragraphList;
-	}
-	public ObservableList<CoverLetterFields> getCoverLetterList()
-	{
-		return coverLetterList;
-	}
-	public void setCoverLetterList(ObservableList<CoverLetterFields> coverLetterList)
-	{
-		this.coverLetterList = coverLetterList;
-	}
+	
 
 	public CoverLetterStyle getStyle()
 	{
@@ -34,5 +19,21 @@ public class CoverLetter
 	public void setStyle(CoverLetterStyle style)
 	{
 		this.style = style;
+	}
+	public ArrayList<CoverLetterFields> getCoverLetterList()
+	{
+		return coverLetterList;
+	}
+	public void setCoverLetterList(ArrayList<CoverLetterFields> coverLetterList)
+	{
+		this.coverLetterList = coverLetterList;
+	}
+	public ArrayList<Paragraph> getParagraphList()
+	{
+		return paragraphList;
+	}
+	public void setParagraphList(ArrayList<Paragraph> paragraphList)
+	{
+		this.paragraphList = paragraphList;
 	}
 }
