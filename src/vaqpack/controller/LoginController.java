@@ -68,6 +68,7 @@ public class LoginController implements Initializable
 			
 		}
 		else
+		// Method call to database to check and load if email exists
 		{
 			try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("1.dat"));)
 			{
@@ -75,8 +76,10 @@ public class LoginController implements Initializable
 				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
 				Singleton.getInstance().currentVaqpack().setCoverLetter(vaqpack.getCoverLetter());
 			
+				//load the scene
 				animateOut();	
 			}}
+		// Create method that displays method does not exist
 		}
 		
 	}
@@ -96,10 +99,14 @@ public class LoginController implements Initializable
 		registerButton.setDefaultButton(true);
 		loginButton.setOnAction(e->
 		{
+			//set login 
 			setLoginCard();
 		});
 		registerButton.setOnAction(e->
 		{
+			//method to database to register user
+			//need to validate that users password works
+			// need to display if registered successful
 			
 		});
 	}

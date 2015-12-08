@@ -85,8 +85,19 @@ public class EducationController implements Initializable
 		
 		boolean added=false;
 		
+		//validate Gpa
 		if(gpaTextField.getText().isEmpty())
-			gpaTextField.setText(0.0+"");
+			gpaTextField.setText("");
+		try
+		{
+		  Double.parseDouble(gpaTextField.getText());
+		}
+		catch(NumberFormatException e)
+		{
+		  //not a double
+			gpaTextField.setText("");
+		}
+		
 		
 		Education education = new Education
 		(
@@ -94,7 +105,7 @@ public class EducationController implements Initializable
 				degreeTextField.getText(),
 				educationCityTextField.getText(),
 				educationStateBox.getSelectionModel().selectedItemProperty().toString(),
-				Double.parseDouble(gpaTextField.getText()),
+				gpaTextField.getText(),
 				startDate.getValue(),
 				endDate.getValue()
 		);

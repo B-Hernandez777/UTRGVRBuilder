@@ -11,12 +11,12 @@ public class Education implements Serializable
 	private String degree;
 	private String city;
 	private String state;
-	private Double gpa;
+	private String gpa;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	
 	public Education(String institutionName, String degree, String city,
-			String state, double gpa, LocalDate startDate, LocalDate endDate)
+			String state, String gpa, LocalDate startDate, LocalDate endDate)
 	{
 		this.institutionName = institutionName +"";
 		this.degree = degree +"";
@@ -74,11 +74,11 @@ public class Education implements Serializable
 	{
 		this.state = state;
 	}
-	public double getGpa()
+	public String getGpa()
 	{
 		return gpa;
 	}
-	public void setGpa(double gpa)
+	public void setGpa(String gpa)
 	{
 		this.gpa = gpa;
 	}

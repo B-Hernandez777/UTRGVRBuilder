@@ -55,7 +55,7 @@ public class PersonalTest
 		 resume.setExperienceList((ArrayList<Experience>) experienceList);
 		 
 		 ArrayList<Education> educationList = new ArrayList<Education>();
-		 educationList.add(new Education("MIT", "Masters in Science", "Boston", "Massachusetts", 4.0, null, null));
+		 educationList.add(new Education("MIT", "Masters in Science", "Boston", "Massachusetts", "4.0", null, null));
 		 resume.setEducationList(educationList);
 		 
 		 ArrayList<Achievement> achievementList = new ArrayList<Achievement>();
