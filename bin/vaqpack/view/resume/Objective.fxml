@@ -17,7 +17,7 @@
                   <TextArea fx:id="objectiveTextArea" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="BASELINE_RIGHT">
                      <children>
-                        <Button fx:id="saveButton" onAction="#saveButtonClicked" defaultButton="true" mnemonicParsing="false" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="SAVE" />
+                        <Button fx:id="saveButton" onAction="#saveButtonClicked"  mnemonicParsing="false" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="SAVE" />
                      </children>
                      <VBox.margin>
                         <Insets top="16.0" />
