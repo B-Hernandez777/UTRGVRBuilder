@@ -84,21 +84,12 @@ public class EducationController implements Initializable
 	{
 		
 		boolean added=false;
+		boolean error = false;
+	
+		error = validate(error);
 		
-		//validate Gpa
-		if(gpaTextField.getText().isEmpty())
-			gpaTextField.setText("");
-		try
+		if(!error)
 		{
-		  Double.parseDouble(gpaTextField.getText());
-		}
-		catch(NumberFormatException e)
-		{
-		  //not a double
-			gpaTextField.setText("");
-		}
-		
-		
 		Education education = new Education
 		(
 				educationNameField.getText(),
@@ -122,7 +113,63 @@ public class EducationController implements Initializable
 		}
 			if(!added)
 				educationList.add(education);
+		}
 
+	}
+
+	private boolean validate(boolean error)
+	{
+		educationNameField.getStyleClass().remove("error");
+		educationNameErrorLabel.setVisible(false);
+		degreeTextField.getStyleClass().remove("error");
+		degreeErrorLabel.setVisible(false);
+		educationStateBox.getStyleClass().remove("error");
+		educationCityTextField.getStyleClass().remove("error");
+	
+		//validate Gpa
+		if(gpaTextField.getText().isEmpty())
+			gpaTextField.setText("");
+		try
+		{
+		  Double.parseDouble(gpaTextField.getText());
+		}
+		catch(NumberFormatException e)
+		{
+		  //not a double
+			gpaTextField.setText("");
+		}
+		
+		
+		
+		
+		if(educationNameField.getText().isEmpty())
+		{
+			error = true;
+			educationNameField.getStyleClass().add("error");
+			educationNameErrorLabel.setVisible(true);
+		}
+		
+		if(degreeTextField.getText().isEmpty())
+		{
+			error = true;
+			degreeTextField.getStyleClass().add("error");
+			degreeErrorLabel.setVisible(true);;
+		}
+		
+		if(educationStateBox.getSelectionModel().getSelectedItem() == null)
+		{
+			error=true;
+			educationStateBox.setVisible(true);
+			educationStateBox.getStyleClass().add("error");
+		
+		}
+		
+		if(educationCityTextField.getText().isEmpty())
+		{
+			error = true;
+			educationCityTextField.getStyleClass().add("error");
+		}
+		return error;
 	}
 	
 
@@ -133,46 +180,10 @@ public class EducationController implements Initializable
 		state.setAll(states);
 		educationStateBox.setItems(state);
 		 loadList();
-		 validate();
 
 	}
 
-	private void validate()
-	{
-		educationNameField.setOnKeyPressed(e->
-			{
-				educationNameLabel.setTextFill(Color.web("#4CAF50"));
-				educationNameLabel.setVisible(true);
-				educationNameErrorLabel.setVisible(false);
-			});
-			educationNameField.focusedProperty().addListener(e->
-			{
-				if(educationNameField.isFocused()== false)
-				{
-					if(educationNameField.getText().isEmpty())
-					{
-						educationNameLabel.setVisible(false);
-						educationNameErrorLabel.setVisible(true);
-						educationNameField.getStyleClass().add("error");
-					}
-					else
-						educationNameLabel.setTextFill(Color.GRAY);
-				}
-				else
-				if(educationNameField.getText().isEmpty())
-					{
-						educationNameLabel.setVisible(false);
-						educationNameErrorLabel.setVisible(false);
-						educationNameField.getStyleClass().remove("error");
-					}
-				else
-					educationNameLabel.setTextFill(Color.web("#4CAF50"));
-				
-			});
-	}
-	
 
-	
 
 	private void loadList()
 	{
