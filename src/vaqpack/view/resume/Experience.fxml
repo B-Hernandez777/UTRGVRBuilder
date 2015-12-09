@@ -35,7 +35,10 @@
                            <children>
                               <TextField fx:id="companyNameTextField" promptText="Company Name" />
                               <TextField fx:id="companyCityTextField" promptText="Company City" />
-                              <TextField fx:id="companyStateTextField" promptText="Company State" />
+                                 <ChoiceBox fx:id="companyStateTextField" prefWidth="150.0">
+                                 <padding>
+                                    <Insets top="-6.0" />
+                                 </padding></ChoiceBox>
                            </children>
                         </HBox>
                         <HBox fillHeight="false" maxHeight="29.0" prefHeight="29.0" spacing="16.0">

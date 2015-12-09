@@ -2,6 +2,7 @@ package vaqpack.controller.resume;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -12,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -25,7 +27,6 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.model.Singleton;
-import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Experience;
 import vaqpack.model.resume.ExperienceCell;
 
@@ -43,7 +44,7 @@ public class ExperienceController implements Initializable
 	@FXML Label descriptionErrorLabel;
 	@FXML TextField companyNameTextField;
 	@FXML TextField companyCityTextField;
-	@FXML TextField companyStateTextField;
+	@FXML ChoiceBox<String> companyStateTextField;
 	@FXML DatePicker startDate;
 	@FXML DatePicker endDate;
 	@FXML Button addButton;
@@ -54,6 +55,8 @@ public class ExperienceController implements Initializable
 	
 	private  ObservableList<Experience> experienceList = FXCollections.observableArrayList();
 	private ArrayList<Experience> globalExperience = Singleton.getInstance().currentVaqpack().getResume().getExperienceList();
+	private ArrayList<String> states =  new ArrayList<>(Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
+	private ObservableList<String> state = FXCollections.observableArrayList();
 	private boolean expanded;
 	
 	
@@ -71,7 +74,7 @@ public class ExperienceController implements Initializable
 		descriptionTextArea.setText("");
 		companyNameTextField.setText("");
 		companyCityTextField.setText("");
-		companyStateTextField.setText("");
+		companyStateTextField.getSelectionModel().clearSelection();
 		startDate.setValue(null);
 		endDate.setValue(null);
 		animateIn();
@@ -87,7 +90,7 @@ public class ExperienceController implements Initializable
 				experienceTitleField.getText(),
 				descriptionTextArea.getText(), startDate.getValue(),
 				endDate.getValue(), companyNameTextField.getText(),
-				companyCityTextField.getText(), companyStateTextField.getText()
+				companyCityTextField.getText(), companyStateTextField.getSelectionModel().getSelectedItem().toString()
 		);
 		
 		
@@ -111,8 +114,8 @@ public class ExperienceController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		
-		// System.out.println(experienceList);
+		state.setAll(states);
+		companyStateTextField.setItems(state);
 		 loadList();
 		 validate();
 
@@ -191,7 +194,7 @@ public class ExperienceController implements Initializable
 	        		descriptionTextArea.setText(selected.getDescription());
 	        		companyNameTextField.setText(selected.getCompanyName());
 	        		companyCityTextField.setText(selected.getCompanyCity());
-	        		companyStateTextField.setText(selected.getCompanyState());
+	        		companyStateTextField.getSelectionModel().select((selected.getCompanyState()));
 	        		startDate.setValue(selected.getStartDate());
 	        		endDate.setValue(selected.getEndDate());
 	        	}
