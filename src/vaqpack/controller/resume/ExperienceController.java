@@ -50,6 +50,7 @@ public class ExperienceController implements Initializable
 	@FXML Button addButton;
 	@FXML Button saveButton;
 	@FXML Button newActionButton;
+	@FXML Label errorLabel;
 	
 	@FXML ListView<Experience> experienceListView;
 	
@@ -84,7 +85,12 @@ public class ExperienceController implements Initializable
 	{
 		
 		boolean added=false;
+		boolean error = false;
 		
+		error = validate(error);
+	
+		if(!error)
+		{
 		Experience experience = new Experience
 		(
 				experienceTitleField.getText(),
@@ -106,7 +112,54 @@ public class ExperienceController implements Initializable
 		}
 			if(!added)
 				experienceList.add(experience);
+		}
+	}
 
+	private boolean validate(boolean error)
+	{
+		experienceTitleErrorLabel.setVisible(false);
+		experienceTitleField.getStyleClass().remove("error");
+		descriptionTextArea.setVisible(false);
+		descriptionTextArea.getStyleClass().remove("error");
+		errorLabel.setVisible(false);
+		companyStateTextField.getStyleClass().remove("error");
+		companyCityTextField.getStyleClass().remove("error");
+		companyNameTextField.getStyleClass().remove("error");
+		
+		if(experienceTitleField.getText().isEmpty())
+		{
+			experienceTitleErrorLabel.setVisible(true);
+			experienceTitleField.getStyleClass().add("error");
+			error = true;
+		}
+		
+		if(descriptionTextArea.getText().isEmpty())
+		{
+			descriptionTextArea.setVisible(true);
+			descriptionTextArea.getStyleClass().add("error");
+			error = true;
+		}
+		
+		if(companyStateTextField.getSelectionModel().getSelectedItem() == null)
+		{
+			error=true;
+			errorLabel.setText("Select a state ");
+			errorLabel.setVisible(true);
+			companyStateTextField.getStyleClass().add("error");
+		}
+		if(companyNameTextField.getText().isEmpty())
+		{
+			error=true;
+			//errorLabel.setVisible(true);
+			companyNameTextField.getStyleClass().add("error");
+		}
+		if(companyCityTextField.getText().isEmpty())
+		{
+			error=true;
+			//errorLabel.setVisible(true);
+			companyCityTextField.getStyleClass().add("error");
+		}
+		return error;
 	}
 	
 
@@ -114,49 +167,20 @@ public class ExperienceController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		state.setAll(states);
-		companyStateTextField.setItems(state);
+
 		 loadList();
-		 validate();
 
 	}
 
-	private void validate()
-	{
-		experienceTitleField.setOnKeyPressed(e->
-			{
-				experienceTitleLabel.setTextFill(Color.web("#4CAF50"));
-				experienceTitleLabel.setVisible(true);
-				experienceTitleErrorLabel.setVisible(false);
-			});
-			experienceTitleField.focusedProperty().addListener(e->
-			{
-				if(experienceTitleField.isFocused()== false)
-				{
-					if(experienceTitleField.getText().isEmpty())
-					{
-						experienceTitleLabel.setVisible(false);
-						experienceTitleErrorLabel.setVisible(true);
-						experienceTitleField.getStyleClass().add("error");
-					}
-					else
-						experienceTitleLabel.setTextFill(Color.GRAY);
-				}
-				else
-				if(experienceTitleField.getText().isEmpty())
-					{
-						experienceTitleLabel.setVisible(false);
-						experienceTitleErrorLabel.setVisible(false);
-						experienceTitleField.getStyleClass().remove("error");
-					}
-				else
-					experienceTitleLabel.setTextFill(Color.web("#4CAF50"));
-				
-			});
-	}
+	
 	
 	private void loadList()
 	{
+		
+		state.setAll(states);
+		companyStateTextField.setItems(state);
+		
+		
 		experienceBackground.getChildren().remove(experienceCard);
 		expanded = false;
 	
