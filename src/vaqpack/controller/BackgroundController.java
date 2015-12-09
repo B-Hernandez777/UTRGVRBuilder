@@ -191,11 +191,6 @@ public class BackgroundController implements Initializable
 		});	
 	}
 	
-    public static void setNameLabel(String string)
-	{
-    	nameLabel.setText(string);;
-	}
-
 	@FXML Text emailLabel;
     
 	public void setEmailLabel(Text emailLabel)

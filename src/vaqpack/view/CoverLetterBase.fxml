@@ -6,16 +6,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.CoverLetterBaseController">
    <children>
       <BorderPane fx:id="navigationRoot" opacity="0.0" prefHeight="552.0" prefWidth="694.0" styleClass="pop">
          <top>
             <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="701.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="fieldsButton" mnemonicParsing="false" onAction="#tabSelected" text="FIELDS" />
-                  <Button fx:id="paragraphsButton" mnemonicParsing="false" onAction="#tabSelected" text="PARAGRAPHS" />
-                  <Button fx:id="stylesButton" mnemonicParsing="false" onAction="#tabSelected" text="STYLES" />
+                  <Button fx:id="fieldsButton" mnemonicParsing="false" onAction="#tabSelected" style="-fx-background-color: #FF5722;; -fx-text-fill: #FFF;" text="FIELDS" />
+                  <Button fx:id="paragraphsButton" mnemonicParsing="false" onAction="#tabSelected" style="-fx-background-color: #FF5722;; -fx-text-fill: #FFF;" text="PARAGRAPHS" />
+                  <Button fx:id="stylesButton" mnemonicParsing="false" onAction="#tabSelected" style="-fx-background-color: #FF5722;; -fx-text-fill: #FFF;" text="STYLES" />
                </children>
             </HBox>
          </top>
