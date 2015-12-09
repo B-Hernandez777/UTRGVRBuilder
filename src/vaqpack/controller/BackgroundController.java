@@ -11,12 +11,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 
@@ -36,6 +42,8 @@ public class BackgroundController implements Initializable
     @FXML Button businessCardsButton;
     @FXML Button websiteButton;
     @FXML Button exportButton;
+    @FXML Text logoutLabel;
+    @FXML Text exitLabel;
     
 	@FXML public void mainMenuButtonClicked(ActionEvent event)
 	{
@@ -178,5 +186,34 @@ public class BackgroundController implements Initializable
 		   
 		   
 		});	
+	}
+
+	@FXML public void logout(MouseEvent event) throws IOException 
+	{
+
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vaqpack/view/Login.fxml"));		
+		Parent root = (Pane) fxmlLoader.load();
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		
+		
+		scene.getStylesheets().add(getClass().getResource("/material-fx-v0_3.css").toExternalForm());
+		//stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setScene(scene);
+		stage.setTitle("Login");
+		stage.initStyle(StageStyle.TRANSPARENT);
+		scene.setFill(null);
+		stage.show();		
+		
+		((Node)(event.getSource())).getScene().getWindow().hide();
+		
+		
+	}
+
+	@FXML public void exit(MouseEvent event) 
+	{
+		
+		((Node)(event.getSource())).getScene().getWindow().hide();
+		
 	}
 }

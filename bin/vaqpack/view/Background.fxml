@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="root"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.BackgroundController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: rgba(0, 0, 0, 0.0)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.BackgroundController">
    <top>
       <VBox fx:id="toolBar" opacity="0.0" prefHeight="8.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,12 +28,26 @@
       <children>
          <VBox fx:id="menuItems" opacity="0.0">
             <children>
-               <Button fx:id="resumeButton" onAction="#mainMenuButtonClicked" text="Resume Entry" />
-               <Button fx:id="coverLetterButton" onAction="#mainMenuButtonClicked" text="Cover Letter" />
-               <Button fx:id="websiteButton" onAction="#mainMenuButtonClicked"  text="Website" />
-               <Button fx:id="businessCardsButton" onAction="#mainMenuButtonClicked" text="Business Cards" />
-               <Button fx:id="exportButton" onAction="#mainMenuButtonClicked" text="Export" />
+               <Button fx:id="resumeButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Resume Entry" />
+               <Button fx:id="coverLetterButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Cover Letter" />
+               <Button fx:id="websiteButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Website" />
+               <Button fx:id="businessCardsButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Business Cards" />
+               <Button fx:id="exportButton" alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Export" />
+                  <Separator prefWidth="200.0" />
+                  <Text fx:id="logoutLabel" fill="#747474" lineSpacing="16.0" onMousePressed="#logout" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="16.0" left="16.0" />
+                     </VBox.margin>
+                  </Text>
+                 <Text fx:id="exitLabel" fill="#747474" lineSpacing="16.0" onMousePressed="#exit" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit" textAlignment="CENTER">
+               <VBox.margin>
+                        <Insets left="16.0" />
+                     </VBox.margin>
+           </Text>
             </children>
+               <padding>
+                  <Insets left="16.0" />
+               </padding>
          </VBox>
       </children>
       </Pane>
