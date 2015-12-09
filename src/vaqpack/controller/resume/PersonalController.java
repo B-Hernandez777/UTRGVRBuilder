@@ -49,8 +49,6 @@ public class PersonalController implements Initializable
 	@FXML Button addButton;
 
 	private Personal personal = Singleton.getInstance().currentVaqpack().getResume().getPersonal();
-	
-	
 	private ArrayList<String> states =  new ArrayList<>(Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
 	private ObservableList<String> state = FXCollections.observableArrayList();
 	
@@ -59,40 +57,10 @@ public class PersonalController implements Initializable
 	@FXML public void saveButtonClicked() 
 	{
 		boolean error = false;
-		
-		phoneNumberErrorLabel.setVisible(false);
-		phoneNumberField.getStyleClass().remove("error");
-		errorLabel.setVisible(false);
-		zipCodeTextField.getStyleClass().remove("error");
-		firstNameErrorLabel.setVisible(false);
-		firstNameField.getStyleClass().remove("error");
-		lastNameErrorLabel.setVisible(false);
-		lastNameField.getStyleClass().remove("error");
-		
-		if(!phoneNumberField.getText().matches("\\(\\d{3}\\)\\d{3}-\\d{4}"))
-			{
-				error = true;
-				phoneNumberErrorLabel.setVisible(true);
-				phoneNumberErrorLabel.setText("(xxx)xxx-xxxx");
-				phoneNumberField.getStyleClass().add("error");
-			}
-		try
-		{
-		  Double.parseDouble(zipCodeTextField.getText());
-		}
-		catch(NumberFormatException e)
-		{
-		  //not a double
-			error = true;
-			errorLabel.setText("Enter Proper zip code");
-			errorLabel.setVisible(true);
-			zipCodeTextField.getStyleClass().add("error");
-		}
-			
+		error = validate(error);
 				
-				
-		
 		if(!error)		
+		{
 		personal = new Personal(
 
 				  firstNameField.getText(),
@@ -101,12 +69,106 @@ public class PersonalController implements Initializable
 				  personal.getEmail(),
 				  addressField.getText(),
 				  cityTextField.getText(),
-				  stateBox.getSelectionModel().getSelectedItem().toString(),
+				  stateBox.getSelectionModel().getSelectedItem(),
 				  zipCodeTextField.getText()
 				
 				);
-		
 		Singleton.getInstance().currentVaqpack().getResume().setPersonal(personal);
+		}
+		
+		
+	}
+
+
+
+	private boolean validate(boolean error)
+	{
+		phoneNumberErrorLabel.setVisible(false);
+		phoneNumberField.getStyleClass().remove("error");
+		errorLabel.setVisible(false);
+		zipCodeTextField.getStyleClass().remove("error");
+		firstNameErrorLabel.setVisible(false);
+		firstNameField.getStyleClass().remove("error");
+		lastNameErrorLabel.setVisible(false);
+		lastNameField.getStyleClass().remove("error");
+		stateBox.getStyleClass().remove("error");
+		addressField.getStyleClass().remove("error");
+		addressErrorLabel.setVisible(false);
+		cityTextField.getStyleClass().remove("error");
+		
+		if(firstNameField.getText() == null)
+		{
+			error = true;
+			firstNameErrorLabel.setVisible(true);
+			firstNameField.getStyleClass().add("error");
+		}
+		if(lastNameField.getText() == null)
+		{
+			error = true;
+			lastNameErrorLabel.setVisible(true);
+			lastNameField.getStyleClass().add("error");
+		}
+		
+		
+		if(phoneNumberField.getText() != null)
+		{
+		if(!phoneNumberField.getText().matches("\\(\\d{3}\\)\\d{3}-\\d{4}"))
+			{
+				error = true;
+				phoneNumberErrorLabel.setVisible(true);
+				phoneNumberErrorLabel.setText("(xxx)xxx-xxxx");
+				phoneNumberField.getStyleClass().add("error");
+			}
+		}
+		else
+		{
+			error = true;
+			phoneNumberErrorLabel.setVisible(true);
+			phoneNumberErrorLabel.setText("(xxx)xxx-xxxx");
+			phoneNumberField.getStyleClass().add("error");
+		}
+
+		  if(zipCodeTextField.getText() != null)
+		  {
+			  if(!zipCodeTextField.getText().matches("\\d{5}"))
+			{
+			error = true;
+			errorLabel.setText("Enter valid zip code. ");
+			errorLabel.setVisible(true);
+			zipCodeTextField.getStyleClass().add("error");
+			}
+		  }
+			  else
+			  {
+				error = true;
+				errorLabel.setText("Enter valid zip code. ");
+				errorLabel.setVisible(true);
+				zipCodeTextField.getStyleClass().add("error");
+			  }
+				  
+			 if(cityTextField.getText() == null)
+				{
+				errorLabel.setText(errorLabel.getText() + "Enter a city ");
+				errorLabel.setVisible(true);
+				cityTextField.getStyleClass().add("error");
+				}
+	
+			 if(addressField.getText() == null)
+				{
+				addressErrorLabel.setText("Enter an Address ");
+				addressErrorLabel.setVisible(true);
+				addressField.getStyleClass().add("error");
+				}
+			 
+		if(stateBox.getSelectionModel().getSelectedItem() == null)
+		{
+			error=true;
+			errorLabel.setText(errorLabel.getText() + "Select a state ");
+			errorLabel.setVisible(true);
+			stateBox.getStyleClass().add("error");
+		
+		}
+		return error;
 	}
 	
 
@@ -117,7 +179,6 @@ public class PersonalController implements Initializable
 		state.setAll(states);
 		stateBox.setItems(state);
 		animateIn();
-		validate();
 		loadInformation();
 
 	}
@@ -136,78 +197,6 @@ public class PersonalController implements Initializable
 		
 	}
 
-
-
-	private void validate()
-	{
-		firstNameField.setOnKeyPressed(e->
-			{
-				firstNameLabel.setTextFill(Color.web("#4CAF50"));
-				firstNameLabel.setVisible(true);
-				firstNameErrorLabel.setVisible(false);
-			});
-			firstNameField.focusedProperty().addListener(e->
-			{
-				if(firstNameField.isFocused()== false)
-				{
-					if(firstNameField.getText().isEmpty())
-					{
-						firstNameLabel.setVisible(false);
-						firstNameErrorLabel.setVisible(true);
-						firstNameField.getStyleClass().add("error");
-					}
-					else
-						firstNameLabel.setTextFill(Color.GRAY);
-				}
-				else
-				if(firstNameField.getText().isEmpty())
-					{
-						firstNameLabel.setVisible(false);
-						firstNameErrorLabel.setVisible(false);
-						firstNameField.getStyleClass().remove("error");
-					}
-				else
-					firstNameLabel.setTextFill(Color.web("#4CAF50"));
-			});
-			
-			lastNameField.setOnKeyPressed(e->
-			{
-				lastNameLabel.setTextFill(Color.web("#4CAF50"));
-				lastNameLabel.setVisible(true);
-				lastNameErrorLabel.setVisible(false);
-			});
-
-			lastNameField.focusedProperty().addListener(e->
-			{
-				if(lastNameField.isFocused()== false)
-				{
-					if(lastNameField.getText().isEmpty())
-					{
-						lastNameLabel.setVisible(false);
-						lastNameErrorLabel.setVisible(true);
-						lastNameField.getStyleClass().add("error");
-					}
-					else
-						lastNameLabel.setTextFill(Color.GRAY);
-				}
-				else
-				if(lastNameField.getText().isEmpty())
-					{
-						lastNameLabel.setVisible(false);
-						lastNameErrorLabel.setVisible(false);
-						lastNameField.getStyleClass().remove("error");
-					}
-				else
-					lastNameLabel.setTextFill(Color.web("#4CAF50"));
-		});
-			
-				
-				
-	}
-	
-
-
-	
 	private void animateIn()
 	{
 		TranslateTransition tt = new TranslateTransition(Duration.millis(500), personalCard);

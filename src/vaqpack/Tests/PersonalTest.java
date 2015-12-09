@@ -45,8 +45,8 @@ public class PersonalTest
 		
 		
 		resume = new Resume("person@hotmail.com");
-		Personal personal = new Personal ("aName", "aLastname", "(956)555-5555", resume.getPersonal().getEmail(), "1234 drive" , "Brownsville", "Texas", "78520");
-		resume.setPersonal(personal);
+		//Personal personal = new Personal ("aName", "aLastname", "(956)555-5555", resume.getPersonal().getEmail(), "1234 drive" , "Brownsville", "Texas", "78520");
+		//resume.setPersonal(personal);
 		
 		Objective objective = new Objective("This will be the test Objective for my fake job ");
 		resume.setObjective(objective);

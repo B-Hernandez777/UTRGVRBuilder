@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import vaqpack.controller.BackgroundController;
+import vaqpack.model.Singleton;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -61,6 +62,7 @@ public class WizardBaseController implements Initializable
 	
 	private void loadStyle()
 	{
+		
 		removeStyle();
 		styleButtonLabel.getStyleClass().add("stepper-label-selected");
 		styleButton.getStyleClass().add("stepper-button-selected");
@@ -189,6 +191,8 @@ public class WizardBaseController implements Initializable
 
 	private void loadObjective()
 	{
+		if(Singleton.getInstance().currentVaqpack().getResume().getPersonal().getCompleted())
+		{
 		removeStyle();
 		objectiveButtonLabel.getStyleClass().add("stepper-label-selected");
 		objectiveButton.getStyleClass().add("stepper-button-selected");
@@ -205,7 +209,9 @@ public class WizardBaseController implements Initializable
 			{
 				e.printStackTrace();
 			}
-
+		}
+		else
+			System.out.println("Not completed");
 	}
 
 	private void loadPersonal()
@@ -264,8 +270,9 @@ public class WizardBaseController implements Initializable
 		         FXMLLoader loader = new FXMLLoader();
 		         loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/resume/Personal.fxml"));
 		         AnchorPane Login = (AnchorPane) loader.load();
-		         wizardCenterPane.getChildren().add(Login);	              
-		      	   
+		         wizardCenterPane.getChildren().add(Login);	      
+		         
+		 		      	   
 		         } catch (IOException e1)
 		         {
 		      	   // TODO Auto-generated catch block

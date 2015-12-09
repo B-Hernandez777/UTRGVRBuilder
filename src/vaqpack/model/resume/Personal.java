@@ -14,6 +14,7 @@ public class Personal implements Serializable
 	private String city;
 	private String state;
 	private String zipCode;
+	private Boolean completed;
 		
 	public Personal(String firstName, String lastName, String phoneNumber, String email, String address, String city, String state,
 			String zipCode)
@@ -26,13 +27,13 @@ public class Personal implements Serializable
 		this.city = city;
 		this.state = state;
 		this.zipCode = zipCode;
+		setCompleted(true);
 	}
-	
-	
-	
+
 	public Personal(String email)
 	{
 		this.email = email;
+		completed = false;
 	}
 
 
@@ -114,6 +115,20 @@ public class Personal implements Serializable
 				+ "<zipCode> %s </state>"  +"\n\t\t"
 				+ "<phone> %s </phone>"  +"\n\t"
 				+ "</personal>\n", firstName,lastName, email, address, city, state, zipCode, phoneNumber);
+	}
+
+
+
+	public Boolean getCompleted()
+	{
+		return completed;
+	}
+
+
+
+	public void setCompleted(Boolean completed)
+	{
+		this.completed = completed;
 	}
 	
 	
