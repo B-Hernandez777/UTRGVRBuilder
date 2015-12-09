@@ -1,9 +1,11 @@
 package vaqpack.Tests;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,7 +18,6 @@ import vaqpack.model.resume.Context;
 import vaqpack.model.resume.Education;
 import vaqpack.model.resume.Experience;
 import vaqpack.model.resume.Objective;
-import vaqpack.model.resume.Personal;
 import vaqpack.model.resume.Resume;
 import vaqpack.model.resume.Skill;
 
@@ -34,6 +35,17 @@ public class PersonalTest
 				output.writeObject(vaqpack);
 			}
 		System.out.println("Saved Successfully");
+
+	}
+	
+	private static void saveXmlFile() throws IOException, FileNotFoundException
+	{
+
+		
+	
+		try (PrintStream out = new PrintStream(new FileOutputStream("resume.xml"))) {
+		    out.print(resume);
+		}
 
 	}
 
@@ -93,8 +105,8 @@ public class PersonalTest
 		String xml = resume.toString().replaceAll("[\\[\\],]","");
 		
 		vaqpack.setResume(resume);
-		new SQL().updateDB(vaqpack);
-		saveFile();
+		//new SQL().updateDB(vaqpack);
+		saveXmlFile();
 		
 		System.out.println(xml);
 		

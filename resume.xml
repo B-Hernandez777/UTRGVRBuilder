@@ -1,0 +1,46 @@
+<resume>
+	<personal>
+		<firstname> null </firstname>
+		<lastname> null </lastname>
+		<email> person@hotmail.com </email>
+		<address> null </address>
+		<city> null </city>
+		<state> null </state>
+		<zipCode> null </state>
+		<phone> null </phone>
+	</personal>
+	<objective>
+		<object> This will be the test Objective for my fake job  </object>
+	</objective>
+	<experience>
+null	</experience>
+	<education>
+[		<ed>
+			<school> MIT </school>
+			<schoolCity> Boston </schoolCity>
+			<schoolState >Massachusetts </schoolState>
+			<degree> Masters in Science </degree>
+			<GPA> 4.0 </GPA>
+			<schoolStart> null </schoolstart>
+			<schoolend> null </schoolend>
+		</ed>
+]	</education>
+	<achievement>
+[		<a>
+			<achieve> Presidents List </achieve>
+			<achievedescription> null </achievedescription>
+		</a>
+, 		<a>
+			<achieve> Medal of Honor </achieve>
+			<achievedescription> null </achievedescription>
+		</a>
+]	</achievement>
+	<skill>
+[		<s>
+			<skilltype> Can heat ramen in under a minute </skilltype>
+		</s>
+, 		<s>
+			<skilltype> Fastest cook at McDonalds </skilltype>
+		</s>
+]	</skill>
+</resume>
