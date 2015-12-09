@@ -80,6 +80,7 @@
 									<Insets bottom="8.0" />
 								</padding>
 							</HBox>
+							<Label fx:id="errorLabel" contentDisplay="RIGHT" graphicTextGap="70.0" prefHeight="0.0" prefWidth="276.0" styleClass="control-error-label" text="Please Enter Name" visible="false" />
 						</children>
 					</VBox>
 					<HBox alignment="BASELINE_RIGHT">

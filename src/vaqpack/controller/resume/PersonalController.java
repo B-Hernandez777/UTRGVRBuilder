@@ -44,6 +44,7 @@ public class PersonalController implements Initializable
 	@FXML TextField cityTextField;
 	@FXML ChoiceBox<String> stateBox;
 	@FXML TextField zipCodeTextField;
+	@FXML Label errorLabel;
 
 	@FXML Button addButton;
 
@@ -57,7 +58,41 @@ public class PersonalController implements Initializable
 	
 	@FXML public void saveButtonClicked() 
 	{
+		boolean error = false;
 		
+		phoneNumberErrorLabel.setVisible(false);
+		phoneNumberField.getStyleClass().remove("error");
+		errorLabel.setVisible(false);
+		zipCodeTextField.getStyleClass().remove("error");
+		firstNameErrorLabel.setVisible(false);
+		firstNameField.getStyleClass().remove("error");
+		lastNameErrorLabel.setVisible(false);
+		lastNameField.getStyleClass().remove("error");
+		
+		if(!phoneNumberField.getText().matches("\\(\\d{3}\\)\\d{3}-\\d{4}"))
+			{
+				error = true;
+				phoneNumberErrorLabel.setVisible(true);
+				phoneNumberErrorLabel.setText("(xxx)xxx-xxxx");
+				phoneNumberField.getStyleClass().add("error");
+			}
+		try
+		{
+		  Double.parseDouble(zipCodeTextField.getText());
+		}
+		catch(NumberFormatException e)
+		{
+		  //not a double
+			error = true;
+			errorLabel.setText("Enter Proper zip code");
+			errorLabel.setVisible(true);
+			zipCodeTextField.getStyleClass().add("error");
+		}
+			
+				
+				
+		
+		if(!error)		
 		personal = new Personal(
 
 				  firstNameField.getText(),
@@ -133,8 +168,41 @@ public class PersonalController implements Initializable
 					}
 				else
 					firstNameLabel.setTextFill(Color.web("#4CAF50"));
-				
 			});
+			
+			lastNameField.setOnKeyPressed(e->
+			{
+				lastNameLabel.setTextFill(Color.web("#4CAF50"));
+				lastNameLabel.setVisible(true);
+				lastNameErrorLabel.setVisible(false);
+			});
+
+			lastNameField.focusedProperty().addListener(e->
+			{
+				if(lastNameField.isFocused()== false)
+				{
+					if(lastNameField.getText().isEmpty())
+					{
+						lastNameLabel.setVisible(false);
+						lastNameErrorLabel.setVisible(true);
+						lastNameField.getStyleClass().add("error");
+					}
+					else
+						lastNameLabel.setTextFill(Color.GRAY);
+				}
+				else
+				if(lastNameField.getText().isEmpty())
+					{
+						lastNameLabel.setVisible(false);
+						lastNameErrorLabel.setVisible(false);
+						lastNameField.getStyleClass().remove("error");
+					}
+				else
+					lastNameLabel.setTextFill(Color.web("#4CAF50"));
+		});
+			
+				
+				
 	}
 	
 
