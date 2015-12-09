@@ -17,7 +17,7 @@
                   <Label styleClass="card-title" text="Paragraph" />
                   <VBox fx:id="Pargraph" prefHeight="247.0" prefWidth="568.0">
                            <children>
-                            <TextArea fx:id="paragraphTextArea" prefHeight="200.0" prefWidth="200.0" />
+                            <TextArea fx:id="paragraphTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
                            </children>
                         </VBox>
                   <HBox alignment="BASELINE_RIGHT">
@@ -32,7 +32,7 @@
             </VBox>
             <StackPane fx:id="paragraphListCard" alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="saveButton" onAction="#saveButtonClicked" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
+                  <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" onAction="#saveButtonClicked" prefWidth="86.0" styleClass="button-flat" text="SAVE" translateX="72.0" translateY="396.0" />
                  <VBox maxHeight="-Infinity" prefHeight="228.0" prefWidth="228.0" styleClass="card">
                      <children>
                         <Label text="Paragraph List" />

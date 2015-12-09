@@ -32,6 +32,7 @@ import javafx.scene.shape.SVGPath;
                 @Override
                 public void handle(ActionEvent event) 
                 {
+             
                 System.out.println(lastItem.getParagraph() + " : " + event);
                 System.out.println(getListView().getItems().remove(lastItem));
                 }
@@ -47,7 +48,11 @@ import javafx.scene.shape.SVGPath;
                 setGraphic(null);
             } else {
                 lastItem = item;
-                label.setText(item!=null ? item.getParagraph() : "<null>");
+               	String content;
+            	if(lastItem.getParagraph().length() > 16)
+            		content = lastItem.getParagraph().substring(0, 16);
+            	else content = lastItem.getParagraph();
+                label.setText(item!=null ? content+"..." : "<null>");
                 setGraphic(hbox);
             }
         }

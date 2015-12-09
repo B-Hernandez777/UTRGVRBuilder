@@ -47,7 +47,11 @@ import javafx.scene.shape.SVGPath;
                 setGraphic(null);
             } else {
                 lastItem = item;
-                label.setText(item!=null ? item.getSkill(): "<null>");
+            	String content;
+            	if(lastItem.getSkill().length() > 16)
+            		content = lastItem.getSkill().substring(0, 16);
+            	else content = lastItem.getSkill();
+                label.setText(item!=null ? content+"..." : "<null>");
                 setGraphic(hbox);
             }
         }
