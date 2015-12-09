@@ -26,7 +26,10 @@
    						    <HBox prefWidth="200.0" spacing="16.0">
                            	<children>
                               <TextField fx:id="cityTextField" promptText="City" />
-                              <TextField fx:id="stateTextField" maxWidth="42.0" promptText="State" />
+                                  <ChoiceBox fx:id="stateTextField" prefWidth="150.0">
+                                 <padding>
+                                    <Insets top="-6.0" />
+                                 </padding></ChoiceBox>
                               <TextField fx:id="zipCodeTextField" maxWidth="65.0" promptText="Zip Code" />
                            </children>
                            <padding>

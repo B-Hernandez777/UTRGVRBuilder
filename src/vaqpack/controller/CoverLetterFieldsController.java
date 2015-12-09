@@ -1,6 +1,7 @@
 package vaqpack.controller;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -11,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -22,8 +24,6 @@ import javafx.util.Duration;
 import vaqpack.model.CoverLetterFields;
 import vaqpack.model.CoverLetterFieldsCell;
 import vaqpack.model.Singleton;
-import vaqpack.model.resume.Context;
-import vaqpack.model.resume.Skill;
 
 public class CoverLetterFieldsController implements Initializable
 
@@ -38,7 +38,7 @@ public class CoverLetterFieldsController implements Initializable
 	@FXML TextField organizationNameField;
 	@FXML TextField addressField;
 	@FXML TextField cityTextField;
-	@FXML TextField stateTextField;
+	@FXML ChoiceBox<String> stateTextField;
 	@FXML TextField zipCodeTextField;
 	@FXML TextField jobTitleField;
 	@FXML TextField jobId;
@@ -51,7 +51,8 @@ public class CoverLetterFieldsController implements Initializable
 	
 	private ObservableList<CoverLetterFields> fieldsList = FXCollections.observableArrayList();
 	private ArrayList<CoverLetterFields> globalFields = Singleton.getInstance().currentVaqpack().getCoverLetter().getCoverLetterList();
-	
+	private ArrayList<String> states =  new ArrayList<>(Arrays.asList("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"));
+	private ObservableList<String> state = FXCollections.observableArrayList();
 	
 	private boolean expanded;
 	
@@ -70,7 +71,7 @@ public class CoverLetterFieldsController implements Initializable
 		 organizationNameField.setText("");
 		 addressField.setText("");
 		 cityTextField.setText("");
-		 stateTextField.setText("");
+		 stateTextField.getSelectionModel().clearSelection();
 		 zipCodeTextField.setText("");
 		 jobTitleField.setText("");
 		 jobId.setText("");
@@ -90,7 +91,7 @@ public class CoverLetterFieldsController implements Initializable
 				 organizationNameField.getText(),
 				 addressField.getText(),
 				 cityTextField.getText(),
-				 stateTextField.getText(),
+				 stateTextField.getSelectionModel().getSelectedItem(),
 				 zipCodeTextField.getText(),
 				 jobTitleField.getText(),
 				 jobId.getText()
@@ -117,6 +118,7 @@ public class CoverLetterFieldsController implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
 
+		
 		 loadList();
 		 //validate();
 
@@ -129,6 +131,10 @@ public class CoverLetterFieldsController implements Initializable
 
 	private void loadList()
 	{
+		state.setAll(states);
+		stateTextField.setItems(state);
+		
+		
 		fieldsBackground.getChildren().remove(fieldsCard);
 		expanded = false;
 		
@@ -163,7 +169,7 @@ public class CoverLetterFieldsController implements Initializable
 					 organizationNameField.setText(selected.getOrganizationName());
 					 addressField.setText(selected.getAddress());
 					 cityTextField.setText(selected.getCity());
-					 stateTextField.setText(selected.getState());
+					 stateTextField.getSelectionModel().select(selected.getState());
 					 zipCodeTextField.setText(selected.getZipCode());
 					 jobTitleField.setText(selected.getJobTitle());
 					 jobId.setText(selected.getJobId());
