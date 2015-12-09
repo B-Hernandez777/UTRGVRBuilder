@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -211,6 +212,7 @@ public class BackgroundController implements Initializable
 		//stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setScene(scene);
 		stage.setTitle("Login");
+		stage.getIcons().add(new Image("/vaqpack/images/icon.png"));
 		stage.initStyle(StageStyle.TRANSPARENT);
 		scene.setFill(null);
 		stage.show();		
