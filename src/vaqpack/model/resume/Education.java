@@ -32,11 +32,11 @@ public class Education implements Serializable
 	{
 		return String.format("\t\t<ed>" + "\n\t\t\t"
 				+	"<school> %s </school>" + "\n\t\t\t"
-				+ "<schoolCity> %s </schoolCity>" + "\n\t\t\t"
-				+ "<schoolState >%s </schoolState>" + "\n\t\t\t"
+				+ "<schoolcity> %s </schoolcity>" + "\n\t\t\t"
+				+ "<schoolstate >%s </schoolstate>" + "\n\t\t\t"
 				+ "<degree> %s </degree>"+ "\n\t\t\t"
 				+ "<GPA> %s </GPA>"+ "\n\t\t\t"
-				+ "<schoolStart> %s </schoolstart>"+ "\n\t\t\t"
+				+ "<schoolstart> %s </schoolstart>"+ "\n\t\t\t"
 				+ "<schoolend> %s </schoolend>" + "\n\t\t"
 				+  "</ed>\n", institutionName, city, state, degree, gpa, startDate + "", endDate + "");
 	}
