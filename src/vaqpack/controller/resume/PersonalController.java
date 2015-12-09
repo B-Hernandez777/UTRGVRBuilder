@@ -10,6 +10,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,8 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import vaqpack.controller.BackgroundController;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Personal;
 
@@ -54,7 +55,7 @@ public class PersonalController implements Initializable
 	
 
 	
-	@FXML public void saveButtonClicked() 
+	@FXML public void saveButtonClicked(ActionEvent e) 
 	{
 		boolean error = false;
 		error = validate(error);
@@ -74,6 +75,8 @@ public class PersonalController implements Initializable
 				
 				);
 		Singleton.getInstance().currentVaqpack().getResume().setPersonal(personal);
+		
+		
 		}
 		
 		

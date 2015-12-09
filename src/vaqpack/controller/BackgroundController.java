@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import vaqpack.model.Singleton;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -44,7 +45,8 @@ public class BackgroundController implements Initializable
     @FXML Button exportButton;
     @FXML Text logoutLabel;
     @FXML Text exitLabel;
-    
+
+
 	@FXML public void mainMenuButtonClicked(ActionEvent event)
 	{
 		if(event.getSource().equals(resumeButton))
@@ -124,6 +126,7 @@ public class BackgroundController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{	
+		emailLabel.setText(Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 		FadeTransition ft3 = new FadeTransition(Duration.millis(100), toolBar);
 		ft3.setFromValue(0);
@@ -186,6 +189,18 @@ public class BackgroundController implements Initializable
 		   
 		   
 		});	
+	}
+	
+    public static void setNameLabel(String string)
+	{
+    	nameLabel.setText(string);;
+	}
+
+	@FXML Text emailLabel;
+    
+	public void setEmailLabel(Text emailLabel)
+	{
+		this.emailLabel = emailLabel;
 	}
 
 	@FXML public void logout(MouseEvent event) throws IOException 

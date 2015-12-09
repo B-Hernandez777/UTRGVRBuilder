@@ -28,6 +28,22 @@
       <children>
          <VBox fx:id="menuItems" opacity="0.0">
             <children>
+                  <HBox prefHeight="48.0" prefWidth="200.0">
+                     <children>
+                        <SVGPath content="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" fill="#4caf50" scaleX="2.0" scaleY="2.0" translateX="14.0" translateY="14.0" />
+                        <VBox prefHeight="100.0" prefWidth="180.0">
+                           <children>
+                              <Text fx:id="emailLabel" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Roboto; -fx-fill: #747474; -fx-font-size: 12;" text="email" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" top="16.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="16.0" top="16.0" />
+                     </VBox.margin>
+                  </HBox>
                <Button fx:id="resumeButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Resume Entry" />
                <Button fx:id="coverLetterButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Cover Letter" />
                <Button fx:id="websiteButton" maxWidth="1.7976931348623157E308" onAction="#mainMenuButtonClicked" style="-fx-alignment: center-left; -fx-text-fill: #747474;" text="Website" />
