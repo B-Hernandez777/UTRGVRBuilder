@@ -78,6 +78,11 @@ public class LoginController implements Initializable
 		}
 		else
 		// Method call to database to check and load if email exists
+		if(!new vaqpack.Tests.SQL().userExists(emailTextField.getText())){//Returns true if email exists. Notice the "!"
+			//do stuff here if the user does not already exist.
+		}
+		
+		
 		{
 			try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("1.dat"));)
 			{
@@ -118,6 +123,7 @@ public class LoginController implements Initializable
 		});
 		registerButton.setOnAction(e->
 		{
+			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), vaqPack); //needs an empty vaqpack object.
 			//method to database to register user
 			//need to validate that users password works
 			// need to display if registered successful
