@@ -97,4 +97,5 @@ public class ResumeStyle implements Serializable {
         }
         return HtmlName;
     }
+    
 }

@@ -16,6 +16,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import vaqpack.model.CoverLetter;
 import vaqpack.model.CoverLetterFields;
+import vaqpack.model.Export;
 import vaqpack.model.Paragraph;
 import vaqpack.model.Vaqpack;
 import vaqpack.model.resume.Achievement;
@@ -35,7 +36,10 @@ public class PersonalTest {
     static String XMLfile = "resume.xml";
     static String XLSfile = "resumestyle1.xsl";
     static String HTMLfile = "ResumeWebPage.html";
+    static String PdfName = "Resume.pdf";
+    
     private static ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
+    private static Export pdf = new Export(xhtml.getHtmlName(), PdfName);
 
     private static void saveFile() throws IOException, FileNotFoundException {
 
@@ -115,6 +119,8 @@ public class PersonalTest {
         xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
         System.out.println(xml);
         
+        pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+        System.out.println("Printed PDF");
     }
 
 }
