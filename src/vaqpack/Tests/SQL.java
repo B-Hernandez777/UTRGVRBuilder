@@ -98,7 +98,7 @@ public class SQL {
 	 * @param email This is the email of the user you want to check exists.
 	 * @return This returns a boolean, true or false.
 	 */
-	public static boolean userExists(String email){
+	public boolean userExists(String email){
 		Boolean user = null;
 		try{
 		Connection conn = DriverManager.getConnection(DB, User, Password);
