@@ -32,6 +32,10 @@ import vaqpack.model.Vaqpack;
 
 public class LoginController implements Initializable
 {
+        @FXML Button closePopup;
+        @FXML Pane Popup;
+        @FXML Label ErrorMessage;
+        
 	@FXML Button loginButton;
 	@FXML Button registerButton;
 	@FXML HBox buttonPane;
@@ -63,9 +67,15 @@ public class LoginController implements Initializable
 		System.out.println(emailTextField.getText());
 		
 		//Validate email text field is not empty
-		if(emailTextField.getText().isEmpty())
+		if(!emailTextField.getText().contains("@")
+                        || passwordField.getText().isEmpty() )
 		{
-			
+                    Popup.setVisible(true);
+                    closePopup.setVisible(true);
+                    ErrorMessage.setVisible(true);
+                    
+                    ErrorMessage.setText("Not a valid email address/password");
+                    System.out.println("Enter email in the correct format");
 		}
 		else
 		// Method call to database to check and load if email exists
@@ -84,7 +94,12 @@ public class LoginController implements Initializable
 		
 	}
 
-
+        @FXML public void closePopupClicked ()
+        {
+                    Popup.setVisible(false);
+                    closePopup.setVisible(false);
+                    ErrorMessage.setVisible(false);
+        }
 
 	private void setRegisterCard()
 	{
