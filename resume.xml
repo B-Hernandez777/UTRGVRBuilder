@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <resume>
 	<personal>
-		<firstname> null </firstname>
-		<lastname> null </lastname>
+		<firstname> aName </firstname>
+		<lastname> aLastname </lastname>
 		<email> person@hotmail.com </email>
-		<address> null </address>
-		<city> null </city>
-		<state> null </state>
-		<zipCode> null </state>
-		<phone> null </phone>
+		<address> 1234 drive </address>
+		<city> Brownsville </city>
+		<state> Texas </state>
+		<zipCode> 78520 </zipCode>
+		<phone> (956)555-5555 </phone>
 	</personal>
 	<objective>
 		<object> This will be the test Objective for my fake job  </object>
@@ -17,11 +18,11 @@ null	</experience>
 	<education>
 [		<ed>
 			<school> MIT </school>
-			<schoolCity> Boston </schoolCity>
-			<schoolState >Massachusetts </schoolState>
+			<schoolcity> Boston </schoolcity>
+			<schoolstate >Massachusetts </schoolstate>
 			<degree> Masters in Science </degree>
 			<GPA> 4.0 </GPA>
-			<schoolStart> null </schoolstart>
+			<schoolstart> null </schoolstart>
 			<schoolend> null </schoolend>
 		</ed>
 ]	</education>

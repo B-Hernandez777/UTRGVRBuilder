@@ -46,6 +46,7 @@ public class PersonalController implements Initializable
 	@FXML ChoiceBox<String> stateBox;
 	@FXML TextField zipCodeTextField;
 	@FXML Label errorLabel;
+	@FXML Label message;
 
 	@FXML Button addButton;
 
@@ -75,6 +76,19 @@ public class PersonalController implements Initializable
 				
 				);
 		Singleton.getInstance().currentVaqpack().getResume().setPersonal(personal);
+		TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
+		FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
+		FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);
+		ft2.setDelay(Duration.millis(1000));
+		ft1.setFromValue(1);
+		ft1.setToValue(0);
+		ft1.setFromValue(0);
+		ft1.setToValue(1);
+		ft1.play();
+		ft2.play();
+		tt.setFromY(400f);
+		tt.setToY(0);
+		tt.play();
 		
 		
 		}

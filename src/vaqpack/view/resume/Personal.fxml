@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
@@ -85,6 +86,7 @@
 					</VBox>
 					<HBox alignment="BASELINE_RIGHT">
 						<children>
+                        <Label fx:id="message" alignment="CENTER" opacity="0.0" prefHeight="48.0" prefWidth="284.0" style="-fx-background-color: #323232; -fx-font-family: Roboto; -fx-font-size: 14; -fx-text-fill: #FFF;" text="Saved successfully" />
 							<Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="36.0" prefWidth="88.0" styleClass="card-button" text="SAVE" />
 						</children>
 						<VBox.margin>

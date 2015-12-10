@@ -108,7 +108,7 @@ public class PersonalTest {
         String xml = resume.toString().replaceAll("[\\[\\],]", "");
         //need the xml file name?
         vaqpack.setResume(resume);
-        //new SQL().updateDB(vaqpack);
+        new SQL().updateDB(vaqpack, "user");
         saveXmlFile();
 //        xhtml.setXmlFile(XMLfile);
         

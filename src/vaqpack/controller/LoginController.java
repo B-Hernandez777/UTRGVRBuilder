@@ -67,8 +67,7 @@ public class LoginController implements Initializable
 		System.out.println(emailTextField.getText());
 		
 		//Validate email text field is not empty
-		if(!emailTextField.getText().contains("@")
-                        || passwordField.getText().isEmpty() )
+		if(!emailTextField.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$")  || passwordField.getText().isEmpty() )
 		{
                     Popup.setVisible(true);
                     closePopup.setVisible(true);
