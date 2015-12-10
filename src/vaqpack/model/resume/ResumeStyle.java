@@ -87,18 +87,12 @@ public class ResumeStyle implements Serializable {
     public String Converter(String XmlFile, String XslFile, String HtmlName) {
 
         try {
-            TransformerFactory transform = TransformerFactory.newInstance();
-            StreamSource xslObject = new StreamSource(XslFile);
-            StreamSource xmlObject = new StreamSource(XmlFile);
-
-            FileOutputStream output = new FileOutputStream(HtmlName);
-            StreamResult htmlObject = new StreamResult(output);
-
-            Transformer transformer = transform.newTransformer(xslObject);
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-
-            transformer.transform(xmlObject, htmlObject);
+             TransformerFactory tFactory = TransformerFactory.newInstance();
+            Transformer transformer = 
+                    tFactory.newTransformer(new javax.xml.transform.stream.StreamSource(XslFile));
+            
+            transformer.transform(new javax.xml.transform.stream.StreamSource(XmlFile),
+                new javax.xml.transform.stream.StreamResult(new FileOutputStream(HtmlName)));
         } catch (Exception e) {
         }
         return HtmlName;
