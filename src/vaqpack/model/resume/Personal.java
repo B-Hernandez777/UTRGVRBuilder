@@ -112,7 +112,7 @@ public class Personal implements Serializable
 				+ "<address> %s </address>"  +"\n\t\t"
 				+ "<city> %s </city>"  +"\n\t\t"
 				+ "<state> %s </state>"  +"\n\t\t"
-				+ "<zipCode> %s </state>"  +"\n\t\t"
+				+ "<zipCode> %s </zipCode>"  +"\n\t\t"
 				+ "<phone> %s </phone>"  +"\n\t"
 				+ "</personal>\n", firstName,lastName, email, address, city, state, zipCode, phoneNumber);
 	}
