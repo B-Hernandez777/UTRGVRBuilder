@@ -70,13 +70,6 @@ public class LoginController implements Initializable
 		//Validate email text field is not empty
 		boolean error = validateLogin();
 		if(!error)
-		// Method call to database to check and load if email exists
-		if(!new vaqpack.Tests.SQL().userExists(emailTextField.getText())){//Returns true if email exists. Notice the "!"
-			//do stuff here if the user does not already exist.
-			Popup.setVisible(true);
-			ErrorMessage.setText("User does not exist");
-		}
-		else
 		{
 	
 			//Database login
@@ -166,6 +159,13 @@ public class LoginController implements Initializable
 	private boolean validateNewUser()
 	{
 		boolean error = validateLogin();
+		
+		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){//Returns true if email exists. Notice the "!"
+			//do stuff here if the user does not already exist.
+			Popup.setVisible(true);
+			ErrorMessage.setText("User already exists.  Cannot register.");
+		}
+		
 		if(!retypePasswordField.getText().equals(passwordField.getText()))
 		{
 			error = true;
