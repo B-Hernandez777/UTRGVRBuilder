@@ -25,6 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.Vaqpack;
 
@@ -67,23 +68,27 @@ public class LoginController implements Initializable
 		System.out.println(emailTextField.getText());
 		
 		//Validate email text field is not empty
-		if(!emailTextField.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$")  || passwordField.getText().isEmpty() )
-		{
-                    Popup.setVisible(true);
-                    closePopup.setVisible(true);
-                    ErrorMessage.setVisible(true);
-                    
-                    ErrorMessage.setText("Not a valid email address/password");
-                    System.out.println("Enter email in the correct format");
-		}
-		else
+		boolean error = validateLogin();
+		if(!error)
 		// Method call to database to check and load if email exists
 		if(!new vaqpack.Tests.SQL().userExists(emailTextField.getText())){//Returns true if email exists. Notice the "!"
 			//do stuff here if the user does not already exist.
+			Popup.setVisible(true);
+			ErrorMessage.setText("User does not exist");
 		}
-		
-		
+		else
 		{
+	
+			//Database login
+//				Vaqpack vaqpack = (Vaqpack)SQL.getVaqPack(emailTextField.getText());
+//				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
+//				Singleton.getInstance().currentVaqpack().setCoverLetter(vaqpack.getCoverLetter());
+//			
+//				//load the scene
+//				animateOut();	
+//			
+			
+			//local file login
 			try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("1.dat"));)
 			{
 				Vaqpack vaqpack = (Vaqpack)input.readObject();
@@ -93,16 +98,40 @@ public class LoginController implements Initializable
 				//load the scene
 				animateOut();	
 			}}
-		// Create method that displays method does not exist
 		}
 		
 	}
 
+	private boolean validateLogin()
+	{
+		boolean error = false;
+		emailErrorLabel.setVisible(false);
+		emailTextField.getStyleClass().remove("error");
+		retypePasswordField.getStyleClass().remove("error");
+		retypePasswordErrorLabel.setVisible(false);
+		passwordField.getStyleClass().remove("error");
+		passwordErrorLabel.setVisible(false);
+		
+		if(!emailTextField.getText().matches("^[A-Za-z0-9+_.-]+@(.+)$"))
+		{
+			error = true;
+			emailTextField.getStyleClass().add("error");
+			emailErrorLabel.setText("Enter a valid email");
+			emailErrorLabel.setVisible(true);
+		}
+		if(passwordField.getText().isEmpty())
+		{
+			error = true;
+			passwordField.getStyleClass().add("error");
+			passwordErrorLabel.setText("Please enter password");
+			passwordErrorLabel.setVisible(true);
+		}
+		return error;
+	}
+
         @FXML public void closePopupClicked ()
         {
-                    Popup.setVisible(false);
-                    closePopup.setVisible(false);
-                    ErrorMessage.setVisible(false);
+             Popup.setVisible(false);
         }
 
 	private void setRegisterCard()
@@ -123,12 +152,28 @@ public class LoginController implements Initializable
 		});
 		registerButton.setOnAction(e->
 		{
-			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText())); //needs an empty vaqpack object.
-			//method to database to register user
-			//need to validate that users password works
-			// need to display if registered successful
+			boolean error = validateNewUser();
+			if(!error)
+			{
+			//new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText())); //needs an empty vaqpack object.
+			Popup.setVisible(true);
+			ErrorMessage.setText("User registered successfully");
+			}
 			
 		});
+	}
+
+	private boolean validateNewUser()
+	{
+		boolean error = validateLogin();
+		if(!retypePasswordField.getText().equals(passwordField.getText()))
+		{
+			error = true;
+			retypePasswordField.getStyleClass().add("error");
+			retypePasswordErrorLabel.setText("Passwords don't match");
+			retypePasswordErrorLabel.setVisible(true);
+		}
+		return error;
 	}
 
 	private void setLoginCard()

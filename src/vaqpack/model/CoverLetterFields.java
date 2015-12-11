@@ -125,4 +125,17 @@ public class CoverLetterFields implements Serializable
 	{
 		this.organizationName = organizationName;
 	}
+	
+	public String toString()
+	{
+		return String.format("\t<personal>"+ "\n\t\t"
+				+ "<contactname> %s </contactname>" +"\n\t\t"
+				+ "<contacttitle> %s </contacttitle>" +"\n\t\t"
+				+ "<organizationname> %s </organizationname>" +"\n\t\t"
+				+ "<address> %s </address>"  +"\n\t\t"
+				+ "<city> %s </city>"  +"\n\t\t"
+				+ "<state> %s </state>"  +"\n\t\t"
+				+ "<zipCode> %s </zipCode>"  +"\n\t\t"
+				+ "</personal>\n", contactName,contactTitle, organizationName, address, city, state, zipCode);
+	}
 }

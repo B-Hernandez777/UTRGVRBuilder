@@ -58,9 +58,28 @@ public class BackgroundController implements Initializable
 			loadWebsite();
 		else if(event.getSource().equals(businessCardsButton))
 			loadBusinessCards();
+		else if(event.getSource().equals(exportButton))
+			loadExport();
 
 		}
 	
+	private void loadExport()
+	{
+		try
+		{
+			   FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(BackgroundController.class.getResource("/vaqpack/view/Export.fxml"));
+		        AnchorPane pane = (AnchorPane) loader.load();
+					centerPane.getChildren().remove(0);
+					centerPane.getChildren().add(pane);
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+
+		
+	}
+
 	private void loadBusinessCards()
 	{
 		try

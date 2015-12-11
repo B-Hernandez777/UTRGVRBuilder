@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.ExportController">
+    <children>
+      <FlowPane fx:id="exportBackground" alignment="CENTER" columnHalignment="CENTER" hgap="16.0" prefHeight="448.0" prefWidth="694.0">
+         <children>
+            <VBox fx:id="exportCard" prefHeight="309.0" prefWidth="500.0" styleClass="card">
+               <children>
+                  <VBox fx:id="Style" prefHeight="247.0" prefWidth="568.0">
+                           <children>
+                        <Label styleClass="card-title" text="Export" />
+                        <Label text="Select items to export">
+                           <padding>
+                              <Insets top="8.0" />
+                           </padding>
+                        </Label>
+                        <HBox prefHeight="25.0" prefWidth="200.0" spacing="1.0">
+                           <children>
+                              <CheckBox fx:id="resumeCheckBox" mnemonicParsing="false" text="Resume" />
+                              <CheckBox fx:id="coverLetterCheckBox" mnemonicParsing="false" text="Cover Letters" />
+                              <CheckBox fx:id="websiteCheckBox" mnemonicParsing="false" text="Website" />
+                              <CheckBox fx:id="businesscardsCheckBox"  mnemonicParsing="false" text="Business Cards" />
+                           </children>
+                        </HBox>
+                        <Label text="Select location">
+                           <padding>
+                              <Insets top="8.0" />
+                           </padding>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextField />
+                              <Button fx:id="saveLocation" onAction="#saveLocation"  mnemonicParsing="false" textFill="#4caf50">
+                                 <graphic>
+                                    <SVGPath content="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" fill="#4caf50" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>                
+                           </children>
+                        </VBox>
+                  <HBox alignment="BASELINE_RIGHT">
+                     <children>
+                        <Button fx:id="exportButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="EXPORT" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <StackPane fx:id="exportListCard" alignment="TOP_CENTER">
+               <children>
+                 <VBox maxHeight="-Infinity" opacity="0.0" prefHeight="228.0" prefWidth="228.0" styleClass="card">
+                     <children>
+                        <Label text="Style List" />
+                        <ListView fx:id="styleListView" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                    </VBox>             
+               </children>
+            </StackPane>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

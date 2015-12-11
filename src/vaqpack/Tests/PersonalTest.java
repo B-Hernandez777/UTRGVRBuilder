@@ -99,25 +99,27 @@ public class PersonalTest {
         ArrayList<Paragraph> paragraphList = new ArrayList<Paragraph>();
         paragraphList.add(paragraph);
         coverLetter.setParagraphList(paragraphList);
-
+        coverLetter.setPersonal(vaqpack.getResume().getPersonal());
         vaqpack.setCoverLetter(coverLetter);
 
-        System.out.print(resume.getPersonal());
-        System.out.print(resume.getObjective());
-        System.out.print(resume.getExperienceList());
-        System.out.println(resume.getEducationList());
-        System.out.println(resume.getAchievementList());
-        System.out.println(resume.getSkillList());
+//        System.out.print(resume.getPersonal());
+//        System.out.print(resume.getObjective());
+//        System.out.print(resume.getExperienceList());
+//        System.out.println(resume.getEducationList());
+//        System.out.println(resume.getAchievementList());
+//        System.out.println(resume.getSkillList());
+        System.out.println(vaqpack.getCoverLetter());
+        
 
         String xml = resume.toString().replaceAll("[\\[\\],]", "");
         //need the xml file name?
         vaqpack.setResume(resume);
-        new SQL().updateDB(vaqpack, "user");
+     //   new SQL().updateDB(vaqpack, "user");
         saveXmlFile();
 //        xhtml.setXmlFile(XMLfile);
         
         xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
-        System.out.println(xml);
+      //  System.out.println(xml);
         
         pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
         System.out.println("Printed PDF");

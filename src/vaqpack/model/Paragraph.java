@@ -20,7 +20,12 @@ public class Paragraph implements Serializable
 
 	public Paragraph(String paragraph)
 	{
-		super();
 		this.paragraph = paragraph;
+	}
+	
+	public String toString()
+	{
+		return String.format("\t\t"
+				+ "<p> %s </p>", paragraph);
 	}
 }
