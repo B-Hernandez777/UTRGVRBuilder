@@ -123,7 +123,7 @@ public class LoginController implements Initializable
 		});
 		registerButton.setOnAction(e->
 		{
-			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), vaqPack); //needs an empty vaqpack object.
+			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText())); //needs an empty vaqpack object.
 			//method to database to register user
 			//need to validate that users password works
 			// need to display if registered successful
