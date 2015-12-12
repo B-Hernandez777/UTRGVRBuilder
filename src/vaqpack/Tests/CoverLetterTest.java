@@ -76,9 +76,6 @@ public class CoverLetterTest {
 		            out.print(cover);
 		}
         
-       
-        
-        
         System.out.println(coverletters);
         String xml = resume.toString().replaceAll("[\\[\\],]", "");
         //need the xml file name?
