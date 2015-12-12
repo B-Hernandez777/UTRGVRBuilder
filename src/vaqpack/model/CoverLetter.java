@@ -51,7 +51,8 @@ public class CoverLetter implements Serializable
 	{
 		return String.format("<coverletter>\n%s"
 				+ "\t<paragraphs>\n%s" + "\n\t"
-				+ "</paragraphs>", personal, coverLetterList);
+				+ "</paragraphs>\n" + "\t<CoverLetterFields>\n%s" + "\n\t" 
+                                + "</CoverLetterFields>", personal, paragraphList, coverLetterList);
 
 	}
 }

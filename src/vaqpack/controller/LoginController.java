@@ -1,9 +1,15 @@
 package vaqpack.controller;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.sun.xml.internal.ws.developer.Serialization;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -61,46 +67,64 @@ public class LoginController implements Initializable
 	
 	@FXML private void loginButtonClicked(ActionEvent event) throws IOException, ClassNotFoundException
 	{
-		if(event.getSource().equals(registerButton))
+		if(event.getSource().equals(registerButton)){
 			setRegisterCard();
+		System.out.println("2");}
 		else
 		{		
 		System.out.println(emailTextField.getText());
-		
+		System.out.println("3");
 		//Validate email text field is not empty
 		boolean error = validateLogin();
 		if(!error)
 		{
-			/*
-			 * This seemes to have the same problem as the registerUser(). It doesn't actually get to this point. 
-			 * The if loop just does not run and the user can login no matter who they are. I tried putting a Sysout 
-			 * to see if it would actually get the the confirmLogin() function, but it did not. 
-			 */
-//			if(new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText()))
-				
-			//System.out.println("If loop worked");
-	
-			//Database login
-//				Vaqpack vaqpack = (Vaqpack)SQL.getVaqPack(emailTextField.getText());
-//				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
-//				Singleton.getInstance().currentVaqpack().setCoverLetter(vaqpack.getCoverLetter());
-//			
-//				//load the scene
-//				animateOut();	
-//			
+
+		System.out.println("4");
+
 			
-			//local file login
-			try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("1.dat"));)
-			{
-				Vaqpack vaqpack = (Vaqpack)input.readObject();
-				Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
+			if(new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText())){
+				{
+				System.out.println("5");
+
+
+
+				Vaqpack vaqpack = new Vaqpack("");
+				ByteArrayInputStream bis = new ByteArrayInputStream(SQL.getVaqPack(emailTextField.getText()));
+				ObjectInput in = null;
+				try {
+				  in = new ObjectInputStream(bis);
+				   vaqpack = (Vaqpack) in.readObject(); 
+				} finally {
+				  try {
+				    bis.close();
+				  } catch (IOException ex) {
+				    // ignore close exception
+				  }
+				  try {
+				    if (in != null) {
+				      in.close();
+				    }
+				  } catch (IOException ex) {
+				    // ignore close exception
+				  }
+				}
+
+					Singleton.getInstance().currentVaqpack().setResume(vaqpack.getResume());
 				Singleton.getInstance().currentVaqpack().setCoverLetter(vaqpack.getCoverLetter());
-			
-				//load the scene
-				animateOut();	
+				
+					//load the scene
+					animateOut();	
+				}
 			}
+
+			else
+				System.out.println("6");
+		
 		}
 		}
+			
+			
+
 		
 	}
 
@@ -128,6 +152,7 @@ public class LoginController implements Initializable
 			passwordErrorLabel.setText("Please enter password");
 			passwordErrorLabel.setVisible(true);
 		}
+		System.out.println("7");
 		return error;
 	}
 
@@ -150,21 +175,18 @@ public class LoginController implements Initializable
 		loginButton.setOnAction(e->
 		{
 			//set login 
+			System.out.println("9");
 			setLoginCard();
 		});
 		registerButton.setOnAction(e->
 		{
-			/*
-			 * I tried to register when it was suppose to give me an error, not only did I not get an error, it appears that the if loop
-			 * does not even go through. I put a Sysout statement to see if it would run, but it did not. It also seems that I'm getting the 
-			 * "User registered sucessfully" from another place because when I try commenting it out, it still shows up. 
-			 */
+			System.out.println("10");
 			boolean error = validateNewUser();
 			if(!error)
 			{
 			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText()));
 			Popup.setVisible(true);
-			//System.out.println("The if statement worked. ");
+			System.out.println("1");
 			ErrorMessage.setText("User registered successfully");
 			}
 			
@@ -174,14 +196,12 @@ public class LoginController implements Initializable
 	private boolean validateNewUser()
 	{
 		boolean error = validateLogin();
-		
+		System.out.println("11");
 		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){
-			//error = true; //Added this, thought it might help, but nope. 
-			//it should be true if errors exists
+			error = true; //Added this, thought it might help, but nope. 
 			Popup.setVisible(true);
 			ErrorMessage.setText("User already exists.  Cannot register.");
 		}
-		
 		if(!retypePasswordField.getText().equals(passwordField.getText()))
 		{
 			error = true;

@@ -1,6 +1,5 @@
 package vaqpack.Tests;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,11 +7,6 @@ import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
 import vaqpack.model.CoverLetter;
 import vaqpack.model.CoverLetterFields;
@@ -30,14 +24,14 @@ import vaqpack.model.resume.ResumeStyle;
 import vaqpack.model.resume.Skill;
 
 public class PersonalTest {
-
+   static CoverLetter coverLetter = new CoverLetter();
     private static Resume resume;
     static Vaqpack vaqpack;
     static String XMLfile = "resume.xml";
+    static String CoverLetterXml = "coverletter.xml";
     static String XLSfile = "resumestyle1.xsl";
     static String HTMLfile = "ResumeWebPage.html";
     static String PdfName = "Resume.pdf";
-    
     private static ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
     private static Export pdf = new Export(xhtml.getHtmlName(), PdfName);
 
@@ -56,6 +50,10 @@ public class PersonalTest {
         try (PrintStream out = new PrintStream(new FileOutputStream(XMLfile))) {
             out.print(resume);
         }
+        try (PrintStream out = new PrintStream(new FileOutputStream(CoverLetterXml )))
+        {
+            out.print(coverLetter);
+        }
 
     }
 
@@ -70,7 +68,7 @@ public class PersonalTest {
       //  System.out.println(xml);
         pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
         System.out.println("Printed PDF");
-        //   new SQL().updateDB(vaqpack, "user");
+           new SQL().updateDB(vaqpack, "user");
     }
 
 	private static void setUp()
@@ -102,11 +100,14 @@ public class PersonalTest {
 
         resume.setSkillList(skillList);
 
-        CoverLetter coverLetter = new CoverLetter();
+        
+         
 
         CoverLetterFields fields = new CoverLetterFields("Person", "Recruiter", "google", "3847 Dr", "Richmond", "California", "78555", "2F3adr", "Software Developer");
+        CoverLetterFields fields2 = new CoverLetterFields("people2","Recruiter", "google", "3847 Dr", "Richmond", "California", "78555", "2F3adr", "Software Developer");
         ArrayList<CoverLetterFields> fieldsList = new ArrayList<CoverLetterFields>();
         fieldsList.add(fields);
+        fieldsList.add(fields2);
         coverLetter.setCoverLetterList(fieldsList);
 
         Paragraph paragraph = new Paragraph("laskdjflkasjd;fka");

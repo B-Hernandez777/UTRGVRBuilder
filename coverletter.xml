@@ -1,0 +1,36 @@
+<coverletter>
+	<personal>
+		<firstname> null </firstname>
+		<lastname> null </lastname>
+		<email> persona@hotmail.com </email>
+		<address> null </address>
+		<city> null </city>
+		<state> null </state>
+		<zipCode> null </zipCode>
+		<phone> null </phone>
+	</personal>
+	<paragraphs>
+[	<paragraph> laskdjflkasjd;fka </paragrpah>
+]
+	</paragraphs>
+	<CoverLetterFields>
+[	<coverpersonal>
+		<contactname> Person </contactname>
+		<contacttitle> Recruiter </contacttitle>
+		<organizationname> google </organizationname>
+		<address> 3847 Dr </address>
+		<city> Richmond </city>
+		<state> California </state>
+		<zipCode> 78555 </zipCode>
+		</coverpersonal>
+, 	<coverpersonal>
+		<contactname> people2 </contactname>
+		<contacttitle> Recruiter </contacttitle>
+		<organizationname> google </organizationname>
+		<address> 3847 Dr </address>
+		<city> Richmond </city>
+		<state> California </state>
+		<zipCode> 78555 </zipCode>
+		</coverpersonal>
+]
+	</CoverLetterFields>

@@ -20,12 +20,13 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 public class Export implements Serializable {
 
     private String htmlFileName;
-    
+    private String pdfFileName;
+
     public Export(String htmlFileName, String pdfFileName) {
         this.htmlFileName = htmlFileName;
         this.pdfFileName = pdfFileName;
     }
-    
+
     public String getHtmlFileName() {
         return htmlFileName;
     }
@@ -41,20 +42,18 @@ public class Export implements Serializable {
     public void setPdfFileName(String pdfFileName) {
         this.pdfFileName = pdfFileName;
     }
-    private String pdfFileName;
 
-    
     public String convert2Pdf(String htmlFileName, String pdfFileName) {
-        try {           
-            File Htmlfile = new File(htmlFileName); 
-            
+        try {
+            File Htmlfile = new File(htmlFileName);
+
 //            if (Htmlfile.exists())
 //            {
 //                Htmlfile.delete();
 //                System.out.println("File deleted and remade");
 //            }
             String url = Htmlfile.toURI().toURL().toString();
-            
+
             OutputStream os = new FileOutputStream(pdfFileName);
             ITextRenderer renderer = new ITextRenderer();
             renderer.setDocument(url);

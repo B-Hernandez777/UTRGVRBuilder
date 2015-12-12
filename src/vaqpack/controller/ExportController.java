@@ -25,72 +25,69 @@ import vaqpack.model.Singleton;
 import vaqpack.model.WebsiteStyle;
 import vaqpack.model.resume.ResumeStyle;
 
-public class ExportController implements Initializable
 
-{
+public class ExportController implements Initializable {
 
-	@FXML
-	FlowPane exportBackground;
-	@FXML
-	VBox exportCard;
-	@FXML
-	StackPane exportListCard;
-	@FXML
-	Button exportButton;
-	@FXML
-	CheckBox resumeCheckBox;
-	@FXML
-	CheckBox coverLettercheckbox;
-	@FXML
-	CheckBox websiteCheckbox;
-	@FXML
-	CheckBox businesscardsCheckBox;
-	@FXML
-	Button saveLocation;
+    @FXML
+    FlowPane exportBackground;
+    @FXML
+    VBox exportCard;
+    @FXML
+    StackPane exportListCard;
+    @FXML
+    Button exportButton;
+    @FXML
+    CheckBox resumeCheckBox;
+    @FXML
+    CheckBox coverLettercheckbox;
+    @FXML
+    CheckBox websiteCheckbox;
+    @FXML
+    CheckBox businesscardsCheckBox;
+    @FXML
+    Button saveLocation;
 
-	@FXML
-	ListView<WebsiteStyle> styleListView;
+    @FXML
+    ListView<WebsiteStyle> styleListView;
 
-	private boolean expanded;
+    private boolean expanded;
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1)
-	{
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
 
-		loadList();
+        loadList();
 
-	}
+    }
 
-	private void loadList()
-	{
-		expanded = true;
+    private void loadList() {
+        expanded = true;
 
-		animateIn();
-	}
+        animateIn();
+    }
 
-	private void animateIn()
-	{
-		TranslateTransition tt = new TranslateTransition(Duration.millis(500),
-				exportCard);
-		FadeTransition ft1 = new FadeTransition(Duration.millis(1), exportCard);
-		ft1.setFromValue(0);
-		ft1.setToValue(1);
-		ft1.play();
-		tt.setFromX(400f);
-		tt.setToX(0);
-		tt.play();
-	}
+    private void animateIn() {
+        TranslateTransition tt = new TranslateTransition(Duration.millis(500),
+                exportCard);
+        FadeTransition ft1 = new FadeTransition(Duration.millis(1), exportCard);
+        ft1.setFromValue(0);
+        ft1.setToValue(1);
+        ft1.play();
+        tt.setFromX(400f);
+        tt.setToX(0);
+        tt.play();
+    }
 
-	@FXML
-	public void saveLocation()
-	{
+    @FXML
+    public void saveLocation() {
 
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Save file");
-		fileChooser.setInitialFileName("resume.xml");
-		File savedFile = fileChooser.showSaveDialog(null);
-		if (savedFile != null)
-		{
+    	FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save file");
+        fileChooser.setInitialFileName("resume.xml");
+        File savedFile = fileChooser.showSaveDialog(null);
+       //savedFile = fileChooser.getTitle().toString();
+ //       setSavedFile(savedFile.toString());
+        if (savedFile != null) {
+
 
 		}
 
@@ -142,6 +139,7 @@ public class ExportController implements Initializable
             // then send to the html maker function in resume style( the function can be moved ) 
             // it returns the html and with that you can make the pdf and keep it in the same saved location
             
+
         }
         private  void saveXmlFile(String fileName, String resume) throws IOException, FileNotFoundException {
 
@@ -150,4 +148,23 @@ public class ExportController implements Initializable
             }
         }
 
-}
+    }
+
+ 
+
+//    private void saveCoverXml() throws IOException, FileNotFoundException {
+//        try (PrintStream out = new PrintStream(new FileOutputStream(getSavedFile()))) {
+//            out.print(resume);
+//        }
+//    }
+//    private static void saveFile() throws IOException, FileNotFoundException {
+//
+//        System.out.println("Save Button pressed");
+//        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(getSavedFile()), false));) {
+//            output.writeObject(vaqpack);
+//        }
+//        System.out.println("Saved Successfully");
+//
+//    }
+
+

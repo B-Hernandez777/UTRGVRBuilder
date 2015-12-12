@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import vaqpack.model.Vaqpack;
+
 public class SQL {
 	final static String DB = "jdbc:mysql://localhost:3306/$users";
 	final static String User = "student";
@@ -17,15 +19,15 @@ public class SQL {
 	 * 
 	 * @return This returns the vaqPack Object from the DB.
 	 */
-	public static Object getVaqPack(String email){
-		Object vaqPack = null;
+	public static byte[] getVaqPack(String email){
+		byte[] vaqPack = null;
 		try{
 		Connection conn = DriverManager.getConnection(DB, User, Password);
 		PreparedStatement getDB = conn
 				.prepareStatement("SELECT * from" + Table_user + "WHERE email='" + email + "'");
 		ResultSet rs = getDB.executeQuery();
 		rs.next();
-		vaqPack = rs.getBlob(4);
+		vaqPack = rs.getBytes(4);
 		rs.close();
 		getDB.close();
 		System.out.println("SQL getVaqPack() completed");
@@ -70,18 +72,18 @@ public class SQL {
 	 * 
 	 * @param email
 	 * @param password
+	 * @return Returns true if user sucessfully logs in, false if it is the wrong match. 
 	 */
-	public void confirmLogin(String email, String password){
+	public Boolean confirmLogin(String email, String password){
+		Boolean bool = null;
 		try{
 		Connection conn = DriverManager.getConnection(DB, User, Password);
 		ResultSet userSearch = conn.createStatement().executeQuery(
 				"SELECT * from   " + Table_user + "  WHERE email = '" + email + "' AND password = '" + password + "'");
 		if (!userSearch.next()) {
-			System.out.println("ERROR: Email NOT found!");
-			// Tell user to register.
+			bool = false;
 		} else {
-			// User has successfully logged in,
-			// Set the scene to the next screen here.
+			bool = true;
 		}
 		userSearch.close();
 		conn.close();
@@ -90,6 +92,7 @@ public class SQL {
 			e.printStackTrace();
 			e.getMessage();
 		}
+		return bool;
 	}
 	
 	/**

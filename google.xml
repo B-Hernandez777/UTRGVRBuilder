@@ -9,7 +9,7 @@
 		<zipCode> 78520 </zipCode>
 		<phone> (956)555-5555 </phone>
 	</personal>
-	<contact>
+	<coverpersonal>
 		<contactname> Person </contactname>
 		<contacttitle> Recruiter </contacttitle>
 		<organizationname> google </organizationname>
@@ -17,8 +17,7 @@
 		<city> Richmond </city>
 		<state> California </state>
 		<zipCode> 78555 </zipCode>
-	</contact>
-	<to> Dear Person ,</to>
+		</coverpersonal>
 [	<paragraph> laskdjflsdfsdfkasjd;fka </paragrpah>
 , 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragrpah>
 , 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragrpah>

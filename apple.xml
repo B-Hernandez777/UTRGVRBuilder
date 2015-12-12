@@ -9,7 +9,7 @@
 		<zipCode> 78520 </zipCode>
 		<phone> (956)555-5555 </phone>
 	</personal>
-	<contact>
+	<coverpersonal>
 		<contactname> Person2 </contactname>
 		<contacttitle> Recruiter </contacttitle>
 		<organizationname> apple </organizationname>
@@ -17,8 +17,7 @@
 		<city> Austin </city>
 		<state> Texas </state>
 		<zipCode> 78555 </zipCode>
-	</contact>
-	<to> Dear Person2 ,</to>
+		</coverpersonal>
 [	<paragraph> laskdjflsdfsdfkasjd;fka </paragrpah>
 , 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragrpah>
 , 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragrpah>

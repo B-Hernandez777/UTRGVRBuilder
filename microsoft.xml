@@ -9,7 +9,7 @@
 		<zipCode> 78520 </zipCode>
 		<phone> (956)555-5555 </phone>
 	</personal>
-	<contact>
+	<coverpersonal>
 		<contactname> Person3 </contactname>
 		<contacttitle> Recruiter </contacttitle>
 		<organizationname> microsoft </organizationname>
@@ -17,8 +17,7 @@
 		<city> Redmund </city>
 		<state> Washington </state>
 		<zipCode> 78555 </zipCode>
-	</contact>
-	<to> Dear Person3 ,</to>
+		</coverpersonal>
 [	<paragraph> laskdjflsdfsdfkasjd;fka </paragrpah>
 , 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragrpah>
 , 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragrpah>

@@ -128,15 +128,17 @@ public class CoverLetterFields implements Serializable
 	
 	public String toString()
 	{
-		return String.format("\t<contact>"+ "\n\t\t"
+
+		return String.format("\t<coverpersonal>"+ "\n\t\t"
+
 				+ "<contactname> %s </contactname>" +"\n\t\t"
 				+ "<contacttitle> %s </contacttitle>" +"\n\t\t"
 				+ "<organizationname> %s </organizationname>" +"\n\t\t"
 				+ "<address> %s </address>"  +"\n\t\t"
 				+ "<city> %s </city>"  +"\n\t\t"
 				+ "<state> %s </state>"  +"\n\t\t"
-				+ "<zipCode> %s </zipCode>"  +"\n\t"
-				+ "</contact>\n\t"
-				+ "<to> Dear %s ,</to>\n", contactName,contactTitle, organizationName, address, city, state, zipCode, contactName);
+				+ "<zipCode> %s </zipCode>"  +"\n\t\t"
+				+ "</coverpersonal>\n", contactName,contactTitle, organizationName, address, city, state, zipCode);
+
 	}
 }
