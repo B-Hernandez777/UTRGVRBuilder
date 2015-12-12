@@ -71,6 +71,13 @@ public class LoginController implements Initializable
 		boolean error = validateLogin();
 		if(!error)
 		{
+			/*
+			 * This seemes to have the same problem as the registerUser(). It doesn't actually get to this point. 
+			 * The if loop just does not run and the user can login no matter who they are. I tried putting a Sysout 
+			 * to see if it would actually get the the confirmLogin() function, but it did not. 
+			 */
+			new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText());
+			//System.out.println("If loop worked");
 	
 			//Database login
 //				Vaqpack vaqpack = (Vaqpack)SQL.getVaqPack(emailTextField.getText());
@@ -145,11 +152,17 @@ public class LoginController implements Initializable
 		});
 		registerButton.setOnAction(e->
 		{
+			/*
+			 * I tried to register when it was suppose to give me an error, not only did I not get an error, it appears that the if loop
+			 * does not even go through. I put a Sysout statement to see if it would run, but it did not. It also seems that I'm getting the 
+			 * "User registered sucessfully" from another place because when I try commenting it out, it still shows up. 
+			 */
 			boolean error = validateNewUser();
 			if(!error)
 			{
-			//new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText())); //needs an empty vaqpack object.
+			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText()));
 			Popup.setVisible(true);
+			//System.out.println("The if statement worked. ");
 			ErrorMessage.setText("User registered successfully");
 			}
 			
@@ -160,8 +173,8 @@ public class LoginController implements Initializable
 	{
 		boolean error = validateLogin();
 		
-		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){//Returns true if email exists. Notice the "!"
-			//do stuff here if the user does not already exist.
+		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){
+			//error = true; //Added this, thought it might help, but nope. 
 			Popup.setVisible(true);
 			ErrorMessage.setText("User already exists.  Cannot register.");
 		}
