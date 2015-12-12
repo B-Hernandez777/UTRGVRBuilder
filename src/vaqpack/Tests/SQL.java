@@ -147,6 +147,7 @@ public class SQL {
 			addDB.setObject(3, vaqPack);
 			addDB.executeUpdate();
 			addDB.close();
+			System.out.println("User Registered");
 		} else {
 			System.out.println("Did not register user, user already exists :: from registerUser()");
 			// Tell user to reset password or something.
