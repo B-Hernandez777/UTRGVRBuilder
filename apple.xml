@@ -1,0 +1,28 @@
+<coverletter>
+	<personal>
+		<firstname> aName </firstname>
+		<lastname> aLastname </lastname>
+		<email> person@hotmail.com </email>
+		<address> 1234 drive </address>
+		<city> Brownsville </city>
+		<state> Texas </state>
+		<zipCode> 78520 </zipCode>
+		<phone> (956)555-5555 </phone>
+	</personal>
+	<contact>
+		<contactname> Person2 </contactname>
+		<contacttitle> Recruiter </contacttitle>
+		<organizationname> apple </organizationname>
+		<address> 123 street </address>
+		<city> Austin </city>
+		<state> Texas </state>
+		<zipCode> 78555 </zipCode>
+	</contact>
+	<to> Dear Person2 ,</to>
+[	<paragraph> laskdjflsdfsdfkasjd;fka </paragrpah>
+, 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragrpah>
+, 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragrpah>
+]	<end>Sincerely 
+	aName aLastname
+	</end>
+</coverletter>

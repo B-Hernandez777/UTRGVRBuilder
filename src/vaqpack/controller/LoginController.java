@@ -33,9 +33,9 @@ import vaqpack.model.Vaqpack;
 
 public class LoginController implements Initializable
 {
-        @FXML Button closePopup;
-        @FXML Pane Popup;
-        @FXML Label ErrorMessage;
+    @FXML Button closePopup;
+    @FXML Pane Popup;
+    @FXML Label ErrorMessage;
         
 	@FXML Button loginButton;
 	@FXML Button registerButton;
