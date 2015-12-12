@@ -27,7 +27,7 @@
                               <CheckBox fx:id="resumeCheckBox" mnemonicParsing="false" text="Resume" />
                               <CheckBox fx:id="coverLetterCheckBox" mnemonicParsing="false" text="Cover Letters" />
                               <CheckBox fx:id="websiteCheckBox" mnemonicParsing="false" text="Website" />
-                              <CheckBox fx:id="businesscardsCheckBox"  mnemonicParsing="false" text="Business Cards" />
+                              <CheckBox fx:id="businesscardsCheckBox" mnemonicParsing="false" text="Business Cards" />
                            </children>
                         </HBox>
                         <Label text="Select location">
@@ -38,7 +38,7 @@
                         <HBox>
                            <children>
                               <TextField />
-                              <Button fx:id="saveLocation" onAction="#saveLocation"  mnemonicParsing="false" textFill="#4caf50">
+                              <Button fx:id="saveLocation" mnemonicParsing="false" onAction="#saveLocation" textFill="#4caf50">
                                  <graphic>
                                     <SVGPath content="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" fill="#4caf50" />
                                  </graphic>
@@ -49,7 +49,7 @@
                         </VBox>
                   <HBox alignment="BASELINE_RIGHT">
                      <children>
-                        <Button fx:id="exportButton" defaultButton="true" mnemonicParsing="false" prefWidth="86.0" styleClass="button-flat" text="EXPORT" />
+                        <Button fx:id="exportButton" defaultButton="true" mnemonicParsing="false" onAction="#exportButtonClicked" prefWidth="86.0" styleClass="button-flat" text="EXPORT" />
                      </children>
                   </HBox>
                </children>
