@@ -76,7 +76,8 @@ public class LoginController implements Initializable
 			 * The if loop just does not run and the user can login no matter who they are. I tried putting a Sysout 
 			 * to see if it would actually get the the confirmLogin() function, but it did not. 
 			 */
-			new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText());
+//			if(new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText()))
+				
 			//System.out.println("If loop worked");
 	
 			//Database login
@@ -97,7 +98,8 @@ public class LoginController implements Initializable
 			
 				//load the scene
 				animateOut();	
-			}}
+			}
+		}
 		}
 		
 	}
@@ -175,6 +177,7 @@ public class LoginController implements Initializable
 		
 		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){
 			//error = true; //Added this, thought it might help, but nope. 
+			//it should be true if errors exists
 			Popup.setVisible(true);
 			ErrorMessage.setText("User already exists.  Cannot register.");
 		}

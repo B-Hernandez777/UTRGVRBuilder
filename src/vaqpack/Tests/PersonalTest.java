@@ -61,7 +61,21 @@ public class PersonalTest {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, SQLException {
 
-        vaqpack = new Vaqpack("persona@hotmail.com");
+        setUp();
+        //need the xml file name?
+        vaqpack.setResume(resume);
+        saveXmlFile();
+//        xhtml.setXmlFile(XMLfile);
+        xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
+      //  System.out.println(xml);
+        pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+        System.out.println("Printed PDF");
+        //   new SQL().updateDB(vaqpack, "user");
+    }
+
+	private static void setUp()
+	{
+		vaqpack = new Vaqpack("persona@hotmail.com");
 
         resume = new Resume("person@hotmail.com");
         Personal personal = new Personal("aName", "aLastname", "(956)555-5555", resume.getPersonal().getEmail(), "1234 drive", "Brownsville", "Texas", "78520");
@@ -112,17 +126,6 @@ public class PersonalTest {
         
 
         String xml = resume.toString().replaceAll("[\\[\\],]", "");
-        //need the xml file name?
-        vaqpack.setResume(resume);
-     //   new SQL().updateDB(vaqpack, "user");
-        saveXmlFile();
-//        xhtml.setXmlFile(XMLfile);
-        
-        xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
-      //  System.out.println(xml);
-        
-        pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
-        System.out.println("Printed PDF");
-    }
+	}
 
 }

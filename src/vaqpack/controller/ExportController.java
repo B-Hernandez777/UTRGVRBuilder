@@ -1,7 +1,10 @@
 package vaqpack.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +20,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import vaqpack.model.Export;
+import vaqpack.model.Singleton;
 import vaqpack.model.WebsiteStyle;
+import vaqpack.model.resume.ResumeStyle;
 
 public class ExportController implements Initializable
 
@@ -90,11 +96,33 @@ public class ExportController implements Initializable
 
 	}
         @FXML
-        public void exportButtonClicked()
+        public void exportButtonClicked() throws FileNotFoundException, IOException
         {
             if(resumeCheckBox.isSelected() )
             {
-                //get the resume xml
+            	//based on personal test 
+            	 //get the resume xml
+            	String xml = Singleton.getInstance().currentVaqpack().getResume().toString().replaceAll("[\\[\\],]", "");
+            	String XMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"resume.xml";
+            	String XLSfile = "resumestyle1.xsl";   //Singleton.getInstance().currentVaqpack().getResume().getStyle().getStyle();
+            	String HTMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"Website.html";
+            	ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
+            	String PdfName = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"Resume.pdf";
+                Export pdf = new Export(xhtml.getHtmlName(), PdfName);
+ 
+                saveXmlFile(XMLfile, xml);
+//              xhtml.setXmlFile(XMLfile);
+              xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
+            //  System.out.println(xml);
+              pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+              System.out.println("Printed PDF");
+            	 
+              
+              
+             
+            	
+            	
+             
                 // so either we can make the xml from the resume elements here 
                 // or have it save some where else
                 
@@ -114,6 +142,12 @@ public class ExportController implements Initializable
             // then send to the html maker function in resume style( the function can be moved ) 
             // it returns the html and with that you can make the pdf and keep it in the same saved location
             
+        }
+        private  void saveXmlFile(String fileName, String resume) throws IOException, FileNotFoundException {
+
+            try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
+                out.print(resume);
+            }
         }
 
 }
