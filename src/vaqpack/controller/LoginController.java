@@ -68,26 +68,16 @@ public class LoginController implements Initializable
 	@FXML private void loginButtonClicked(ActionEvent event) throws IOException, ClassNotFoundException
 	{
 		if(event.getSource().equals(registerButton)){
-			setRegisterCard();
-		System.out.println("2");}
+			setRegisterCard();}
 		else
 		{		
 		System.out.println(emailTextField.getText());
-		System.out.println("3");
 		//Validate email text field is not empty
 		boolean error = validateLogin();
 		if(!error)
-		{
-
-		System.out.println("4");
-
-			
+		{		
 			if(new vaqpack.Tests.SQL().confirmLogin(emailTextField.getText(), passwordField.getText())){
 				{
-				System.out.println("5");
-
-
-
 				Vaqpack vaqpack = new Vaqpack("");
 				ByteArrayInputStream bis = new ByteArrayInputStream(SQL.getVaqPack(emailTextField.getText()));
 				ObjectInput in = null;
@@ -116,16 +106,14 @@ public class LoginController implements Initializable
 					animateOut();	
 				}
 			}
-
 			else
-				System.out.println("6");
-		
-		}
-		}
-			
-			
+			{
+				Popup.setVisible(true);
+				System.out.println("1");
+				ErrorMessage.setText("Wrong email or password");
+			}
+		}}
 
-		
 	}
 
 	private boolean validateLogin()
@@ -152,7 +140,6 @@ public class LoginController implements Initializable
 			passwordErrorLabel.setText("Please enter password");
 			passwordErrorLabel.setVisible(true);
 		}
-		System.out.println("7");
 		return error;
 	}
 
@@ -175,18 +162,15 @@ public class LoginController implements Initializable
 		loginButton.setOnAction(e->
 		{
 			//set login 
-			System.out.println("9");
 			setLoginCard();
 		});
 		registerButton.setOnAction(e->
 		{
-			System.out.println("10");
 			boolean error = validateNewUser();
 			if(!error)
 			{
 			new vaqpack.Tests.SQL().registerUser(emailTextField.getText(), passwordField.getText(), new Vaqpack(emailTextField.getText()));
 			Popup.setVisible(true);
-			System.out.println("1");
 			ErrorMessage.setText("User registered successfully");
 			}
 			
@@ -196,11 +180,10 @@ public class LoginController implements Initializable
 	private boolean validateNewUser()
 	{
 		boolean error = validateLogin();
-		System.out.println("11");
 		if(new vaqpack.Tests.SQL().userExists(emailTextField.getText())){
 			error = true; //Added this, thought it might help, but nope. 
 			Popup.setVisible(true);
-			ErrorMessage.setText("User already exists.  Cannot register.");
+			ErrorMessage.setText("User already exists.");
 		}
 		if(!retypePasswordField.getText().equals(passwordField.getText()))
 		{

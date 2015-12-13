@@ -12,6 +12,16 @@ public class CoverLetter implements Serializable
 	private ArrayList<CoverLetterFields> coverLetterList;
 	private ArrayList<Paragraph> paragraphList;
 	private CoverLetterStyle style;
+	
+	public CoverLetter()
+	{
+		super();
+		this.coverLetterList = null;
+		this.paragraphList = null;
+		this.style = null;
+		this.personal = null;
+	}
+
 	private Personal personal;
 
 	public CoverLetterStyle getStyle()

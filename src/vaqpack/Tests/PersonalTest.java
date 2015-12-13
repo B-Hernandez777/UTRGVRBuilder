@@ -68,12 +68,12 @@ public class PersonalTest {
       //  System.out.println(xml);
         pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
         System.out.println("Printed PDF");
-           new SQL().updateDB(vaqpack, "user");
+           new SQL().updateDB(vaqpack, "huriel@gmail.com");
     }
 
 	private static void setUp()
 	{
-		vaqpack = new Vaqpack("persona@hotmail.com");
+		vaqpack = new Vaqpack("person@hotmail.com");
 
         resume = new Resume("person@hotmail.com");
         Personal personal = new Personal("aName", "aLastname", "(956)555-5555", resume.getPersonal().getEmail(), "1234 drive", "Brownsville", "Texas", "78520");
@@ -99,10 +99,6 @@ public class PersonalTest {
         resume.setAchievementList(achievementList);
 
         resume.setSkillList(skillList);
-
-        
-         
-
         CoverLetterFields fields = new CoverLetterFields("Person", "Recruiter", "google", "3847 Dr", "Richmond", "California", "78555", "2F3adr", "Software Developer");
         CoverLetterFields fields2 = new CoverLetterFields("people2","Recruiter", "google", "3847 Dr", "Richmond", "California", "78555", "2F3adr", "Software Developer");
         ArrayList<CoverLetterFields> fieldsList = new ArrayList<CoverLetterFields>();
@@ -124,7 +120,6 @@ public class PersonalTest {
 //        System.out.println(resume.getAchievementList());
 //        System.out.println(resume.getSkillList());
         System.out.println(vaqpack.getCoverLetter());
-        
 
         String xml = resume.toString().replaceAll("[\\[\\],]", "");
 	}

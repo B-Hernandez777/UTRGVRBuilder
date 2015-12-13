@@ -22,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.Context;
@@ -200,7 +201,7 @@ public class SkillController implements Initializable
 		globalSkill.addAll(skillList);
 		 
 		Singleton.getInstance().currentVaqpack().getResume().setSkillList(globalSkill);
-		
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 	}
 

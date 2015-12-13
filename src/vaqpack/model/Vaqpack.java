@@ -16,6 +16,7 @@ public class Vaqpack implements Serializable
 	public Vaqpack(String email)
 	{
 		resume = new Resume(email);
+		coverLetter = new CoverLetter();
 	}
 	
 	

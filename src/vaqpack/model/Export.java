@@ -6,17 +6,20 @@
 package vaqpack.model;
 
 import com.lowagie.text.DocumentException;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
+
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 /**
  *
  * @author Aerodrain
  */
+@SuppressWarnings("serial")
 public class Export implements Serializable {
 
     private String htmlFileName;

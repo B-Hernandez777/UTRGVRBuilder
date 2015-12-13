@@ -25,6 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Education;
 import vaqpack.model.resume.EducationCell;
@@ -252,7 +253,7 @@ public class EducationController implements Initializable
 		globalEducation.addAll(educationList);
 		 
 		 Singleton.getInstance().currentVaqpack().getResume().setEducationList(globalEducation);
-		
+		 SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 	}
 

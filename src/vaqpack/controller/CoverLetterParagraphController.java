@@ -19,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.CoverLetterFields;
 import vaqpack.model.Paragraph;
 import vaqpack.model.ParagraphCell;
@@ -170,7 +171,7 @@ public class CoverLetterParagraphController implements Initializable
 		globalParagraphs.addAll(paragraphList);
 		 
 		Singleton.getInstance().currentVaqpack().getCoverLetter().setParagraphList(globalParagraphs);
-		
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 	}
 

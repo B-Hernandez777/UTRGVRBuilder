@@ -17,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Paragraph;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Context;
@@ -97,7 +98,8 @@ public class ResumeStyleController implements Initializable
 
 	@FXML public void saveButtonClicked() 
 	{
-		Singleton.getInstance().getInstance().currentVaqpack().getResume().setStyle(styleListView.getSelectionModel().getSelectedItem());
+		Singleton.getInstance().currentVaqpack().getResume().setStyle(styleListView.getSelectionModel().getSelectedItem());
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 	}
 
 	

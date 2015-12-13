@@ -49,6 +49,7 @@
                         </VBox>
                   <HBox alignment="BASELINE_RIGHT">
                      <children>
+                       <Label fx:id="message" alignment="CENTER" opacity="0.0" prefHeight="48.0" prefWidth="284.0" style="-fx-background-color: #323232; -fx-font-family: Roboto; -fx-font-size: 14; -fx-text-fill: #FFF;" text="Saved successfully" />
                         <Button fx:id="exportButton" defaultButton="true" mnemonicParsing="false" onAction="#exportButtonClicked" prefWidth="86.0" styleClass="button-flat" text="EXPORT" />
                      </children>
                   </HBox>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resume>
+	<personal>
+		<firstname> aName </firstname>
+		<lastname> aLastname </lastname>
+		<email> person@hotmail.com </email>
+		<address> 1234 drive </address>
+		<city> Brownsville </city>
+		<state> Texas </state>
+		<zipCode> 78520 </zipCode>
+		<phone> (956)555-5555 </phone>
+	</personal>
+	<objective>
+		<object> This will be the test Objective for my fake job  </object>
+	</objective>
+	<experience>
+null	</experience>
+	<education>
+		<ed>
+			<school> MIT </school>
+			<schoolcity> Boston </schoolcity>
+			<schoolstate >Massachusetts </schoolstate>
+			<degree> Masters in Science </degree>
+			<GPA> 4.0 </GPA>
+			<schoolstart> null </schoolstart>
+			<schoolend> null </schoolend>
+		</ed>
+	</education>
+	<achievement>
+		<a>
+			<achieve> Presidents List </achieve>
+			<achievedescription> null </achievedescription>
+		</a>
+ 		<a>
+			<achieve> Medal of Honor </achieve>
+			<achievedescription> null </achievedescription>
+		</a>
+	</achievement>
+	<skill>
+		<s>
+			<skilltype> Can heat ramen in under a minute </skilltype>
+		</s>
+ 		<s>
+			<skilltype> Fastest cook at McDonalds </skilltype>
+		</s>
+	</skill>
+</resume>

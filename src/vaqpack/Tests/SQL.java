@@ -48,7 +48,7 @@ public class SQL {
 	 * @param email This is the email of the user that you want to update the object to.
 	 * 
 	 */
-	public void updateDB(Object vaqPack, String email){
+	public static void updateDB(Object vaqPack, String email){
 		try{
 		Connection conn = DriverManager.getConnection(DB, User, Password);
 		PreparedStatement updateDB = conn

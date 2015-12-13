@@ -23,6 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Achievement;
 import vaqpack.model.resume.AchievementCell;
@@ -204,7 +205,7 @@ public class AchievementController implements Initializable
 		globalAchievement.addAll(achievementList);
 		 
 		Singleton.getInstance().currentVaqpack().getResume().setAchievementList(globalAchievement);
-		
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 	}
 

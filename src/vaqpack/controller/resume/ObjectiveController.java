@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Objective;
 
@@ -31,6 +32,7 @@ public class ObjectiveController implements Initializable
 
 	private void loadInformation()
 	{
+		if(objective.getObjective() != null)
 		objectiveTextArea.setText(objective.getObjective());
 		
 	}
@@ -52,6 +54,7 @@ public class ObjectiveController implements Initializable
 	{
 		objective = new Objective(objectiveTextArea.getText());
 		Singleton.getInstance().currentVaqpack().getResume().setObjective(objective);
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 	}
 	
 

@@ -20,6 +20,11 @@ public class Resume implements Serializable {
 
     public Resume(String email) {
         personal = new Personal(email);
+         objective = new Objective("");
+         experienceList = new ArrayList<Experience>();
+         educationList = new ArrayList<Education>();
+       achievementList = new ArrayList<Achievement>();
+         skillList = new ArrayList<Skill>();
     }
     
 

@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.controller.BackgroundController;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Personal;
@@ -76,6 +77,8 @@ public class PersonalController implements Initializable
 				
 				);
 		Singleton.getInstance().currentVaqpack().getResume().setPersonal(personal);
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
+		
 		TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
 		FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
 		FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);

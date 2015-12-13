@@ -21,6 +21,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.CoverLetterFields;
 import vaqpack.model.CoverLetterFieldsCell;
 import vaqpack.model.Singleton;
@@ -200,7 +201,7 @@ public class CoverLetterFieldsController implements Initializable
 		globalFields.addAll(fieldsList);
 		 
 		Singleton.getInstance().currentVaqpack().getCoverLetter().setCoverLetterList(globalFields);
-		
+		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 		
 	}
 	

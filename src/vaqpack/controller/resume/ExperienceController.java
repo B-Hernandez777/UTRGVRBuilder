@@ -26,6 +26,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
+import vaqpack.Tests.SQL;
 import vaqpack.model.Singleton;
 import vaqpack.model.resume.Experience;
 import vaqpack.model.resume.ExperienceCell;
@@ -245,8 +246,7 @@ public class ExperienceController implements Initializable
 		globalExperience.addAll(experienceList);
 		 
 		 Singleton.getInstance().currentVaqpack().getResume().setExperienceList(globalExperience);
-		
-		
+		 SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());
 	}
 
 	
