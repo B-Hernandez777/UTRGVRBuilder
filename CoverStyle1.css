@@ -1,0 +1,31 @@
+h1 {
+	text-align:center;
+	margin-bottom: -.5cm;
+	}
+p.heading {
+	  text-align:center; 
+	  font-size: 85%; 
+	}
+.strikeout {
+	position: static;
+    top: 30px;
+    height: 2px;
+    width: 80%;
+    background-color: black;
+    border: none;
+}
+p {
+	font-size: 105%;
+	position: static; 
+}
+#page-wrap { 
+				width: 800px; 
+				margin: 40px auto 60px; 
+		}
+p.paragraphs {
+	text-align: center;
+	font-size: 105%;
+}
+p.ending {
+	
+}

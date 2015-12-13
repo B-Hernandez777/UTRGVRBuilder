@@ -18,10 +18,12 @@
 		<state> Texas </state>
 		<zipCode> 78555 </zipCode>
 		</coverpersonal>
-[	<paragraph> laskdjflsdfsdfkasjd;fka </paragrpah>
-, 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragrpah>
-, 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragrpah>
-]	<end>Sincerely 
+	<coverparagraphs>
+[	<paragraph> laskdjflsdfsdfkasjd;fka </paragraph>
+, 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragraph>
+, 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragraph>
+]	</coverparagraphs>
+	<end>Sincerely, 
 	aName aLastname
 	</end>
 </coverletter>
