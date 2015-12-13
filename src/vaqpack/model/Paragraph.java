@@ -26,6 +26,6 @@ public class Paragraph implements Serializable
 	public String toString()
 	{
 		return String.format("\t"
-				+ "<paragraph> %s </paragrpah>\n", paragraph);
+				+ "<paragraph> %s </paragraph>\n", paragraph);
 	}
 }
