@@ -110,9 +110,9 @@ public class Experience implements Serializable
 				+ "<description> %s </description>"+"\n\t\t\t"
 				+ "<companyname> %s </companyname>"+"\n\t\t\t"
 				+ "<companycity> %s </companycity>"+"\n\t\t\t"
-				+ "<companystate> %s </compnaystate>"+"\n\t\t\t"
-				+ "<start> %s </start>"+"\n\t\t\t"
-				+ "<end> %s </end>"+"\n\t\t"
+				+ "<companystate> %s </companystate>"+"\n\t\t\t"
+				+ "<companystart> %s </companystart>"+"\n\t\t\t"
+				+ "<companyend> %s </companyend>"+"\n\t\t"
 				+ "</e>\n"
 				, title, description, companyName, companyCity, companyState, startDate, endDate);
 	}
