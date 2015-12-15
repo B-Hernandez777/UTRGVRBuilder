@@ -1,11 +1,14 @@
 package vaqpack.controller;
 
+import com.lowagie.text.DocumentException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
@@ -22,6 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import vaqpack.model.Export;
+import static vaqpack.model.Export.combinePDFFiles;
 import vaqpack.model.Singleton;
 import vaqpack.model.WebsiteStyle;
 import vaqpack.model.resume.ResumeStyle;
@@ -86,7 +90,7 @@ public class ExportController implements Initializable {
         fileChooser.setTitle("Save file");
         fileChooser.setInitialFileName("resume.xml");
         File savedFile = fileChooser.showSaveDialog(null);
-       //savedFile = fileChooser.getTitle().toString();
+        //savedFile = fileChooser.getTitle().toString();
         //       setSavedFile(savedFile.toString());
         if (savedFile != null) {
 
@@ -97,7 +101,7 @@ public class ExportController implements Initializable {
     @FXML
     public void exportButtonClicked() throws FileNotFoundException, IOException {
         if (resumeCheckBox.isSelected()) {
-            	//based on personal test 
+            //based on personal test 
             //get the resume xml
             String xml = Singleton.getInstance().currentVaqpack().getResume().toString().replaceAll("[\\[\\],]", "");
             String XMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName() + "resume.xml";
@@ -127,6 +131,23 @@ public class ExportController implements Initializable {
             tt.setFromY(400f);
             tt.setToY(0);
             tt.play();
+//             this will combine the cover letter and resume into one pdf so we can put this function
+            // when you check the cover letter export checkbox so we run cover letter through 
+            // xhtml.Converter (coverletter.xml, coverletter.xsl, coverletter.html(this one is hardcoded i believe)
+            // then we can run the pdf.conver2pdf ( coverletter.html, CoverLetter.pdf)
+//            List<String> list = new ArrayList<String>();
+//            
+//            list.add("CoverLetter.pdf");
+//            list.add("Resume.pdf");
+//            try {
+//                combinePDFFiles(list, "allinone.pdf");
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (DocumentException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
 
         }
 
@@ -140,8 +161,6 @@ public class ExportController implements Initializable {
     }
 
 }
-
-
 
 //    private void saveCoverXml() throws IOException, FileNotFoundException {
 //        try (PrintStream out = new PrintStream(new FileOutputStream(getSavedFile()))) {
@@ -157,5 +176,4 @@ public class ExportController implements Initializable {
 //        System.out.println("Saved Successfully");
 //
 //    }
-
 
