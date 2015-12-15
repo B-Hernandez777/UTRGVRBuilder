@@ -11,6 +11,7 @@ public class Achievement implements Serializable
 	public Achievement(String name)
 	{
 		this.name = name;
+		description = "";
 	}
 
 	public String getName()
