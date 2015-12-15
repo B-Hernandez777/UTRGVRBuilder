@@ -21,6 +21,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import vaqpack.model.CoverLetterFields;
 import vaqpack.model.Export;
 import vaqpack.model.Singleton;
 import vaqpack.model.WebsiteStyle;
@@ -96,7 +97,8 @@ public class ExportController implements Initializable {
 
     @FXML
     public void exportButtonClicked() throws FileNotFoundException, IOException {
-        if (resumeCheckBox.isSelected()) {
+        if (resumeCheckBox.isSelected()) 
+        {
             	//based on personal test 
             //get the resume xml
             String xml = Singleton.getInstance().currentVaqpack().getResume().toString().replaceAll("[\\[\\],]", "");
@@ -113,24 +115,53 @@ public class ExportController implements Initializable {
             System.out.println(xml);
             pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
             System.out.println("Printed PDF");
-
-            TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
-            FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
-            FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);
-            ft2.setDelay(Duration.millis(1000));
-            ft1.setFromValue(1);
-            ft1.setToValue(0);
-            ft1.setFromValue(0);
-            ft1.setToValue(1);
-            ft1.play();
-            ft2.play();
-            tt.setFromY(400f);
-            tt.setToY(0);
-            tt.play();
-
+            printMessage();
         }
 
+            if (coverLettercheckbox.isSelected()) 
+            {
+            	
+                for (CoverLetterFields letter : Singleton.getInstance().currentVaqpack().getCoverLetter().getCoverLetterList())
+        		{
+        			StringBuilder cover = new StringBuilder();
+        			cover.append("<coverletter>\n");
+        			cover.append(Singleton.getInstance().currentVaqpack().getCoverLetter().getPersonal());
+        			cover.append(letter);
+                    cover.append("\t<coverparagraphs>\n");
+        			cover.append(Singleton.getInstance().currentVaqpack().getCoverLetter().getParagraphList());
+                    cover.append("\t</coverparagraphs>\n");
+        			cover.append(String.format("\t<end>Sincerely, \n\t%s %s\n",Singleton.getInstance().currentVaqpack().getCoverLetter().getPersonal().getFirstName(), Singleton.getInstance().currentVaqpack().getCoverLetter().getPersonal().getLastName()));
+        			cover.append("\t</end>\n");
+        			cover.append("</coverletter>");
+        			//coverletters.add(cover.toString().replaceAll("[\\[\\],]", ""));
+        			
+        			 try (PrintStream out = new PrintStream(new FileOutputStream(letter.getOrganizationName()+".xml" ))) {
+        		            out.print(cover);
+        		}
+            	
+            }
+            }
+
+        
+
     }
+
+	private void printMessage()
+	{
+		TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
+		FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
+		FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);
+		ft2.setDelay(Duration.millis(1000));
+		ft1.setFromValue(1);
+		ft1.setToValue(0);
+		ft1.setFromValue(0);
+		ft1.setToValue(1);
+		ft1.play();
+		ft2.play();
+		tt.setFromY(400f);
+		tt.setToY(0);
+		tt.play();
+	}
 
     private void saveXmlFile(String fileName, String resume) throws IOException, FileNotFoundException {
 
@@ -140,22 +171,5 @@ public class ExportController implements Initializable {
     }
 
 }
-
-
-
-//    private void saveCoverXml() throws IOException, FileNotFoundException {
-//        try (PrintStream out = new PrintStream(new FileOutputStream(getSavedFile()))) {
-//            out.print(resume);
-//        }
-//    }
-//    private static void saveFile() throws IOException, FileNotFoundException {
-//
-//        System.out.println("Save Button pressed");
-//        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(getSavedFile()), false));) {
-//            output.writeObject(vaqpack);
-//        }
-//        System.out.println("Saved Successfully");
-//
-//    }
 
 
