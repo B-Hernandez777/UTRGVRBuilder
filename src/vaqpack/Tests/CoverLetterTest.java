@@ -66,9 +66,9 @@ public class CoverLetterTest {
 			cover.append("<coverletter>\n");
 			cover.append(vaqpack.getCoverLetter().getPersonal());
 			cover.append(letter);
-                        cover.append("\t<coverparagraphs>\n");
+            cover.append("\t<coverparagraphs>\n");
 			cover.append(vaqpack.getCoverLetter().getParagraphList());
-                        cover.append("\t</coverparagraphs>\n");
+            cover.append("\t</coverparagraphs>\n");
 			cover.append(String.format("\t<end>Sincerely, \n\t%s %s\n",vaqpack.getCoverLetter().getPersonal().getFirstName(), vaqpack.getCoverLetter().getPersonal().getLastName()));
 			cover.append("\t</end>\n");
 			cover.append("</coverletter>");

@@ -40,7 +40,7 @@ public class ExportController implements Initializable {
     @FXML
     CheckBox resumeCheckBox;
     @FXML
-    CheckBox coverLettercheckbox;
+    CheckBox coverLetterCheckBox;
     @FXML
     CheckBox websiteCheckbox;
     @FXML
@@ -118,7 +118,7 @@ public class ExportController implements Initializable {
             printMessage();
         }
 
-            if (coverLettercheckbox.isSelected()) 
+            if (coverLetterCheckBox.isSelected()) 
             {
             	
                 for (CoverLetterFields letter : Singleton.getInstance().currentVaqpack().getCoverLetter().getCoverLetterList())
@@ -134,9 +134,13 @@ public class ExportController implements Initializable {
         			cover.append("\t</end>\n");
         			cover.append("</coverletter>");
         			//coverletters.add(cover.toString().replaceAll("[\\[\\],]", ""));
-        			
         			 try (PrintStream out = new PrintStream(new FileOutputStream(letter.getOrganizationName()+".xml" ))) {
         		            out.print(cover);
+        		            
+        		   Export pdf = new Export (letter.getOrganizationName()+".xml", letter.getOrganizationName()+".pdf");
+        		   pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+        		            
+        		            
         		}
             	
             }
