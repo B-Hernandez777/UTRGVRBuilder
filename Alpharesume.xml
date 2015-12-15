@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resume>
 	<personal>
-		<firstname> aName </firstname>
-		<lastname> aLastname </lastname>
+		<firstname> Alpha </firstname>
+		<lastname> Bravo </lastname>
 		<email> person@hotmail.com </email>
 		<address> 1234 drive </address>
 		<city> Brownsville </city>
@@ -14,9 +14,9 @@
 		<object> This will be the test Objective for my fake job  </object>
 	</objective>
 	<experience>
-[]	</experience>
+	</experience>
 	<education>
-[		<ed>
+		<ed>
 			<school> MIT </school>
 			<schoolcity> Boston </schoolcity>
 			<schoolstate >Massachusetts </schoolstate>
@@ -25,23 +25,23 @@
 			<schoolstart> null </schoolstart>
 			<schoolend> null </schoolend>
 		</ed>
-]	</education>
+	</education>
 	<achievement>
-[		<a>
+		<a>
 			<achieve> Presidents List </achieve>
 			<achievedescription> null </achievedescription>
 		</a>
-, 		<a>
+ 		<a>
 			<achieve> Medal of Honor </achieve>
 			<achievedescription> null </achievedescription>
 		</a>
-]	</achievement>
+	</achievement>
 	<skill>
-[		<s>
+		<s>
 			<skilltype> Can heat ramen in under a minute </skilltype>
 		</s>
-, 		<s>
+ 		<s>
 			<skilltype> Fastest cook at McDonalds </skilltype>
 		</s>
-]	</skill>
+	</skill>
 </resume>

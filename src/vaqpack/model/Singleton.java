@@ -15,8 +15,6 @@ public class Singleton
 		        return vaqpack;
 		    }
 		    
-		    public void setVaqpack(Vaqpack vaqack) {
-		        instance.vaqpack = vaqpack;
-		    }
+		    
 		
 	}

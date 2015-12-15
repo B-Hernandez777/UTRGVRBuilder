@@ -15,7 +15,6 @@ public class CoverLetter implements Serializable
 	
 	public CoverLetter()
 	{
-		super();
 		this.coverLetterList = null;
 		this.paragraphList = null;
 		this.style = null;
@@ -62,7 +61,7 @@ public class CoverLetter implements Serializable
 		return String.format("<coverletter>\n%s"
 				+ "\t<paragraphs>\n%s" + "\n\t"
 				+ "</paragraphs>\n" + "\t<CoverLetterFields>\n%s" + "\n\t" 
-                                + "</CoverLetterFields>", personal, paragraphList, coverLetterList);
+                + "</CoverLetterFields>", personal, paragraphList, coverLetterList);
 
 	}
 }

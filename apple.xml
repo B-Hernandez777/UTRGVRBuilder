@@ -1,29 +1,27 @@
 <coverletter>
 	<personal>
-		<firstname> aName </firstname>
-		<lastname> aLastname </lastname>
+		<firstname> null </firstname>
+		<lastname> null </lastname>
 		<email> person@hotmail.com </email>
-		<address> 1234 drive </address>
-		<city> Brownsville </city>
-		<state> Texas </state>
-		<zipCode> 78520 </zipCode>
-		<phone> (956)555-5555 </phone>
+		<address> null </address>
+		<city> null </city>
+		<state> null </state>
+		<zipCode> null </zipCode>
+		<phone> null </phone>
 	</personal>
 	<coverpersonal>
-		<contactname> Person2 </contactname>
-		<contacttitle> Recruiter </contacttitle>
-		<organizationname> apple </organizationname>
-		<address> 123 street </address>
-		<city> Austin </city>
-		<state> Texas </state>
-		<zipCode> 78555 </zipCode>
+		<contactname> Jose </contactname>
+		<contacttitle> Army Recruiter </contacttitle>
+		<organizationname> Apple </organizationname>
+		<address> 1234 drive </address>
+		<city> Brownsville </city>
+		<state> Florida </state>
+		<zipCode> 12345 </zipCode>
 		</coverpersonal>
 	<coverparagraphs>
-[	<paragraph> laskdjflsdfsdfkasjd;fka </paragraph>
-, 	<paragraph> sdfsdfasdfdfsdfslk;fka </paragraph>
-, 	<paragraph> qwerwerweasdffadfasdfsdfasdf;fka </paragraph>
+[	<paragraph> laskdjflkasjd;fka </paragraph>
 ]	</coverparagraphs>
 	<end>Sincerely, 
-	aName aLastname
+	null null
 	</end>
 </coverletter>

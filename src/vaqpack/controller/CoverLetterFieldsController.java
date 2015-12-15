@@ -199,6 +199,7 @@ public class CoverLetterFieldsController implements Initializable
 		//globalExperience.clear();
 		globalFields= new ArrayList<CoverLetterFields>();
 		globalFields.addAll(fieldsList);
+
 		 
 		Singleton.getInstance().currentVaqpack().getCoverLetter().setCoverLetterList(globalFields);
 		SQL.updateDB(Singleton.getInstance().currentVaqpack(), Singleton.getInstance().currentVaqpack().getResume().getPersonal().getEmail());

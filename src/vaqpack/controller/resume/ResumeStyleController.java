@@ -10,20 +10,16 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import vaqpack.Tests.SQL;
-import vaqpack.model.Paragraph;
 import vaqpack.model.Singleton;
-import vaqpack.model.resume.Context;
 import vaqpack.model.resume.ResumeStyle;
-import vaqpack.model.resume.Skill;
-import vaqpack.model.resume.SkillCell;
 
 public class ResumeStyleController implements Initializable
 
@@ -33,7 +29,7 @@ public class ResumeStyleController implements Initializable
 	@FXML VBox styleCard;
 	@FXML StackPane styleListCard;
 	@FXML Button saveButton;
-
+	@FXML ImageView imageStyle;
 	
 	@FXML ListView<ResumeStyle> styleListView;
 	
@@ -45,8 +41,6 @@ public class ResumeStyleController implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1)
 	{
-		
-		 System.out.println(styleList);
 		 loadList();
 
 	}
@@ -76,6 +70,10 @@ public class ResumeStyleController implements Initializable
 	        	if(!styleList.isEmpty())
 	        	{
 	        		ResumeStyle selected = styleListView.getSelectionModel().getSelectedItem();
+	        		imageStyle.setImage(new Image("/vaqpack/images/"+selected.getStyle().trim()+".PNG"));
+	        		imageStyle.setFitHeight(378);
+	        		imageStyle.setFitWidth(375.0);
+	        		
 	        		Singleton.getInstance().currentVaqpack().getResume().setStyle(selected);
 	        	}
 	        	animateIn();
