@@ -134,13 +134,17 @@ public class ExportController implements Initializable {
                 cover.append(Singleton.getInstance().currentVaqpack().getCoverLetter().getParagraphList());
                 cover.append("\t</coverparagraphs>\n");
                 cover.append(String.format("\t<end>Sincerely, \n\t%s %s\n", Singleton.getInstance().currentVaqpack().getCoverLetter().getPersonal().getFirstName(), Singleton.getInstance().currentVaqpack().getCoverLetter().getPersonal().getLastName()));
-                cover.append("\t</end>\n");
-                cover.append("</coverletter>");
-                //coverletters.add(cover.toString().replaceAll("[\\[\\],]", ""));
-                try (PrintStream out = new PrintStream(new FileOutputStream(letter.getOrganizationName() + ".xml"))) {
-                    out.print(cover);
+                    cover.append("\t</end>\n");
+                    cover.append("</coverletter>");
+
+                    String XMLfile = letter.getOrganizationName() + ".xml";
+                    String XLSfile = "CoverLetterStyle1.xsl";   
+                    String HTMLfile = letter.getOrganizationName() + ".html";
+                    //coverletters.add(cover.toString().replaceAll("[\\[\\],]", ""));
+                    try (PrintStream out = new PrintStream(new FileOutputStream(XMLfile))) {
+                        out.print(cover);
 //        		    this will combine the cover letter and resume into one pdf so we can put this function
-                    // when you check the cover letter export checkbox so we run cover letter through 
+                        // when you check the cover letter export checkbox so we run cover letter through 
                     // xhtml.Converter (coverletter.xml, coverletter.xsl, coverletter.html(this one is hardcoded i believe)
                     // then we can run the pdf.conver2pdf ( coverletter.html, CoverLetter.pdf)
 //            List<String> list = new ArrayList<String>();
@@ -155,16 +159,23 @@ public class ExportController implements Initializable {
 //                e.printStackTrace();
 //            } catch (IOException e) {
 //                e.printStackTrace();
-//            }        
-                    Export pdf = new Export(letter.getOrganizationName() + ".xml", letter.getOrganizationName() + ".pdf");
+//            }     
+                   
+                    
+                    ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
+                   
+                    xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
+                    String PdfName = letter.getOrganizationName() + ".pdf";
+                    Export pdf = new Export(xhtml.getHtmlName(), PdfName);
+                   
                     pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+                    System.out.println("Printed PDF");
+                    printMessage();
 
                 }
 
             }
         }
-
-
 
     }
 
