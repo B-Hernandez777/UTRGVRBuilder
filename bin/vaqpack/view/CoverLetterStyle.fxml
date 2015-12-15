@@ -7,6 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.*?>
 
 <AnchorPane prefHeight="448.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vaqpack.controller.CoverLetterStyleController">
     <children>
@@ -14,9 +15,13 @@
          <children>
             <VBox fx:id="styleCard" prefHeight="309.0" prefWidth="400.0" styleClass="card">
                <children>
-                  <VBox fx:id="Style" prefHeight="247.0" prefWidth="568.0">
+                 <VBox fx:id="Style" prefHeight="400.0" prefWidth="400.0">
                            <children>
-                        <Label styleClass="card-title" text="Skill" />                
+                        <ImageView fx:id="imageStyle" fitHeight="378.0" fitWidth="375.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/CoverLetterStyle.PNG" />
+                           </image>
+                        </ImageView>                
                            </children>
                         </VBox>
                </children>
