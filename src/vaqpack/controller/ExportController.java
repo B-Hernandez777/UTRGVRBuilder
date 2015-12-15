@@ -26,7 +26,6 @@ import vaqpack.model.Singleton;
 import vaqpack.model.WebsiteStyle;
 import vaqpack.model.resume.ResumeStyle;
 
-
 public class ExportController implements Initializable {
 
     @FXML
@@ -48,7 +47,8 @@ public class ExportController implements Initializable {
     @FXML
     Button saveLocation;
 
-    @FXML Label message;
+    @FXML
+    Label message;
     @FXML
     ListView<WebsiteStyle> styleListView;
 
@@ -82,69 +82,66 @@ public class ExportController implements Initializable {
     @FXML
     public void saveLocation() {
 
-    	FileChooser fileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save file");
         fileChooser.setInitialFileName("resume.xml");
         File savedFile = fileChooser.showSaveDialog(null);
        //savedFile = fileChooser.getTitle().toString();
- //       setSavedFile(savedFile.toString());
+        //       setSavedFile(savedFile.toString());
         if (savedFile != null) {
 
-
-		}
-
-	}
-        @FXML
-        public void exportButtonClicked() throws FileNotFoundException, IOException
-        {
-            if(resumeCheckBox.isSelected() )
-            {
-            	//based on personal test 
-            	 //get the resume xml
-            	String xml = Singleton.getInstance().currentVaqpack().getResume().toString().replaceAll("[\\[\\],]", "");
-            	String XMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"resume.xml";
-            	String XLSfile = "resumestyle1.xsl";   //Singleton.getInstance().currentVaqpack().getResume().getStyle().getStyle();
-            	String HTMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"Website.html";
-            	ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
-            	String PdfName = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName()+"Resume.pdf";
-                Export pdf = new Export(xhtml.getHtmlName(), PdfName);
- 
-                saveXmlFile(XMLfile, xml);
-//              xhtml.setXmlFile(XMLfile);
-              xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
-            //  System.out.println(xml);
-              pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
-              System.out.println("Printed PDF");
-              
-      		TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
-    		FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
-    		FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);
-    		ft2.setDelay(Duration.millis(1000));
-    		ft1.setFromValue(1);
-    		ft1.setToValue(0);
-    		ft1.setFromValue(0);
-    		ft1.setToValue(1);
-    		ft1.play();
-    		ft2.play();
-    		tt.setFromY(400f);
-    		tt.setToY(0);
-    		tt.play();
-    		
-              
-            }
-            
-
-        }
-        private  void saveXmlFile(String fileName, String resume) throws IOException, FileNotFoundException {
-
-            try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
-                out.print(resume);
-            }
         }
 
     }
 
- 
+    @FXML
+    public void exportButtonClicked() throws FileNotFoundException, IOException {
+        if (resumeCheckBox.isSelected()) {
+            	//based on personal test 
+            //get the resume xml
+            String xml = Singleton.getInstance().currentVaqpack().getResume().toString().replaceAll("[\\[\\],]", "");
+            String XMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName() + "resume.xml";
+            String XLSfile = "resumestyle1.xsl";   //Singleton.getInstance().currentVaqpack().getResume().getStyle().getStyle();
+            String HTMLfile = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName() + "Website.html";
+            ResumeStyle xhtml = new ResumeStyle(XMLfile, XLSfile, HTMLfile);
+            String PdfName = Singleton.getInstance().currentVaqpack().getResume().getPersonal().getFirstName() + "Resume.pdf";
+            Export pdf = new Export(xhtml.getHtmlName(), PdfName);
+
+            saveXmlFile(XMLfile, xml);
+//              xhtml.setXmlFile(XMLfile);
+            xhtml.Converter(xhtml.getXmlFile(), xhtml.getXslFileName(), xhtml.getHtmlName());
+            System.out.println(xml);
+            pdf.convert2Pdf(pdf.getHtmlFileName(), pdf.getPdfFileName());
+            System.out.println("Printed PDF");
+
+            TranslateTransition tt = new TranslateTransition(Duration.millis(500), message);
+            FadeTransition ft1 = new FadeTransition(Duration.millis(500), message);
+            FadeTransition ft2 = new FadeTransition(Duration.millis(750), message);
+            ft2.setDelay(Duration.millis(1000));
+            ft1.setFromValue(1);
+            ft1.setToValue(0);
+            ft1.setFromValue(0);
+            ft1.setToValue(1);
+            ft1.play();
+            ft2.play();
+            tt.setFromY(400f);
+            tt.setToY(0);
+            tt.play();
+
+        }
+
+    }
+
+    private void saveXmlFile(String fileName, String resume) throws IOException, FileNotFoundException {
+
+        try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
+            out.print(resume);
+        }
+    }
+
+}
+
+
 
 //    private void saveCoverXml() throws IOException, FileNotFoundException {
 //        try (PrintStream out = new PrintStream(new FileOutputStream(getSavedFile()))) {
